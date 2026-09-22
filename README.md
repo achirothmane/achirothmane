@@ -16,7 +16,29 @@ I build systems that decide **when there is enough evidence to act — and when 
 
 ---
 
-## Selected systems
+## What I build
+
+I build **verification and control systems for software that should not act on weak evidence**.
+
+My current work focuses on:
+
+**AI-agent control · CI reliability · causal verification · developer tooling · high-consequence automation**
+
+I work primarily with:
+
+**Python · GitHub Actions · PostgreSQL · CI/CD · AI/LLM systems**
+
+The recurring engineering question behind my projects is:
+
+> **What evidence must be established before this system is allowed to act?**
+
+### Open to
+
+Verification / reliability / developer-infrastructure work, applied AI systems, and selected technical collaborations where evidence, control, and auditability matter.
+
+---
+
+## Most relevant systems
 
 <table>
 <tr>
@@ -24,9 +46,14 @@ I build systems that decide **when there is enough evidence to act — and when 
 
 ### [CI Retry Gate](https://github.com/achirothmane/workflow-failure-lab)
 
-**Do not retry a failed CI job just because it failed.**
+**Problem**  
+CI systems often retry failures without knowing whether retrying is actually justified.
 
-Uses provenance, causal evidence, side-effect checks, retry limits, and explicit authority before granting a rerun.
+**Built**  
+An evidence-gated decision layer that checks provenance, causal evidence, side effects, and retry limits before granting rerun authority.
+
+**Why it matters**  
+Fewer blind reruns, clearer failure handling, and auditable retry decisions.
 
 `failure → evidence → decision → retry / block`
 
@@ -35,11 +62,16 @@ Uses provenance, causal evidence, side-effect checks, retry limits, and explicit
 
 ### [Consequence Boundary Completeness](https://github.com/achirothmane/agent-action-guard)
 
-**Find paths that bypass an AI agent's intended approval boundary.**
+**Problem**  
+An AI agent may reach a real-world consequence through a path that bypasses the approval boundary intended to control it.
 
-Models routes from agent capabilities to real consequences and reports certain bypasses, covered paths, or unresolved evidence.
+**Built**  
+A scanner and runtime witness for modeled consequence paths, expected boundaries, bypasses, and unresolved evidence.
 
-`agent → path analysis → boundary → allow / counterexample / unknown`
+**Why it matters**  
+Authorization controls are only useful if alternate paths cannot silently route around them.
+
+`agent → path analysis → boundary → counterexample / covered / unknown`
 
 </td>
 </tr>
@@ -49,9 +81,14 @@ Models routes from agent capabilities to real consequences and reports certain b
 
 ### [PostgreSQL Change Safety](https://github.com/achirothmane/postgres-change-safety)
 
-**Do not blame a PostgreSQL change for a regression without causal evidence.**
+**Problem**  
+A workload regression after a PostgreSQL change is easy to observe and easy to misattribute.
 
-Compares workload windows, fingerprints SQL across versions, runs controlled experiments, analyzes plan variants, and preserves `UNKNOWN` when confounders remain.
+**Built**  
+Comparable workload windows, stable SQL fingerprints, controlled causal experiments, plan-variant analysis, and explicit confounder handling.
+
+**Why it matters**  
+The tool separates “a regression happened” from “we have enough evidence to say why.”
 
 `before/after → regression → causal isolation → evidence strength`
 
@@ -60,29 +97,41 @@ Compares workload windows, fingerprints SQL across versions, runs controlled exp
 
 ### [Legal Authority Diff](https://github.com/achirothmane/legal-authority-diff)
 
-**A citation is not enough; the supporting authority can regress.**
+**Problem**  
+A legal-AI answer can still look plausible while its citations, authority strength, treatment, or claim support become weaker.
 
-Differential testing for legal-AI citations, authority strength, treatment, and proposition support, while separating model regression from world change.
+**Built**  
+Differential regression testing across baseline and candidate outputs, with explicit `UNKNOWN` and `WORLD_CHANGE` states.
+
+**Why it matters**  
+A citation existing is not the same as the citation being sufficient support for the claim.
 
 `baseline → candidate → authority diff → block / unchanged / world change`
 
 </td>
 </tr>
-
-<tr>
-<td colspan="2" valign="top">
-
-### [Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory)
-
-**Do not let a plausible patch become an authorized modernization.**
-
-Strengthens repository evidence, constrains patch proposals, performs differential verification, and escalates when deterministic automation is not justified.
-
-`repository → evidence → proposal → verification → human / automation`
-
-</td>
-</tr>
 </table>
+
+### Also building
+
+**[Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory)** — evidence-first modernization analysis with constrained patch proposals, differential verification, and escalation when automation has not earned authority.
+
+---
+
+## Technical focus
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1117?style=flat-square&logo=githubactions&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0D1117?style=flat-square&logo=postgresql&logoColor=white)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-0D1117?style=flat-square)
+![AI Agents](https://img.shields.io/badge/AI_Agents-0D1117?style=flat-square)
+![LLM Evaluation](https://img.shields.io/badge/LLM_Evaluation-0D1117?style=flat-square)
+![Verification](https://img.shields.io/badge/Verification-0D1117?style=flat-square)
+![Developer Infrastructure](https://img.shields.io/badge/Developer_Infrastructure-0D1117?style=flat-square)
+
+</div>
 
 ---
 
@@ -141,23 +190,6 @@ Authority/Policy   UNKNOWN
 <td width="33%" valign="top"><b>Audit & replay</b><br/><br/>Important decisions should retain enough evidence to inspect and reproduce how authority was granted.</td>
 </tr>
 </table>
-
----
-
-## Technical focus
-
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1117?style=flat-square&logo=githubactions&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0D1117?style=flat-square&logo=postgresql&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-0D1117?style=flat-square)
-![AI Agents](https://img.shields.io/badge/AI_Agents-0D1117?style=flat-square)
-![LLM Evaluation](https://img.shields.io/badge/LLM_Evaluation-0D1117?style=flat-square)
-![Verification](https://img.shields.io/badge/Verification-0D1117?style=flat-square)
-![Developer Infrastructure](https://img.shields.io/badge/Developer_Infrastructure-0D1117?style=flat-square)
-
-</div>
 
 ---
 
