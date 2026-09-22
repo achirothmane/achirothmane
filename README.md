@@ -8,9 +8,9 @@
 
 I build systems that decide **when there is enough evidence to act — and when the correct answer is UNKNOWN.**
 
-[![CI Retry Gate](https://img.shields.io/badge/CI_Retry_Gate-evidence--gated-238636?style=for-the-badge)](https://github.com/othy19904-eng/workflow-failure-lab)
-[![Agent Action Guard](https://img.shields.io/badge/Agent_Action_Guard-control_plane-1f6feb?style=for-the-badge)](https://github.com/othy19904-eng/agent-action-guard)
-[![PostgreSQL Change Safety](https://img.shields.io/badge/PostgreSQL_Change_Safety-causal_verification-6f42c1?style=for-the-badge)](https://github.com/othy19904-eng/postgres-change-safety)
+[![CI Retry Gate](https://img.shields.io/badge/CI_Retry_Gate-evidence--gated-238636?style=for-the-badge)](https://github.com/achirothmane/workflow-failure-lab)
+[![Agent Action Guard](https://img.shields.io/badge/Agent_Action_Guard-control_plane-1f6feb?style=for-the-badge)](https://github.com/achirothmane/agent-action-guard)
+[![PostgreSQL Change Safety](https://img.shields.io/badge/PostgreSQL_Change_Safety-causal_verification-6f42c1?style=for-the-badge)](https://github.com/achirothmane/postgres-change-safety)
 
 </div>
 
@@ -22,7 +22,7 @@ I build systems that decide **when there is enough evidence to act — and when 
 <tr>
 <td width="50%" valign="top">
 
-### [CI Retry Gate](https://github.com/othy19904-eng/workflow-failure-lab)
+### [CI Retry Gate](https://github.com/achirothmane/workflow-failure-lab)
 
 **Do not retry a failed CI job just because it failed.**
 
@@ -33,7 +33,7 @@ Uses provenance, causal evidence, side-effect checks, retry limits, and explicit
 </td>
 <td width="50%" valign="top">
 
-### [Consequence Boundary Completeness](https://github.com/othy19904-eng/agent-action-guard)
+### [Consequence Boundary Completeness](https://github.com/achirothmane/agent-action-guard)
 
 **Find paths that bypass an AI agent's intended approval boundary.**
 
@@ -47,7 +47,7 @@ Models routes from agent capabilities to real consequences and reports certain b
 <tr>
 <td width="50%" valign="top">
 
-### [PostgreSQL Change Safety](https://github.com/othy19904-eng/postgres-change-safety)
+### [PostgreSQL Change Safety](https://github.com/achirothmane/postgres-change-safety)
 
 **Do not blame a PostgreSQL change for a regression without causal evidence.**
 
@@ -58,7 +58,7 @@ Compares workload windows, fingerprints SQL across versions, runs controlled exp
 </td>
 <td width="50%" valign="top">
 
-### [Legal Authority Diff](https://github.com/othy19904-eng/legal-authority-diff)
+### [Legal Authority Diff](https://github.com/achirothmane/legal-authority-diff)
 
 **A citation is not enough; the supporting authority can regress.**
 
@@ -72,7 +72,7 @@ Differential testing for legal-AI citations, authority strength, treatment, and 
 <tr>
 <td colspan="2" valign="top">
 
-### [Private Code Modernization Factory](https://github.com/othy19904-eng/private-code-modernization-factory)
+### [Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory)
 
 **Do not let a plausible patch become an authorized modernization.**
 
