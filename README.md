@@ -1,89 +1,163 @@
 <div align="center">
 
-# Othmane Achir
+<img src="./assets/evidence-gated-systems.svg" alt="Othmane Achir — Evidence-Gated Systems" width="100%" />
 
-### Evidence-Gated Systems
+<br/>
 
-**Verification & control infrastructure for AI, automation, and high-consequence software.**
+### Verification & control infrastructure for AI, automation, and high-consequence software
 
-**Evidence before action.**
+I build systems that decide **when there is enough evidence to act — and when the correct answer is UNKNOWN.**
 
-`OBSERVE → VERIFY → AUTHORIZE → ACT`  
-`INSUFFICIENT EVIDENCE → UNKNOWN / BLOCK / ESCALATE`
+[![CI Retry Gate](https://img.shields.io/badge/CI_Retry_Gate-evidence--gated-238636?style=for-the-badge)](https://github.com/othy19904-eng/workflow-failure-lab)
+[![Agent Action Guard](https://img.shields.io/badge/Agent_Action_Guard-control_plane-1f6feb?style=for-the-badge)](https://github.com/othy19904-eng/agent-action-guard)
+[![PostgreSQL Change Safety](https://img.shields.io/badge/PostgreSQL_Change_Safety-causal_verification-6f42c1?style=for-the-badge)](https://github.com/othy19904-eng/postgres-change-safety)
 
 </div>
 
 ---
 
-## What I build
+## Selected systems
 
-I build developer infrastructure for a recurring failure mode:
+<table>
+<tr>
+<td width="50%" valign="top">
 
-> **A system should not act just because a signal looks plausible. It should act only when the evidence is strong enough to authorize the next step.**
+### [CI Retry Gate](https://github.com/othy19904-eng/workflow-failure-lab)
 
-Across CI, AI agents, databases, legal AI, and software modernization, the design pattern stays the same:
+**Do not retry a failed CI job just because it failed.**
+
+Uses provenance, causal evidence, side-effect checks, retry limits, and explicit authority before granting a rerun.
+
+`failure → evidence → decision → retry / block`
+
+</td>
+<td width="50%" valign="top">
+
+### [Consequence Boundary Completeness](https://github.com/othy19904-eng/agent-action-guard)
+
+**Find paths that bypass an AI agent's intended approval boundary.**
+
+Models routes from agent capabilities to real consequences and reports certain bypasses, covered paths, or unresolved evidence.
+
+`agent → path analysis → boundary → allow / counterexample / unknown`
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### [PostgreSQL Change Safety](https://github.com/othy19904-eng/postgres-change-safety)
+
+**Do not blame a PostgreSQL change for a regression without causal evidence.**
+
+Compares workload windows, fingerprints SQL across versions, runs controlled experiments, analyzes plan variants, and preserves `UNKNOWN` when confounders remain.
+
+`before/after → regression → causal isolation → evidence strength`
+
+</td>
+<td width="50%" valign="top">
+
+### [Legal Authority Diff](https://github.com/othy19904-eng/legal-authority-diff)
+
+**A citation is not enough; the supporting authority can regress.**
+
+Differential testing for legal-AI citations, authority strength, treatment, and proposition support, while separating model regression from world change.
+
+`baseline → candidate → authority diff → block / unchanged / world change`
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" valign="top">
+
+### [Private Code Modernization Factory](https://github.com/othy19904-eng/private-code-modernization-factory)
+
+**Do not let a plausible patch become an authorized modernization.**
+
+Strengthens repository evidence, constrains patch proposals, performs differential verification, and escalates when deterministic automation is not justified.
+
+`repository → evidence → proposal → verification → human / automation`
+
+</td>
+</tr>
+</table>
+
+---
+
+## The engineering thesis
+
+A recurring failure pattern appears across AI agents, CI systems, databases, legal AI, and software automation:
+
+> **Plausibility is not authority. A system should act only when the evidence required for that action has actually been established.**
+
+The architecture I keep returning to is:
 
 ```text
-Input / event / proposed action
-             │
-             ▼
-      Evidence collection
-             │
-             ▼
-        Verification
-        ┌────┴────┐
-        │         │
+Input / Event / Proposed Action
+              │
+              ▼
+      Evidence Collection
+              │
+              ▼
+         Verification
+        ┌─────┴─────┐
+        │           │
    sufficient   insufficient
-        │         │
-        ▼         ▼
- Authority /    UNKNOWN
-    policy      BLOCK / ESCALATE
+        │           │
+        ▼           ▼
+Authority/Policy   UNKNOWN
+        │        BLOCK / ESCALATE
+        ▼
+    Decision Gate
+     ┌───┼───┐
+     ▼   ▼   ▼
+   ALLOW BLOCK HUMAN
         │
         ▼
-   Decision gate
-   ┌────┼────┐
-   ▼    ▼    ▼
- ALLOW BLOCK HUMAN
+     Execution
         │
         ▼
-    Execution
+ Outcome Verification
         │
         ▼
- Outcome verification
-        │
-        ▼
-   Audit / replay
+   Audit / Replay
 ```
 
 ---
 
-## Selected systems
+## Design rules I care about
 
-| Project | What it gates |
-|---|---|
-| **[CI Retry Gate](https://github.com/othy19904-eng/workflow-failure-lab)** | Prevents blind CI reruns. Uses provenance, causal evidence, side-effect checks, retry limits, and explicit authority before a failed job is retried. |
-| **[Consequence Boundary Completeness](https://github.com/othy19904-eng/agent-action-guard)** | Looks for modeled paths that let an AI agent reach a real consequence while bypassing the approval or policy boundary that was supposed to control it. |
-| **[PostgreSQL Change Safety](https://github.com/othy19904-eng/postgres-change-safety)** | Detects workload regressions after PostgreSQL changes and requires repeated causal evidence before attributing a slowdown to a specific factor. |
-| **[Legal Authority Diff](https://github.com/othy19904-eng/legal-authority-diff)** | Differential regression testing for legal-AI authority, citations, and claim support — with `UNKNOWN` and `WORLD_CHANGE` kept separate from model regressions. |
-| **[Private Code Modernization Factory](https://github.com/othy19904-eng/private-code-modernization-factory)** | Evidence-first modernization: strengthen repository evidence, constrain patch proposals, verify before/after behavior, and escalate when automation is not justified. |
-
----
-
-## Engineering principles
-
-- **Explicit uncertainty** — `UNKNOWN` is a valid engineering outcome, not a failure to hide.
-- **Fail closed on high-consequence actions** — insufficient evidence should not silently become permission.
-- **Differential and causal verification** — prefer before/after evidence and controlled experiments over plausible explanations.
-- **Read-only first** — observe and prove value before enabling mutation, reruns, quarantine, merge, deploy, or other write authority.
-- **Auditable decisions** — important actions should carry the evidence and reasoning needed to inspect or replay the decision later.
+<table>
+<tr>
+<td width="33%" valign="top"><b>Explicit uncertainty</b><br/><br/><code>UNKNOWN</code> is a valid engineering outcome. It is safer than inventing certainty from weak evidence.</td>
+<td width="33%" valign="top"><b>Fail closed</b><br/><br/>High-consequence actions do not silently inherit permission when evidence is incomplete.</td>
+<td width="33%" valign="top"><b>Read-only first</b><br/><br/>Observe and prove value before enabling mutation, reruns, quarantine, merge, deploy, or other write authority.</td>
+</tr>
+<tr>
+<td width="33%" valign="top"><b>Differential verification</b><br/><br/>Prefer controlled before/after evidence over plausible explanations.</td>
+<td width="33%" valign="top"><b>Causal isolation</b><br/><br/>When attribution matters, test competing explanations instead of treating correlation as cause.</td>
+<td width="33%" valign="top"><b>Audit & replay</b><br/><br/>Important decisions should retain enough evidence to inspect and reproduce how authority was granted.</td>
+</tr>
+</table>
 
 ---
 
-## Current technical focus
+## Technical focus
 
-`Python` · `GitHub Actions` · `CI/CD` · `PostgreSQL` · `AI Agents` · `LLM Evaluation` · `Automation` · `Verification` · `Developer Infrastructure`
+<div align="center">
 
-I am turning this portfolio thesis into independently useful tools rather than one large platform. Shared infrastructure only earns the right to exist when multiple real projects prove they need the same evidence, policy, decision-gate, provenance, and replay primitives.
+![Python](https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1117?style=flat-square&logo=githubactions&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0D1117?style=flat-square&logo=postgresql&logoColor=white)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-0D1117?style=flat-square)
+![AI Agents](https://img.shields.io/badge/AI_Agents-0D1117?style=flat-square)
+![LLM Evaluation](https://img.shields.io/badge/LLM_Evaluation-0D1117?style=flat-square)
+![Verification](https://img.shields.io/badge/Verification-0D1117?style=flat-square)
+![Developer Infrastructure](https://img.shields.io/badge/Developer_Infrastructure-0D1117?style=flat-square)
+
+</div>
 
 ---
 
@@ -92,5 +166,7 @@ I am turning this portfolio thesis into independently useful tools rather than o
 ### Evidence before action.
 
 **Build → test → falsify → strengthen the evidence → automate only what has earned authority.**
+
+<sub>Independent tools first. Shared platform only when repeated real-world usage proves the same primitives belong together.</sub>
 
 </div>
