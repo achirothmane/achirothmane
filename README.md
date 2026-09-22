@@ -191,6 +191,18 @@ Authority/Policy   UNKNOWN
 </tr>
 </table>
 
+
+---
+
+## Connect
+
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Othmane_Achir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/othmane-achir-2733a540b/)
+
+**Open to selected technical collaborations in verification, reliability, developer infrastructure, and applied AI systems.**
+
+</div>
 ---
 
 <div align="center">
