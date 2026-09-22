@@ -1,0 +1,48 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0D1117"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="170" y1="0" x2="1030" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58A6FF"/>
+      <stop offset="0.5" stop-color="#7EE787"/>
+      <stop offset="1" stop-color="#D2A8FF"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="1" y="1" width="1198" height="358" rx="24" fill="url(#bg)" stroke="#30363D" stroke-width="2"/>
+  <circle cx="1040" cy="72" r="120" fill="#1F6FEB" fill-opacity="0.10"/>
+  <circle cx="1090" cy="300" r="160" fill="#8957E5" fill-opacity="0.08"/>
+  <path d="M170 246H1030" stroke="url(#accent)" stroke-width="2" stroke-opacity="0.65"/>
+  <text x="72" y="84" fill="#8B949E" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="600" letter-spacing="3">OTHMANE ACHIR</text>
+  <text x="72" y="142" fill="#F0F6FC" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="48" font-weight="700">Evidence-Gated Systems</text>
+  <text x="72" y="183" fill="#C9D1D9" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22">Verification &amp; control infrastructure for AI, automation, and high-consequence software.</text>
+  <text x="72" y="222" fill="#7EE787" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="700">Evidence before action.</text>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700">
+    <rect x="72" y="270" width="170" height="52" rx="12" fill="#161B22" stroke="#58A6FF"/>
+    <text x="157" y="302" text-anchor="middle" fill="#F0F6FC">OBSERVE</text>
+    <path d="M242 296H285" stroke="#8B949E" stroke-width="2"/>
+    <path d="M278 290L286 296L278 302" stroke="#8B949E" stroke-width="2" fill="none"/>
+    <rect x="286" y="270" width="170" height="52" rx="12" fill="#161B22" stroke="#58A6FF"/>
+    <text x="371" y="302" text-anchor="middle" fill="#F0F6FC">VERIFY</text>
+    <path d="M456 296H499" stroke="#8B949E" stroke-width="2"/>
+    <path d="M492 290L500 296L492 302" stroke="#8B949E" stroke-width="2" fill="none"/>
+    <rect x="500" y="270" width="190" height="52" rx="12" fill="#161B22" stroke="#7EE787"/>
+    <text x="595" y="302" text-anchor="middle" fill="#F0F6FC">AUTHORIZE</text>
+    <path d="M690 296H733" stroke="#8B949E" stroke-width="2"/>
+    <path d="M726 290L734 296L726 302" stroke="#8B949E" stroke-width="2" fill="none"/>
+    <rect x="734" y="270" width="170" height="52" rx="12" fill="#161B22" stroke="#7EE787"/>
+    <text x="819" y="302" text-anchor="middle" fill="#F0F6FC">ACT</text>
+  </g>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <rect x="938" y="260" width="190" height="72" rx="14" fill="#161B22" stroke="#D2A8FF"/>
+    <text x="1033" y="286" text-anchor="middle" fill="#D2A8FF" font-size="13" font-weight="700">INSUFFICIENT EVIDENCE</text>
+    <text x="1033" y="310" text-anchor="middle" fill="#F0F6FC" font-size="15" font-weight="700">UNKNOWN · BLOCK · ESCALATE</text>
+  </g>
+</svg>
