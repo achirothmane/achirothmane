@@ -55,7 +55,7 @@ My direction is deliberately broader than one niche:
 
 ### ⚙️ Software Engineering
 
-`Python` `Go` `TypeScript` `SQL`
+`Python` `Go` `Rust` `TypeScript` `SQL`
 
 APIs · PostgreSQL · Testing · Git · CI/CD · Backend architecture
 
@@ -86,6 +86,12 @@ Distribution · retention · pricing · packaging · product economics
 </td>
 </tr>
 </table>
+
+### ◇ Formal methods & systems reasoning
+
+`TLA+` · state machines · invariants · concurrency · failure modeling
+
+I use formal methods as an **engineering discipline for understanding complex systems**, especially distributed state, concurrency, and failure behavior — not as the identity of the portfolio.
 
 ---
 
@@ -174,7 +180,7 @@ Experiments around shipping and operating AI-enabled software.
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=python,go,ts,postgres,git,github,linux,docker&theme=dark" />
+<img src="https://skillicons.dev/icons?i=python,go,rust,ts,postgres,git,github,linux,docker&theme=dark" />
 
 <br/><br/>
 
@@ -183,6 +189,7 @@ Experiments around shipping and operating AI-enabled software.
 <img src="https://img.shields.io/badge/Developer_Tools-0B1024?style=flat-square&logo=github&logoColor=67E8F9" />
 <img src="https://img.shields.io/badge/AI_Systems-0B1024?style=flat-square&logo=openai&logoColor=A78BFA" />
 <img src="https://img.shields.io/badge/Product_Engineering-0B1024?style=flat-square&logo=vercel&logoColor=67E8F9" />
+<img src="https://img.shields.io/badge/TLA%2B-Formal_Methods-0B1024?style=flat-square&logoColor=A78BFA" />
 
 </div>
 
