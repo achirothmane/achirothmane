@@ -1,120 +1,81 @@
 <div align="center">
 
-<img src="./assets/evidence-gated-systems.svg" alt="Othmane Achir — Evidence-Gated Systems" width="100%" />
+# Othmane Achir
 
-<br/>
+### Independent Software & Product Builder — AI-Native Systems & Digital Products
 
-### Verification & control infrastructure for AI, automation, and high-consequence software
+I build, study, and ship software at the intersection of **software engineering, automation, AI systems, and product economics**.
 
-I build systems that decide **when there is enough evidence to act — and when the correct answer is UNKNOWN.**
+**AI-Native Systems · Software Engineering · Digital Products · Automation**
 
-[![CI Retry Gate](https://img.shields.io/badge/CI_Retry_Gate-evidence--gated-238636?style=for-the-badge)](https://github.com/achirothmane/workflow-failure-lab)
-[![Agent Action Guard](https://img.shields.io/badge/Agent_Action_Guard-control_plane-1f6feb?style=for-the-badge)](https://github.com/achirothmane/agent-action-guard)
-[![PostgreSQL Change Safety](https://img.shields.io/badge/PostgreSQL_Change_Safety-causal_verification-6f42c1?style=for-the-badge)](https://github.com/achirothmane/postgres-change-safety)
+[LinkedIn](https://www.linkedin.com/in/othmane-achir-2733a540b/)
 
 </div>
 
 ---
 
-## What I build
+## What I am building toward
 
-I build **verification and control systems for software that should not act on weak evidence**.
+My GitHub is a working portfolio of the systems, products, experiments, and engineering skills I am developing in public.
 
-My current work focuses on:
+I am especially interested in:
 
-**AI-agent control · CI reliability · causal verification · developer tooling · high-consequence automation**
+- **AI-native software** — LLM integrations, tool-calling, agents, workflows, RAG, evaluation, and runtime tooling
+- **Developer tools** — APIs, CI/CD, debugging, testing, reliability, deployment, and engineering automation
+- **Product engineering** — turning technical capability into useful, measurable products with clear users and outcomes
+- **Backend systems** — services, databases, state, integrations, observability, and production-oriented architecture
+- **Technical B2B products** — software that saves time, reduces operational friction, or improves measurable business outcomes
 
-I work primarily with:
+The goal is not to collect demos. It is to steadily improve the ability to take a real problem from:
 
-**Python · GitHub Actions · PostgreSQL · CI/CD · AI/LLM systems**
-
-The recurring engineering question behind my projects is:
-
-> **What evidence must be established before this system is allowed to act?**
-
-### Open to
-
-Verification / reliability / developer-infrastructure work, applied AI systems, and selected technical collaborations where evidence, control, and auditability matter.
+`problem → working system → usable product → measured result`
 
 ---
 
-## Most relevant systems
+## Learning & engineering path
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### 1. Software engineering foundations
 
-### [CI Retry Gate](https://github.com/achirothmane/workflow-failure-lab)
+Building stronger depth in:
 
-**Problem**  
-CI systems often retry failures without knowing whether retrying is actually justified.
+`Python · Go · TypeScript · SQL · APIs · PostgreSQL · Testing · Git · CI/CD`
 
-**Built**  
-An evidence-gated decision layer that checks provenance, causal evidence, side effects, and retry limits before granting rerun authority.
+Focus: writing maintainable systems, defining clean contracts, testing behavior, understanding state, and shipping reliable software.
 
-**Why it matters**  
-Fewer blind reruns, clearer failure handling, and auditable retry decisions.
+### 2. AI-native systems
 
-`failure → evidence → decision → retry / block`
+Developing practical capability in:
 
-</td>
-<td width="50%" valign="top">
+`LLM APIs · Tool Calling · Agents · Agentic Workflows · RAG · Evaluation · Observability · AI Automation`
 
-### [Consequence Boundary Completeness](https://github.com/achirothmane/agent-action-guard)
+Focus: building AI features as real software systems rather than isolated prompts.
 
-**Problem**  
-An AI agent may reach a real-world consequence through a path that bypasses the approval boundary intended to control it.
+### 3. Product engineering
 
-**Built**  
-A scanner and runtime witness for modeled consequence paths, expected boundaries, bypasses, and unresolved evidence.
+Learning to connect engineering with:
 
-**Why it matters**  
-Authorization controls are only useful if alternate paths cannot silently route around them.
+`User Problem · Onboarding · UX · Distribution · Measurement · Pricing · Retention · Product Economics`
 
-`agent → path analysis → boundary → counterexample / covered / unknown`
+Focus: useful products that people can understand, try, reuse, and eventually pay for.
 
-</td>
-</tr>
+### 4. Shipping real projects
 
-<tr>
-<td width="50%" valign="top">
+Each repository is part of the learning loop:
 
-### [PostgreSQL Change Safety](https://github.com/achirothmane/postgres-change-safety)
+`Build → Test → Measure → Learn → Improve → Ship again`
 
-**Problem**  
-A workload regression after a PostgreSQL change is easy to observe and easy to misattribute.
+---
 
-**Built**  
-Comparable workload windows, stable SQL fingerprints, controlled causal experiments, plan-variant analysis, and explicit confounder handling.
+## Selected work
 
-**Why it matters**  
-The tool separates “a regression happened” from “we have enough evidence to say why.”
-
-`before/after → regression → causal isolation → evidence strength`
-
-</td>
-<td width="50%" valign="top">
-
-### [Legal Authority Diff](https://github.com/achirothmane/legal-authority-diff)
-
-**Problem**  
-A legal-AI answer can still look plausible while its citations, authority strength, treatment, or claim support become weaker.
-
-**Built**  
-Differential regression testing across baseline and candidate outputs, with explicit `UNKNOWN` and `WORLD_CHANGE` states.
-
-**Why it matters**  
-A citation existing is not the same as the citation being sufficient support for the claim.
-
-`baseline → candidate → authority diff → block / unchanged / world change`
-
-</td>
-</tr>
-</table>
-
-### Also building
-
-**[Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory)** — evidence-first modernization analysis with constrained patch proposals, differential verification, and escalation when automation has not earned authority.
+| Project | Area | What it explores |
+|---|---|---|
+| [Workflow Failure Lab](https://github.com/achirothmane/workflow-failure-lab) | CI / Developer Tools | Failure analysis, retry behavior, CI reliability, and practical engineering automation |
+| [PostgreSQL Change Safety](https://github.com/achirothmane/postgres-change-safety) | Databases / Reliability | Measuring and explaining regressions around PostgreSQL changes |
+| [Conversion Truth Auditor](https://github.com/achirothmane/conversion-truth-auditor) | Product / Analytics | Verifying whether conversion measurement reflects the real customer journey |
+| [Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory) | AI + Software Engineering | Applying AI to code modernization while keeping verification in the engineering loop |
+| [Firebase Auth Email Canary](https://github.com/achirothmane/firebase-auth-email-canary) | Cloud / Reliability | Detecting failures in authentication-email delivery flows |
+| [AI Deployer](https://github.com/achirothmane/ai-deployer) | AI / Deployment | Experiments around shipping and operating AI-enabled software |
 
 ---
 
@@ -123,94 +84,43 @@ A citation existing is not the same as the citation being sufficient support for
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1117?style=flat-square&logo=githubactions&logoColor=white)
+![Go](https://img.shields.io/badge/Go-0D1117?style=flat-square&logo=go&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-0D1117?style=flat-square&logo=typescript&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0D1117?style=flat-square&logo=postgresql&logoColor=white)
-![CI/CD](https://img.shields.io/badge/CI%2FCD-0D1117?style=flat-square)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0D1117?style=flat-square&logo=githubactions&logoColor=white)
+![APIs](https://img.shields.io/badge/APIs-0D1117?style=flat-square)
 ![AI Agents](https://img.shields.io/badge/AI_Agents-0D1117?style=flat-square)
-![LLM Evaluation](https://img.shields.io/badge/LLM_Evaluation-0D1117?style=flat-square)
-![Verification](https://img.shields.io/badge/Verification-0D1117?style=flat-square)
-![Developer Infrastructure](https://img.shields.io/badge/Developer_Infrastructure-0D1117?style=flat-square)
+![Automation](https://img.shields.io/badge/Automation-0D1117?style=flat-square)
+![Developer Tools](https://img.shields.io/badge/Developer_Tools-0D1117?style=flat-square)
 
 </div>
 
 ---
 
-## The engineering thesis
+## How I use GitHub
 
-A recurring failure pattern appears across AI agents, CI systems, databases, legal AI, and software automation:
+This profile documents what I **build, test, learn, and ship**.
 
-> **Plausibility is not authority. A system should act only when the evidence required for that action has actually been established.**
+I prefer projects that force me to learn through implementation: APIs that must work, workflows that must survive failure, measurements that must be trustworthy, products that must be understandable, and systems that must produce useful outcomes.
 
-The architecture I keep returning to is:
-
-```text
-Input / Event / Proposed Action
-              │
-              ▼
-      Evidence Collection
-              │
-              ▼
-         Verification
-        ┌─────┴─────┐
-        │           │
-   sufficient   insufficient
-        │           │
-        ▼           ▼
-Authority/Policy   UNKNOWN
-        │        BLOCK / ESCALATE
-        ▼
-    Decision Gate
-     ┌───┼───┐
-     ▼   ▼   ▼
-   ALLOW BLOCK HUMAN
-        │
-        ▼
-     Execution
-        │
-        ▼
- Outcome Verification
-        │
-        ▼
-   Audit / Replay
-```
+I am not trying to present a finished specialization. The portfolio should make the progression visible: stronger software engineering, stronger AI-native systems, and stronger product judgment over time.
 
 ---
 
-## Design rules I care about
+## Current direction
 
-<table>
-<tr>
-<td width="33%" valign="top"><b>Explicit uncertainty</b><br/><br/><code>UNKNOWN</code> is a valid engineering outcome. It is safer than inventing certainty from weak evidence.</td>
-<td width="33%" valign="top"><b>Fail closed</b><br/><br/>High-consequence actions do not silently inherit permission when evidence is incomplete.</td>
-<td width="33%" valign="top"><b>Read-only first</b><br/><br/>Observe and prove value before enabling mutation, reruns, quarantine, merge, deploy, or other write authority.</td>
-</tr>
-<tr>
-<td width="33%" valign="top"><b>Differential verification</b><br/><br/>Prefer controlled before/after evidence over plausible explanations.</td>
-<td width="33%" valign="top"><b>Causal isolation</b><br/><br/>When attribution matters, test competing explanations instead of treating correlation as cause.</td>
-<td width="33%" valign="top"><b>Audit & replay</b><br/><br/>Important decisions should retain enough evidence to inspect and reproduce how authority was granted.</td>
-</tr>
-</table>
+**AI-Native Systems · Software Engineering · Digital Products · Automation**
 
+I am continuing to build toward a profile that combines:
 
----
+**technical depth + product thinking + measurable real-world usefulness**
 
-## Connect
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Othmane_Achir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/othmane-achir-2733a540b/)
-
-**Open to selected technical collaborations in verification, reliability, developer infrastructure, and applied AI systems.**
-
-</div>
 ---
 
 <div align="center">
 
-### Evidence before action.
+### Build. Test. Learn. Ship.
 
-**Build → test → falsify → strengthen the evidence → automate only what has earned authority.**
-
-<sub>Independent tools first. Shared platform only when repeated real-world usage proves the same primitives belong together.</sub>
+<sub>Independent software and product work, documented through real repositories.</sub>
 
 </div>
