@@ -1,0 +1,20 @@
+project:
+  id: releaseguard-n8n
+  repository: achirothmane/releaseguard-n8n
+  role: workflow-release-evidence-product
+  status: ACTIVE
+  owner_of:
+    - UNKNOWN
+  produces:
+    - release evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: active-product-asset
+  next_gate: prove sufficient depth for marketplace acceptance
+  blockers: []
+  evidence:
+    - prior n8n marketplace learning
+  distribution: n8n
+  economic_role: product-asset
+  last_verified: 2026-10-06
