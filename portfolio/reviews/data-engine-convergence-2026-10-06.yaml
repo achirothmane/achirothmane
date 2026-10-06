@@ -1,0 +1,61 @@
+review:
+  id: data-engine-convergence-2026-10-06
+  project: data-engine
+  reviewed_at: 2026-10-06
+  live_repository_state:
+    main_head: c0c352be8917be4b9f02cc340709885d8fa6865a
+    hard_fork_branch: hard-fork/dlt-genesis
+    hard_fork_head: 7889f992965406f079284bd88725d79fc6d845be
+    pull_request: 7
+    pull_request_state: OPEN_DRAFT
+    mergeable: true
+    ahead_of_main_commits: 101
+    behind_main_commits: 0
+    changed_files: 497
+    additions: 111648
+  verified_capabilities:
+    - G1 selective OSS runtime import
+    - G2 cross-runtime semantic oracle
+    - G3 semantic takeover
+    - G4.1 need to pinned evidence to governed result
+    - G4.2 discovery and acquisition control
+    - G4.3 strict HTML extraction
+    - G4.4 JSON/API evidence extraction
+    - G4.5 iterative acquisition control
+    - G4.6 first-class profiling
+    - G4.7 repair planning / adaptive cleaning boundary
+    - G4.8 reconciliation planning / conflict custody
+    - G4.9 persistent provenance graph
+  current_head_ci:
+    - workflow: ci
+      run: 37528767849
+      result: success
+    - workflow: g2-oracle-harness
+      run: 37528767750
+      result: success
+    - workflow: g3-semantic-takeover
+      run: 37528767836
+      result: success
+    - workflow: g4-product-divergence
+      run: 37528767819
+      result: success
+  candidate_after_convergence:
+    capability: structured indexing
+    rationale: G4.9 provides durable lineage references required to keep an index from becoming a second truth store
+    boundary_requirements:
+      - every indexed semantic item carries provenance references
+      - supporting graph hash is bound to index state
+      - stale or changed provenance invalidates or refuses the indexed item
+      - index does not become an independent truth authority
+  decision:
+    outcome: CONVERGE_FIRST
+    do_not_start:
+      - G4.10
+      - structured indexing implementation
+      - any additional G4 slice
+    next_gate: human approval to merge PR #7 into main
+    reason: the hard-fork branch is now the verified product truth and main is 101 commits behind; continuing feature work before convergence would turn a temporary branch into a permanent parallel product line
+  post_merge_rule:
+    - verify CI on main
+    - regenerate portfolio state
+    - only then admit structured indexing if the lifecycle/self-use need still justifies it
