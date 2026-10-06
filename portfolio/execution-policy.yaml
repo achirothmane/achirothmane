@@ -1,0 +1,71 @@
+execution_policy:
+  schema_version: 1
+  principle: priority-does-not-equal-execution-authority
+  work_states:
+    - PROPOSED
+    - READY
+    - IN_PROGRESS
+    - WAITING_EVIDENCE
+    - BLOCKED
+    - DONE
+    - DROPPED
+  authority_levels:
+    OBSERVE:
+      description: inspect state, code, docs, issues, logs, and evidence without mutation
+      human_approval_required: false
+    PREPARE:
+      description: prepare reversible work such as analysis, local changes, patches, branches, or draft pull requests when explicitly assigned
+      human_approval_required: false
+      limits:
+        - no-merge-to-protected-or-default-branch
+        - no-publication
+        - no-external-messaging
+        - no-paid-spend
+        - no-secret-or-credential-change
+    EXECUTE_REVERSIBLE:
+      description: perform an explicitly authorized reversible operational change
+      human_approval_required: true
+    COMMIT_EXTERNAL:
+      description: irreversible or externally consequential action
+      human_approval_required: true
+      examples:
+        - merge-to-main
+        - publish-release-or-marketplace-listing
+        - send-external-message
+        - create-paid-resource-or-spend-money
+        - change-billing-or-payment
+        - rotate-or-change-secret
+        - delete-or-destructively-migrate-data
+        - make-legal-or-contractual-commitment
+  admission:
+    required:
+      - project-is-NOW
+      - freshness-is-FRESH-or-materially-reverified
+      - action-has-explicit-objective
+      - action-has-evidence-required
+      - action-has-stop-conditions
+      - action-authority-is-explicit
+      - blockers-are-visible
+    deny_when:
+      - project-is-PARKED
+      - project-is-CLOSED
+      - project-is-REVERIFY
+      - action-requires-guessing-over-UNKNOWN
+      - requested-effect-exceeds-authority
+      - work-exists-only-to-create-activity
+  completion:
+    requires:
+      - produced-artifact-or-verifiable-change
+      - evidence-linked-to-objective
+      - boundary-or-failure-result-recorded
+      - resulting-project-state-updated
+      - next-gate-updated
+  escalation:
+    require_human_decision_when:
+      - merge-or-release-is-ready
+      - scope-would-expand-beyond-work-item
+      - new-hard-dependency-is-proposed
+      - business-positioning-would-change
+      - commercial-narrowing-is-proposed
+      - destructive-or-paid-action-is-needed
+      - evidence-is-conflicting-or-insufficient
