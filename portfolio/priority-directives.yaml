@@ -6,7 +6,7 @@ priority_directives:
     - project: data-engine
       lane: NOW
       reason: broad self-use foundational asset that compounds across future systems
-      next_action: verify post-merge CI for G4.8 on hard-fork/dlt-genesis; then admit another capability only if a concrete lifecycle or self-use need justifies it
+      next_action: run a convergence review and admit another capability only if a concrete lifecycle or self-use need justifies it; no automatic G4 expansion
       constraints:
         - do-not-narrow-commercially-early
         - capability-and-boundary-must-ship-together
