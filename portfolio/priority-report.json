@@ -1,0 +1,413 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-06",
+  "policy": "priority-policy.yaml",
+  "directives": "priority-directives.yaml",
+  "lane_counts": {
+    "NOW": 1,
+    "NEXT": 4,
+    "WATCH": 19,
+    "PARKED": 13,
+    "REVERIFY": 0,
+    "CLOSED": 1
+  },
+  "wip": {
+    "now_cap": 3,
+    "now_count": 1,
+    "now_overflow": 0,
+    "next_cap": 6,
+    "next_count": 4,
+    "next_overflow": 0
+  },
+  "projects": [
+    {
+      "id": "data-engine",
+      "lane": "NOW",
+      "reason": "broad self-use foundational asset that compounds across future systems",
+      "next_action": "prove capability contracts and explicit failure boundaries on inherited and new capabilities",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "marketing-automation-suite",
+      "lane": "NEXT",
+      "reason": "broad self-use-first system; commercial narrowing comes later",
+      "next_action": "establish the repository and first useful general capability after the Data Engine boundary is usable",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "mini-foot",
+      "lane": "NEXT",
+      "reason": "active product experiment with a clear retention gate",
+      "next_action": "reach enjoyable playable feel and voluntary rematch evidence",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "postgres-change-safety",
+      "lane": "NEXT",
+      "reason": "product asset with a concrete value-validation gate",
+      "next_action": "prove repeatable user value and packaging",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "private-code-modernization-factory",
+      "lane": "NEXT",
+      "reason": "retest candidate with explicit verification and onboarding gaps",
+      "next_action": "prove reliable verification and onboarding before expansion",
+      "blockers": [
+        "verification confidence",
+        "onboarding quality"
+      ],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "ci-retry-gate-engine",
+      "lane": "WATCH",
+      "reason": "engineering is frozen while waiting for E1 real-exposure evidence",
+      "next_action": "observe for real exposure and E1; do not add features merely to create activity",
+      "blockers": [
+        "external action trust boundary"
+      ],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "ci-retry-gate-consumer-e2e",
+      "lane": "WATCH",
+      "reason": "validation support asset for CI Retry Gate rather than an independent focus",
+      "next_action": "maintain consumer-path proof only when needed for the E1/adoption question",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "workflow-failure-lab",
+      "lane": "WATCH",
+      "reason": "evidence-support asset for CI reliability work",
+      "next_action": "add failure evidence only when it answers a live product or integration question",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "releaseguard-n8n",
+      "lane": "WATCH",
+      "reason": "prior marketplace learning exists but depth/readiness must be proven before republishing",
+      "next_action": "prove sufficient product depth and readiness rather than adding superficial features",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "conversion-truth-auditor",
+      "lane": "WATCH",
+      "reason": "commercial value still needs evidence before more engineering",
+      "next_action": "establish differentiated economic value and packaging before new build work",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "ai-deployer",
+      "lane": "WATCH",
+      "reason": "ACTIVE does not imply NOW without explicit promotion or strong economic evidence",
+      "next_action": "identify reusable capability with proven demand",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "air-combat",
+      "lane": "WATCH",
+      "reason": "private project lacks a concrete next gate",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "atlassian-revenue-integrity",
+      "lane": "WATCH",
+      "reason": "ACTIVE does not imply NOW without explicit promotion or strong economic evidence",
+      "next_action": "validate demand and packaging",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "claude-mem",
+      "lane": "WATCH",
+      "reason": "evaluation asset is not promoted to current focus",
+      "next_action": "determine whether any capability is independently valuable",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "conversionguard",
+      "lane": "WATCH",
+      "reason": "active overlap question must be resolved before expansion",
+      "next_action": "determine overlap or composition with conversion-truth-auditor before expansion",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "creator-docs",
+      "lane": "WATCH",
+      "reason": "ACTIVE does not imply NOW without explicit promotion or strong economic evidence",
+      "next_action": "clarify product role before composition",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "creature-isles",
+      "lane": "WATCH",
+      "reason": "private project lacks a concrete next gate",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "e2e",
+      "lane": "WATCH",
+      "reason": "evaluation asset is not promoted to current focus",
+      "next_action": "identify concrete reusable test capability",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "firebase-auth-email-canary",
+      "lane": "WATCH",
+      "reason": "ACTIVE does not imply NOW without explicit promotion or strong economic evidence",
+      "next_action": "prove recurring operational value",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "flowmeter-for-jira-forge",
+      "lane": "WATCH",
+      "reason": "retest requires readiness evidence after prior marketplace rejection",
+      "next_action": "only retest after readiness evidence",
+      "blockers": [
+        "prior marketplace rejection"
+      ],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "future-morocco-lab",
+      "lane": "WATCH",
+      "reason": "private exploration has no concrete next gate",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "grok-build",
+      "lane": "WATCH",
+      "reason": "evaluation asset is not promoted to current focus",
+      "next_action": "clarify owned capability and value",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "smart-fuel-morocco",
+      "lane": "WATCH",
+      "reason": "private product requires retention and monetization evidence before promotion",
+      "next_action": "validate retention and monetization",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "window-worlds-lab",
+      "lane": "WATCH",
+      "reason": "private exploration has no concrete next gate",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "easl",
+      "lane": "PARKED",
+      "reason": "reusable primitive must not become a required dependency without a real consumer",
+      "next_action": "reactivate only when a concrete downstream consumer proves value",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "assumption-gate",
+      "lane": "PARKED",
+      "reason": "reusable primitive is awaiting a real consumer",
+      "next_action": "reactivate only for a concrete consumer integration",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "token-governance-protocol",
+      "lane": "PARKED",
+      "reason": "reusable primitive is awaiting a genuine token-budget consumer",
+      "next_action": "reactivate only for a real agent or model execution budget need",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "intelligence-layer",
+      "lane": "PARKED",
+      "reason": "standalone extraction is not justified until a real second consumer exists",
+      "next_action": "keep reasoning capability inside the consuming system until extraction is justified",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "revenue-engine",
+      "lane": "PARKED",
+      "reason": "deferred until upstream data and marketing capabilities produce real operational evidence",
+      "next_action": "wait for upstream evidence",
+      "blockers": [
+        "upstream capabilities not yet mature"
+      ],
+      "knowledge": "INCOMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "agent-action-guard",
+      "lane": "PARKED",
+      "reason": "status HOLD is parked by policy",
+      "next_action": "concrete consumer required",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "agent-model-gate",
+      "lane": "PARKED",
+      "reason": "status HOLD is parked by policy",
+      "next_action": "concrete consumer required",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "caddy",
+      "lane": "PARKED",
+      "reason": "independent fork is not an active portfolio dependency",
+      "next_action": "define owned delta before portfolio promotion",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "esp32-c3-adblock",
+      "lane": "PARKED",
+      "reason": "independent experiment is not promoted to active focus",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "geophires-x",
+      "lane": "PARKED",
+      "reason": "independent exploration lineage is not promoted to active focus",
+      "next_action": "UNKNOWN",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "governed-agent-runtime",
+      "lane": "PARKED",
+      "reason": "status HOLD is parked by policy",
+      "next_action": "re-enter active graph only with concrete consumer and measurable benefit",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "legal-authority-diff",
+      "lane": "PARKED",
+      "reason": "status HOLD is parked by policy",
+      "next_action": "concrete consumer required",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "stremio-web",
+      "lane": "PARKED",
+      "reason": "independent fork is not an active portfolio dependency",
+      "next_action": "define owned delta before portfolio promotion",
+      "blockers": [],
+      "knowledge": "INCOMPLETE",
+      "source": "derived-status",
+      "freshness": "FRESH"
+    },
+    {
+      "id": "aegis-ege",
+      "lane": "CLOSED",
+      "reason": "commercial platform direction is closed",
+      "next_action": "extract only independently proven reusable capabilities when another project demonstrates the need",
+      "blockers": [],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    }
+  ]
+}
