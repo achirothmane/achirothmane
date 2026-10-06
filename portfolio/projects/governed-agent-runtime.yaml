@@ -1,0 +1,19 @@
+project:
+  id: governed-agent-runtime
+  repository: achirothmane/governed-agent-runtime
+  role: governance-verification-lineage
+  status: HOLD
+  owner_of:
+    - UNKNOWN
+  produces:
+    - engineering evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: lineage-only
+  next_gate: re-enter active graph only with concrete consumer and measurable benefit
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: engineering-lineage-asset
+  last_verified: 2026-10-06
