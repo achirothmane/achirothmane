@@ -10,13 +10,14 @@ Machine-facing project state lives in [index.yaml](./index.yaml) and `projects/*
 1. Read `SYSTEM-MAP.md`.
 2. Read `portfolio/index.yaml`.
 3. Read `portfolio/freshness-report.json`; STALE or UNKNOWN state must be reverified before material use.
-4. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
-5. Read the relevant project records and contracts.
-6. Follow only declared dependencies and contracts.
-7. Treat `UNKNOWN` as unknown. Never fill it from assumption.
-8. Remember that FRESH does not mean COMPLETE.
-9. Keep technical status separate from commercial status.
-10. Escalate portfolio-level conflicts or irreversible choices to human authority.
+4. Read `portfolio/priority-report.json` to determine NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED.
+5. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
+6. Read the relevant project records, contracts, and priority directives.
+7. Follow only declared dependencies and contracts.
+8. Treat `UNKNOWN` as unknown. Never fill it from assumption.
+9. Remember that FRESH does not mean COMPLETE and ACTIVE does not mean NOW.
+10. Keep technical status separate from commercial status.
+11. Escalate portfolio-level conflicts or irreversible choices to human authority.
 
 ## Project record fields
 
@@ -70,3 +71,19 @@ Regenerate with:
 Use `--as-of YYYY-MM-DD` to evaluate the portfolio at a specific UTC date.
 
 A state may be FRESH and still INCOMPLETE. Freshness controls whether the record is current enough to use; completeness tracks unresolved `UNKNOWN` values.
+
+
+## Priority / next-action layer
+
+Policy: `portfolio/priority-policy.yaml`  
+Human directives: `portfolio/priority-directives.yaml`  
+Human report: `portfolio/PRIORITY-REPORT.md`  
+Machine report: `portfolio/priority-report.json`
+
+Regenerate with:
+
+`python portfolio/scripts/generate_priority_report.py`
+
+The priority system is deliberately non-numeric. It uses gates and explicit human directives rather than a hidden score.
+
+**ACTIVE does not imply NOW.** NOW has a WIP cap and requires explicit promotion or strong economic evidence.
