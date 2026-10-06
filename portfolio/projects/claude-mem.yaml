@@ -1,0 +1,17 @@
+project:
+  id: claude-mem
+  repository: achirothmane/claude-mem
+  role: memory-tooling-exploration
+  status: EVALUATE
+  owner_of: [UNKNOWN]
+  produces: [UNKNOWN]
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: evaluate
+  next_gate: determine whether any capability is independently valuable
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: exploration-asset
+  last_verified: 2026-10-06
