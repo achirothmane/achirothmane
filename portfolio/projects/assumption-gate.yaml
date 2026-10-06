@@ -1,0 +1,23 @@
+project:
+  id: assumption-gate
+  repository: achirothmane/assumption-gate-
+  role: executable-assumption-admission-gate
+  status: ACTIVE
+  owner_of:
+    - assumption admission decisions
+  produces:
+    - allow
+    - deny
+    - unknown
+  consumes:
+    - assumption state
+    - evidence state
+  dependencies: []
+  contracts: []
+  current_state: engineering-primitive
+  next_gate: prove independent usefulness with a real consumer
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: reusable-primitive
+  last_verified: 2026-10-06
