@@ -1,0 +1,20 @@
+project:
+  id: firebase-auth-email-canary
+  repository: achirothmane/firebase-auth-email-canary
+  role: auth-email-delivery-reliability-monitor
+  status: ACTIVE
+  owner_of:
+    - delivery path monitoring
+  produces:
+    - delivery failure signal
+  consumes:
+    - auth events
+  dependencies: []
+  contracts: []
+  current_state: small-reliability-asset
+  next_gate: prove recurring operational value
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: product-asset
+  last_verified: 2026-10-06
