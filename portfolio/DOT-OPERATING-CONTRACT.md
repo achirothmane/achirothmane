@@ -73,10 +73,10 @@ The Dot must stop rather than fill gaps by inference when:
 - the work expands beyond the admitted item;
 - an external commitment is required.
 
-## Current executable item
+## Current execution state
 
-As of 2026-10-06 there is **one READY item**:
+As of 2026-10-06 there is **no READY work item**.
 
-`data-engine-capability-boundaries-001`
+`data-engine-capability-boundaries-001` completed with PASS evidence. The resulting draft PR #8 is verified and mergeable, but merge authority remains human-controlled.
 
-All NEXT projects remain non-executable until promoted to NOW.
+All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.
