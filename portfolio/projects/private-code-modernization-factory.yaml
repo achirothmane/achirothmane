@@ -1,0 +1,22 @@
+project:
+  id: private-code-modernization-factory
+  repository: achirothmane/private-code-modernization-factory
+  role: ai-assisted-code-modernization
+  status: RETEST
+  owner_of:
+    - modernization workflow
+  produces:
+    - code changes
+    - verification evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: needs-stronger-verification-and-onboarding
+  next_gate: prove reliable verification and onboarding
+  blockers:
+    - verification confidence
+    - onboarding quality
+  evidence: []
+  distribution: pending
+  economic_role: product-candidate
+  last_verified: 2026-10-06
