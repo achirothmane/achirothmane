@@ -1,0 +1,45 @@
+dot_handoff:
+  schema_version: 1
+  as_of: 2026-10-06
+  role: portfolio-systems-steward
+  read_order:
+    - ../SYSTEM-MAP.md
+    - ./index.yaml
+    - ./freshness-report.json
+    - ./priority-report.json
+    - ./dependency-graph.json
+    - ./execution-policy.yaml
+    - ./execution-queue.yaml
+    - ./DOT-OPERATING-CONTRACT.md
+  current:
+    now_projects:
+      - data-engine
+    runnable_items:
+      - data-engine-capability-boundaries-001
+    waiting_human_approval: []
+    waiting_evidence:
+      - project: ci-retry-gate-engine
+        condition: E1 real-exposure evidence
+    next_candidates:
+      - marketing-automation-suite
+      - mini-foot
+      - postgres-change-safety
+      - private-code-modernization-factory
+  operating_rules:
+    - priority-is-not-execution-authority
+    - evidence-before-material-action
+    - unknown-over-guessing
+    - active-does-not-mean-now
+    - do-not-fill-unused-wip-capacity-artificially
+    - no-hard-dependency-without-explicit-contract
+    - no-merge-publish-spend-or-external-commitment-without-human-approval
+  human_authority:
+    final_on:
+      - merge
+      - release-or-publication
+      - paid-spend
+      - external-messaging
+      - destructive-change
+      - new-hard-dependency
+      - business-positioning-change
+      - commercial-narrowing
