@@ -404,6 +404,19 @@ Before positioning a capability as a product, require evidence of:
 - product packaging;
 - willingness to adopt/pay.
 
+### Priority Gate
+
+Project activity is not priority.
+
+- **NOW:** explicit current focus; may consume active build time.
+- **NEXT:** concrete next gate, but outside current WIP.
+- **WATCH:** observe, validate, or wait for evidence; do not manufacture work.
+- **PARKED:** intentionally inactive until a named re-entry condition is met.
+- **REVERIFY:** freshness is insufficient for material decisions.
+- **CLOSED:** preserve evidence; do not revive the direction by default.
+
+**ACTIVE ≠ NOW.** Promotion to NOW requires an explicit human directive or strong economic evidence. WIP caps are limits, not targets.
+
 ### Freshness Gate
 
 Project state is not timeless evidence.
@@ -441,7 +454,8 @@ Prefer work whose value compounds through:
 6. Automatic CI freshness verification for generated graph remains pending; the connected GitHub write surface currently blocks creation of the workflow file.
 7. Let future Dot/agents read the map + records before touching repositories.
 8. Keep commercial/product status separate from technical status.
-9. Never create a dependency merely to make the portfolio look unified.
+9. ✅ Add Priority / Next-Action layer with NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED and WIP caps.
+10. Never create a dependency merely to make the portfolio look unified.
 
 ---
 
