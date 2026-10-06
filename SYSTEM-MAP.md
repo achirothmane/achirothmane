@@ -404,6 +404,18 @@ Before positioning a capability as a product, require evidence of:
 - product packaging;
 - willingness to adopt/pay.
 
+### Freshness Gate
+
+Project state is not timeless evidence.
+
+- **FRESH:** usable under normal gates.
+- **AGING:** reverify when a material decision depends on current state.
+- **STALE:** reverify before material use.
+- **UNKNOWN:** no current-state claim is admissible until verified.
+- **Freshness ≠ completeness:** a recently checked record can still contain unresolved `UNKNOWN` values.
+
+The freshness policy and generated reports live under `portfolio/`.
+
 ### Asset Test
 
 Prefer work whose value compounds through:
@@ -425,7 +437,7 @@ Prefer work whose value compounds through:
 2. ✅ Add `portfolio/index.yaml` and an agent/Dot read protocol.
 3. ✅ Add verified `contracts/` only for relationships that actually exist.
 4. ✅ Add a generated dependency graph from project records and verified contracts.
-5. Add `LAST_VERIFIED` freshness checks so stale project state is visible.
+5. ✅ Add `LAST_VERIFIED` freshness checks with FRESH / AGING / STALE / UNKNOWN state.
 6. Automatic CI freshness verification for generated graph remains pending; the connected GitHub write surface currently blocks creation of the workflow file.
 7. Let future Dot/agents read the map + records before touching repositories.
 8. Keep commercial/product status separate from technical status.
