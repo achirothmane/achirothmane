@@ -1,0 +1,24 @@
+project:
+  id: easl
+  repository: achirothmane/easl
+  role: assumption-evidence-state-semantics
+  status: ACTIVE
+  owner_of:
+    - assumption lifecycle
+    - temporal validity
+    - contradiction semantics
+    - invalidation semantics
+  produces:
+    - assumption state
+    - evidence state semantics
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: engineering-primitive
+  next_gate: prove concrete downstream value before making it a required dependency
+  blockers: []
+  evidence:
+    - doctrine and lifecycle specifications
+  distribution: github
+  economic_role: reusable-primitive
+  last_verified: 2026-10-06
