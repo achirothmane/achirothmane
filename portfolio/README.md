@@ -103,6 +103,8 @@ The key invariant is:
 
 A work item must be READY and carry explicit authority plus evidence and stop conditions before a Dot may execute it.
 
-Current runnable item:
+Current execution state:
 
-`data-engine-capability-boundaries-001`
+- no READY work item;
+- `data-engine-capability-boundaries-001` is DONE / PASS;
+- verified draft PR #8 is waiting for human merge authority.
