@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-06",
+  "policy": "freshness-policy.yaml",
+  "project_count": 38,
+  "freshness_counts": {
+    "FRESH": 38,
+    "AGING": 0,
+    "STALE": 0,
+    "UNKNOWN": 0
+  },
+  "incomplete_project_count": 24,
+  "dependency_freshness_risks": [],
+  "projects": [
+    {
+      "id": "aegis-ege",
+      "status": "CLOSED_COMMERCIAL",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "agent-action-guard",
+      "status": "HOLD",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "agent-model-gate",
+      "status": "HOLD",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "ai-deployer",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "air-combat",
+      "status": "PRIVATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 4,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "assumption-gate",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "atlassian-revenue-integrity",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "caddy",
+      "status": "FORK_INDEPENDENT",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "ci-retry-gate-consumer-e2e",
+      "status": "ACTIVE_PRIVATE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "ci-retry-gate-engine",
+      "status": "ACTIVE_PRIVATE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "claude-mem",
+      "status": "EVALUATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "conversion-truth-auditor",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "conversionguard",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "creator-docs",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "creature-isles",
+      "status": "PRIVATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 4,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "data-engine",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "e2e",
+      "status": "EVALUATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "easl",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "esp32-c3-adblock",
+      "status": "INDEPENDENT",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 3,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "firebase-auth-email-canary",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "flowmeter-for-jira-forge",
+      "status": "PRIVATE_RETEST",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "future-morocco-lab",
+      "status": "PRIVATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 3,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "geophires-x",
+      "status": "INDEPENDENT",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 3,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "governed-agent-runtime",
+      "status": "HOLD",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "grok-build",
+      "status": "EVALUATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "intelligence-layer",
+      "status": "PLANNED",
+      "freshness_class": "planned",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "legal-authority-diff",
+      "status": "HOLD",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "marketing-automation-suite",
+      "status": "PLANNED",
+      "freshness_class": "planned",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "mini-foot",
+      "status": "ACTIVE_PRIVATE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "postgres-change-safety",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "private-code-modernization-factory",
+      "status": "RETEST",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "releaseguard-n8n",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "revenue-engine",
+      "status": "DEFERRED",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 1,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "smart-fuel-morocco",
+      "status": "PRIVATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "stremio-web",
+      "status": "FORK_INDEPENDENT",
+      "freshness_class": "dormant",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 2,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "token-governance-protocol",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    },
+    {
+      "id": "window-worlds-lab",
+      "status": "PRIVATE",
+      "freshness_class": "review",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 3,
+      "completeness": "INCOMPLETE"
+    },
+    {
+      "id": "workflow-failure-lab",
+      "status": "ACTIVE",
+      "freshness_class": "active",
+      "freshness": "FRESH",
+      "last_verified": "2026-10-06",
+      "age_days": 0,
+      "unknown_value_count": 0,
+      "completeness": "COMPLETE"
+    }
+  ]
+}
