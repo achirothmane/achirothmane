@@ -15,7 +15,19 @@ dot_handoff:
     now_projects:
       - data-engine
     runnable_items: []
-    waiting_human_approval: []
+    waiting_human_approval:
+      - project: data-engine
+        decision: merge PR #7 from hard-fork/dlt-genesis into main
+        pull_request: 7
+        reason: converge verified product truth before any new G4 slice
+        evidence:
+          - hard-fork head 7889f992965406f079284bd88725d79fc6d845be
+          - 101 commits ahead of main and 0 behind
+          - PR #7 mergeable
+          - ci run 37528767849 success
+          - g2-oracle-harness run 37528767750 success
+          - g3-semantic-takeover run 37528767836 success
+          - g4-product-divergence run 37528767819 success
     post_merge_verification:
       - project: data-engine
         merge_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
