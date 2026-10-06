@@ -11,7 +11,9 @@ project:
   consumes:
     - CI failure evidence
   dependencies: []
-  contracts: []
+  contracts:
+    - ../contracts/workflow-failure-lab--ci-retry-gate-engine.yaml
+    - ../contracts/ci-retry-gate-engine--consumer-e2e.yaml
   current_state: validation
   next_gate: prove adoption path without weakening trust boundaries
   blockers:
