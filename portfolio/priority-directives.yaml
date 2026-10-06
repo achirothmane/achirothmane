@@ -6,7 +6,7 @@ priority_directives:
     - project: data-engine
       lane: NOW
       reason: broad self-use foundational asset that compounds across future systems
-      next_action: prove capability contracts and explicit failure boundaries on inherited and new capabilities
+      next_action: decide whether to merge verified draft PR #8 into hard-fork/dlt-genesis; do not open another G4 slice automatically
       constraints:
         - do-not-narrow-commercially-early
         - capability-and-boundary-must-ship-together
