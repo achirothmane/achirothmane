@@ -1,0 +1,23 @@
+project:
+  id: marketing-automation-suite
+  repository: null
+  role: broad-self-use-first-marketing-operations-system
+  status: PLANNED
+  owner_of:
+    - marketing operations
+  produces:
+    - campaign events
+    - audience behavior
+    - channel performance
+    - operational feedback
+  consumes:
+    - trusted data when a real contract exists
+  dependencies: []
+  contracts: []
+  current_state: architecture-evolving
+  next_gate: establish repository and first self-use capability without niche narrowing
+  blockers: []
+  evidence: []
+  distribution: internal-first
+  economic_role: future-engine
+  last_verified: 2026-10-06
