@@ -1,0 +1,51 @@
+{
+  "connected_nodes": [
+    {
+      "id": "ci-retry-gate-consumer-e2e",
+      "repository": "achirothmane/ci-retry-gate-consumer-e2e",
+      "role": "consumer-integration-proof-harness",
+      "status": "ACTIVE_PRIVATE"
+    },
+    {
+      "id": "ci-retry-gate-engine",
+      "repository": "achirothmane/ci-retry-gate-engine",
+      "role": "evidence-based-ci-retry-decision-engine",
+      "status": "ACTIVE_PRIVATE"
+    },
+    {
+      "id": "workflow-failure-lab",
+      "repository": "achirothmane/workflow-failure-lab",
+      "role": "reliability-failure-experimentation",
+      "status": "ACTIVE"
+    }
+  ],
+  "connected_project_count": 3,
+  "edges": [
+    {
+      "hard_dependency": true,
+      "id": "ci-retry-gate-engine--consumer-e2e",
+      "relations": [
+        "PRODUCES",
+        "CONSUMES",
+        "VALIDATES",
+        "DEPENDS_ON"
+      ],
+      "source": "ci-retry-gate-engine",
+      "target": "ci-retry-gate-consumer-e2e"
+    },
+    {
+      "hard_dependency": false,
+      "id": "workflow-failure-lab--ci-retry-gate-engine",
+      "relations": [
+        "PRODUCES",
+        "CONSUMES"
+      ],
+      "source": "workflow-failure-lab",
+      "target": "ci-retry-gate-engine"
+    }
+  ],
+  "project_count": 38,
+  "schema_version": 1,
+  "structural_review": "2026-10-06",
+  "verified_contract_count": 2
+}
