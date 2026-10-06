@@ -19,7 +19,7 @@ project:
   contracts:
     - capability constitution: build the capability and its boundary together
   current_state: hard-fork-product-divergence-g4.8-verified
-  next_gate: verify post-merge CI on hard-fork/dlt-genesis, then choose the next capability only from a concrete product lifecycle or self-use need
+  next_gate: convergence review; choose the next capability only from a concrete product lifecycle or self-use need, with no automatic G4 expansion
   blockers: []
   evidence:
     - capability boundary doctrine adopted
@@ -30,6 +30,10 @@ project:
     - ci run 37442032319 success
     - PR #8 merged into hard-fork/dlt-genesis
     - merge commit 386707c6dfb9a8ecf90f964f60f52080a3dc4589
+    - post-merge ci run 37442832655 success
+    - post-merge g2-oracle-harness run 37442832744 success
+    - post-merge g3-semantic-takeover run 37442832554 success
+    - post-merge g4-product-divergence run 37442832607 success
   active_branch: hard-fork/dlt-genesis
   merged_pull_request: 8
   merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
