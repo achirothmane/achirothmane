@@ -1,0 +1,17 @@
+project:
+  id: stremio-web
+  repository: achirothmane/stremio-web
+  role: external-codebase-fork
+  status: FORK_INDEPENDENT
+  owner_of: [UNKNOWN]
+  produces: [UNKNOWN]
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: independent-fork
+  next_gate: define owned delta before portfolio promotion
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: fork
+  last_verified: 2026-10-06
