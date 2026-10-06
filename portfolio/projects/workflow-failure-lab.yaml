@@ -12,7 +12,8 @@ project:
     - test cases
   consumes: []
   dependencies: []
-  contracts: []
+  contracts:
+    - ../contracts/workflow-failure-lab--ci-retry-gate-engine.yaml
   current_state: active
   next_gate: keep evidence corpus aligned with real integration failures
   blockers: []
