@@ -1,0 +1,87 @@
+execution_queue:
+  schema_version: 1
+  as_of: 2026-10-06
+  source_priority_report: ./priority-report.json
+  runnable_count: 1
+  items:
+    - id: data-engine-capability-boundaries-001
+      project: data-engine
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: prove capability contracts and explicit failure boundaries across inherited and new capabilities
+      entry_conditions:
+        - portfolio freshness for data-engine is FRESH
+        - portfolio completeness for data-engine is COMPLETE
+        - capability work preserves the self-use-first broad architecture
+        - no commercial niche narrowing is introduced
+      allowed_actions:
+        - inspect the data-engine repository and inherited dlt-derived capabilities
+        - identify capability surfaces lacking explicit boundary contracts
+        - prepare contract schemas, tests, documentation, and implementation changes
+        - run falsification and boundary tests
+        - prepare a branch or draft pull request when the change is coherent and verified
+      forbidden_without_human_approval:
+        - merge to main
+        - publish a release
+        - create a new paid dependency
+        - introduce a new hard cross-project dependency
+        - narrow the product to a commercial niche
+        - remove inherited capability solely for architectural neatness
+      evidence_required:
+        - capability states what it can do
+        - preconditions and assumptions are explicit
+        - evidence used by the capability is explicit
+        - decision and confidence are explicit where applicable
+        - known failure modes are recorded
+        - falsification tests exist
+        - UNKNOWN or AMBIGUOUS behavior is demonstrated where evidence is insufficient
+        - transformation or reasoning trace is preserved where applicable
+      stop_conditions:
+        - inherited behavior cannot be characterized from available evidence
+        - change would require guessing a capability boundary
+        - change would silently alter a public or inherited contract
+        - work expands into a separate product or niche
+        - evidence contradicts the proposed capability claim
+      completion_definition:
+        - at least one real capability has a proven contract and proven boundary
+        - tests demonstrate both accepted behavior and rejection or uncertainty behavior
+        - documentation reflects the proven boundary
+        - resulting next gate is recorded
+      on_completion:
+        - update project last_verified
+        - regenerate freshness report
+        - regenerate priority report
+        - keep data-engine in NOW only if another concrete boundary task remains justified
+
+    - id: marketing-automation-suite-bootstrap
+      project: marketing-automation-suite
+      priority_lane: NEXT
+      state: PROPOSED
+      authority: OBSERVE
+      objective: establish repository and first useful general self-use capability
+      admission_condition: promote project to NOW first
+
+    - id: mini-foot-feel-gate
+      project: mini-foot
+      priority_lane: NEXT
+      state: PROPOSED
+      authority: OBSERVE
+      objective: reach enjoyable playable feel and voluntary rematch evidence
+      admission_condition: promote project to NOW first
+
+    - id: postgres-change-safety-value-gate
+      project: postgres-change-safety
+      priority_lane: NEXT
+      state: PROPOSED
+      authority: OBSERVE
+      objective: prove repeatable user value and packaging
+      admission_condition: promote project to NOW first
+
+    - id: modernization-factory-retest
+      project: private-code-modernization-factory
+      priority_lane: NEXT
+      state: PROPOSED
+      authority: OBSERVE
+      objective: prove reliable verification and onboarding before expansion
+      admission_condition: promote project to NOW first
