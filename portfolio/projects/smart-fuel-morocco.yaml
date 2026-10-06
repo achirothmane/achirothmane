@@ -1,0 +1,19 @@
+project:
+  id: smart-fuel-morocco
+  repository: achirothmane/smart-fuel-morocco
+  role: consumer-fuel-product
+  status: PRIVATE
+  owner_of:
+    - UNKNOWN
+  produces:
+    - UNKNOWN
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: product-asset
+  next_gate: validate retention and monetization
+  blockers: []
+  evidence: []
+  distribution: google-play-candidate
+  economic_role: consumer-product
+  last_verified: 2026-10-06
