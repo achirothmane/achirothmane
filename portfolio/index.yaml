@@ -1,9 +1,12 @@
 portfolio:
   schema_version: 1
   owner: achirothmane
-  canonical_map: ../../SYSTEM-MAP.md
+  canonical_map: ../SYSTEM-MAP.md
   records_root: ./projects
   contracts_root: ./contracts
+  dependency_graph: ./DEPENDENCY-GRAPH.md
+  dependency_graph_json: ./dependency-graph.json
+  dependency_graph_generator: ./scripts/generate_dependency_graph.py
   last_structural_review: 2026-10-06
   truth_policy:
     - explicit-records-over-inference
