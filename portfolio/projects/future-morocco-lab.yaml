@@ -1,0 +1,17 @@
+project:
+  id: future-morocco-lab
+  repository: achirothmane/future-morocco-lab
+  role: exploration-lab
+  status: PRIVATE
+  owner_of: [UNKNOWN]
+  produces: [UNKNOWN]
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: independent
+  next_gate: UNKNOWN
+  blockers: []
+  evidence: []
+  distribution: none
+  economic_role: exploration-asset
+  last_verified: 2026-10-06
