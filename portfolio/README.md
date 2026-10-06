@@ -9,13 +9,14 @@ Machine-facing project state lives in [index.yaml](./index.yaml) and `projects/*
 
 1. Read `SYSTEM-MAP.md`.
 2. Read `portfolio/index.yaml`.
-3. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
-4. Read the relevant project records and contracts.
-5. Follow only declared dependencies and contracts.
-6. Treat `UNKNOWN` as unknown. Never fill it from assumption.
-7. Re-verify stale state before proposing or executing material work.
-8. Keep technical status separate from commercial status.
-9. Escalate portfolio-level conflicts or irreversible choices to human authority.
+3. Read `portfolio/freshness-report.json`; STALE or UNKNOWN state must be reverified before material use.
+4. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
+5. Read the relevant project records and contracts.
+6. Follow only declared dependencies and contracts.
+7. Treat `UNKNOWN` as unknown. Never fill it from assumption.
+8. Remember that FRESH does not mean COMPLETE.
+9. Keep technical status separate from commercial status.
+10. Escalate portfolio-level conflicts or irreversible choices to human authority.
 
 ## Project record fields
 
@@ -54,3 +55,18 @@ Regenerate both from the YAML sources with:
 `python portfolio/scripts/generate_dependency_graph.py`
 
 The generator also rejects a project-level hard dependency unless a registered contract declares the same dependency explicitly.
+
+
+## Freshness layer
+
+Policy: `portfolio/freshness-policy.yaml`  
+Human report: `portfolio/FRESHNESS-REPORT.md`  
+Machine report: `portfolio/freshness-report.json`
+
+Regenerate with:
+
+`python portfolio/scripts/generate_freshness_report.py`
+
+Use `--as-of YYYY-MM-DD` to evaluate the portfolio at a specific UTC date.
+
+A state may be FRESH and still INCOMPLETE. Freshness controls whether the record is current enough to use; completeness tracks unresolved `UNKNOWN` values.
