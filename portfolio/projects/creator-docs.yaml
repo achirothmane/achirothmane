@@ -1,0 +1,19 @@
+project:
+  id: creator-docs
+  repository: achirothmane/creator-docs
+  role: documentation-content-product
+  status: ACTIVE
+  owner_of:
+    - UNKNOWN
+  produces:
+    - documentation artifacts
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: independent
+  next_gate: clarify product role before composition
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: content-asset
+  last_verified: 2026-10-06
