@@ -14,9 +14,15 @@ dot_handoff:
   current:
     now_projects:
       - data-engine
-    runnable_items:
-      - data-engine-capability-boundaries-001
-    waiting_human_approval: []
+    runnable_items: []
+    waiting_human_approval:
+      - project: data-engine
+        decision: merge verified draft PR #8 into hard-fork/dlt-genesis
+        pull_request: 8
+        evidence:
+          - g4-product-divergence run 37442032285 success
+          - g2-oracle-harness run 37442032330 success
+          - ci run 37442032319 success
     waiting_evidence:
       - project: ci-retry-gate-engine
         condition: E1 real-exposure evidence
