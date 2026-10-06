@@ -15,7 +15,7 @@
 
 Only **one project currently consumes a NOW slot**:
 
-- `data-engine` — G4.8 is verified; next gate is the human merge decision for draft PR #8.
+- `data-engine` — G4.8 is merged; next gate is post-merge CI verification before admitting any new slice.
 
 The remaining NOW capacity is intentionally unused. Empty WIP capacity is preferable to promoting projects without enough evidence.
 
