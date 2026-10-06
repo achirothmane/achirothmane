@@ -1,0 +1,20 @@
+project:
+  id: revenue-engine
+  repository: null
+  role: monetization-revenue-operations-layer
+  status: DEFERRED
+  owner_of:
+    - future revenue operations
+  produces: [UNKNOWN]
+  consumes:
+    - upstream operational evidence
+  dependencies: []
+  contracts: []
+  current_state: deferred-by-design
+  next_gate: wait until upstream data and marketing capabilities are useful and produce real evidence
+  blockers:
+    - upstream capabilities not yet mature
+  evidence: []
+  distribution: internal-first
+  economic_role: future-engine
+  last_verified: 2026-10-06
