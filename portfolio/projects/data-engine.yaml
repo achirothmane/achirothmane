@@ -19,9 +19,8 @@ project:
   contracts:
     - capability constitution: build the capability and its boundary together
   current_state: hard-fork-product-divergence-g4.8-verified
-  next_gate: human merge decision for verified PR #8; after consolidation choose the next capability only from a concrete product lifecycle or self-use need
-  blockers:
-    - verified G4.8 changes remain in draft PR #8 until human merge approval
+  next_gate: verify post-merge CI on hard-fork/dlt-genesis, then choose the next capability only from a concrete product lifecycle or self-use need
+  blockers: []
   evidence:
     - capability boundary doctrine adopted
     - G4.7 repair planning and adaptive cleaning boundary PASS
@@ -29,10 +28,11 @@ project:
     - g4-product-divergence run 37442032285 success
     - g2-oracle-harness run 37442032330 success
     - ci run 37442032319 success
-    - draft PR #8 is mergeable and intentionally unmerged
+    - PR #8 merged into hard-fork/dlt-genesis
+    - merge commit 386707c6dfb9a8ecf90f964f60f52080a3dc4589
   active_branch: hard-fork/dlt-genesis
-  prepared_branch: work/g4.8-reconciliation-boundary
-  prepared_pull_request: 8
+  merged_pull_request: 8
+  merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
   distribution: internal-first
   economic_role: shared-capability-asset
   last_verified: 2026-10-06
