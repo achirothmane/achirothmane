@@ -41,6 +41,8 @@ Measure → Learn → Improve → Ship again
 
 I use GitHub as a **working engineering portfolio**: real systems, real experiments, real failures, and progressively stronger products.
 
+> **Portfolio system map:** [SYSTEM-MAP.md](./SYSTEM-MAP.md) — canonical map of projects, shared capabilities, real dependencies, gates, and the future operating surface for long-running agents/Dots.
+
 My direction is deliberately broader than one niche:
 
 **software engineering + AI-native systems + developer tools + technical product building**
