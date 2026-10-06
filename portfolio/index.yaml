@@ -7,6 +7,10 @@ portfolio:
   dependency_graph: ./DEPENDENCY-GRAPH.md
   dependency_graph_json: ./dependency-graph.json
   dependency_graph_generator: ./scripts/generate_dependency_graph.py
+  freshness_policy: ./freshness-policy.yaml
+  freshness_report: ./FRESHNESS-REPORT.md
+  freshness_report_json: ./freshness-report.json
+  freshness_report_generator: ./scripts/generate_freshness_report.py
   last_structural_review: 2026-10-06
   truth_policy:
     - explicit-records-over-inference
