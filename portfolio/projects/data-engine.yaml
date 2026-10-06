@@ -18,13 +18,14 @@ project:
   dependencies: []
   contracts:
     - capability constitution: build the capability and its boundary together
-  current_state: hard-fork-product-divergence-g4.8-verified
-  next_gate: convergence review; choose the next capability only from a concrete product lifecycle or self-use need, with no automatic G4 expansion
+  current_state: hard-fork-g4.9-verified-awaiting-convergence
+  next_gate: human approval to merge PR #7 into main; no G4.10 before convergence
   blockers: []
   evidence:
     - capability boundary doctrine adopted
     - G4.7 repair planning and adaptive cleaning boundary PASS
     - G4.8 reconciliation planning and conflict custody PASS
+    - G4.9 persistent provenance graph PASS
     - g4-product-divergence run 37442032285 success
     - g2-oracle-harness run 37442032330 success
     - ci run 37442032319 success
@@ -34,6 +35,12 @@ project:
     - post-merge g2-oracle-harness run 37442832744 success
     - post-merge g3-semantic-takeover run 37442832554 success
     - post-merge g4-product-divergence run 37442832607 success
+    - current hard-fork head 7889f992965406f079284bd88725d79fc6d845be
+    - current head ci run 37528767849 success
+    - current head g2-oracle-harness run 37528767750 success
+    - current head g3-semantic-takeover run 37528767836 success
+    - current head g4-product-divergence run 37528767819 success
+    - convergence review portfolio/reviews/data-engine-convergence-2026-10-06.yaml
   active_branch: hard-fork/dlt-genesis
   merged_pull_request: 8
   merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
