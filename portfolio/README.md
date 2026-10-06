@@ -11,13 +11,14 @@ Machine-facing project state lives in [index.yaml](./index.yaml) and `projects/*
 2. Read `portfolio/index.yaml`.
 3. Read `portfolio/freshness-report.json`; STALE or UNKNOWN state must be reverified before material use.
 4. Read `portfolio/priority-report.json` to determine NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED.
-5. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
-6. Read the relevant project records, contracts, and priority directives.
-7. Follow only declared dependencies and contracts.
-8. Treat `UNKNOWN` as unknown. Never fill it from assumption.
-9. Remember that FRESH does not mean COMPLETE and ACTIVE does not mean NOW.
-10. Keep technical status separate from commercial status.
-11. Escalate portfolio-level conflicts or irreversible choices to human authority.
+5. Read `portfolio/execution-queue.yaml`; only READY items with explicit authority are executable.
+6. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
+7. Read the relevant project records, contracts, priority directives, and execution policy.
+8. Follow only declared dependencies and contracts.
+9. Treat `UNKNOWN` as unknown. Never fill it from assumption.
+10. Remember that FRESH does not mean COMPLETE, ACTIVE does not mean NOW, and NOW does not equal execution authority.
+11. Keep technical status separate from commercial status.
+12. Escalate portfolio-level conflicts or irreversible choices to human authority.
 
 ## Project record fields
 
@@ -87,3 +88,21 @@ Regenerate with:
 The priority system is deliberately non-numeric. It uses gates and explicit human directives rather than a hidden score.
 
 **ACTIVE does not imply NOW.** NOW has a WIP cap and requires explicit promotion or strong economic evidence.
+
+
+## Execution / Dot handoff layer
+
+Execution policy: `portfolio/execution-policy.yaml`  
+Admitted work queue: `portfolio/execution-queue.yaml`  
+Dot operating contract: `portfolio/DOT-OPERATING-CONTRACT.md`  
+Handoff manifest: `portfolio/dot-handoff.yaml`
+
+The key invariant is:
+
+> **Priority does not equal execution authority.**
+
+A work item must be READY and carry explicit authority plus evidence and stop conditions before a Dot may execute it.
+
+Current runnable item:
+
+`data-engine-capability-boundaries-001`
