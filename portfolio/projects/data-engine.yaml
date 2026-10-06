@@ -1,0 +1,28 @@
+project:
+  id: data-engine
+  repository: achirothmane/data-engine
+  role: trustworthy-data-capability-layer
+  status: ACTIVE
+  owner_of:
+    - data ingestion-derived knowledge processing
+    - profiling
+    - cleaning
+    - schema inference
+    - reconciliation
+    - indexing and learning boundaries
+  produces:
+    - trusted structured knowledge
+    - provenance
+    - confidence and boundary decisions
+  consumes: []
+  dependencies: []
+  contracts:
+    - capability constitution: build the capability and its boundary together
+  current_state: foundational
+  next_gate: prove capability contracts and explicit failure boundaries across inherited and new capabilities
+  blockers: []
+  evidence:
+    - capability boundary doctrine adopted
+  distribution: internal-first
+  economic_role: shared-capability-asset
+  last_verified: 2026-10-06
