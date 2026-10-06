@@ -11,7 +11,8 @@ project:
     - ci-retry-gate-engine
   dependencies:
     - ci-retry-gate-engine
-  contracts: []
+  contracts:
+    - ../contracts/ci-retry-gate-engine--consumer-e2e.yaml
   current_state: validation
   next_gate: maintain real consumer-path proof
   blockers: []
