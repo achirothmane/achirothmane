@@ -1,0 +1,18 @@
+project:
+  id: intelligence-layer
+  repository: null
+  role: cross-system-reasoning-analysis-capability
+  status: PLANNED
+  owner_of:
+    - concrete reasoning capabilities only after defined
+  produces: [UNKNOWN]
+  consumes: [UNKNOWN]
+  dependencies: []
+  contracts: []
+  current_state: planned
+  next_gate: define first concrete owned capability and its boundary
+  blockers: []
+  evidence: []
+  distribution: internal-first
+  economic_role: future-shared-capability
+  last_verified: 2026-10-06
