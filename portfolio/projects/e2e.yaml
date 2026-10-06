@@ -1,0 +1,18 @@
+project:
+  id: e2e
+  repository: achirothmane/e2e
+  role: testing-e2e-exploration
+  status: EVALUATE
+  owner_of: [UNKNOWN]
+  produces:
+    - test evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: evaluate
+  next_gate: identify concrete reusable test capability
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: engineering-asset
+  last_verified: 2026-10-06
