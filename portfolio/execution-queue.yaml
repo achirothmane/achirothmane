@@ -98,3 +98,35 @@ execution_queue:
       authority: OBSERVE
       objective: prove reliable verification and onboarding before expansion
       admission_condition: promote project to NOW first
+
+    - id: data-engine-hard-fork-convergence-002
+      project: data-engine
+      priority_lane: NOW
+      state: WAITING_HUMAN_APPROVAL
+      authority: COMMIT_EXTERNAL
+      objective: converge the verified hard-fork product branch into main before any new G4 capability
+      target_pull_request: 7
+      source_branch: hard-fork/dlt-genesis
+      target_branch: main
+      recommended_merge_method: merge
+      merge_method_reason: preserve the 101-commit verified hard-fork history and commit-level evidence instead of collapsing genesis into one squash
+      entry_conditions:
+        - PR #7 is mergeable
+        - hard-fork/dlt-genesis is 101 commits ahead of main
+        - hard-fork/dlt-genesis is 0 commits behind main
+        - current hard-fork head is 7889f992965406f079284bd88725d79fc6d845be
+        - ci run 37528767849 succeeded
+        - g2-oracle-harness run 37528767750 succeeded
+        - g3-semantic-takeover run 37528767836 succeeded
+        - g4-product-divergence run 37528767819 succeeded
+      forbidden_before_completion:
+        - G4.10 implementation
+        - structured indexing implementation
+        - additional product divergence slice
+      completion_definition:
+        - PR #7 merged into main
+        - main contains G1 through G4.9
+        - post-merge CI on main succeeds
+        - portfolio state is refreshed from the new main head
+      evidence:
+        - portfolio/reviews/data-engine-convergence-2026-10-06.yaml
