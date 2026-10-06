@@ -1,0 +1,21 @@
+project:
+  id: token-governance-protocol
+  repository: achirothmane/token-governance-protocol
+  role: budget-consumption-governance
+  status: ACTIVE
+  owner_of:
+    - budget model
+    - reservation semantics
+    - exhaustion policy
+  produces:
+    - governed budget decisions
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: engineering-primitive
+  next_gate: prove a real consumer and measurable benefit
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: reusable-primitive
+  last_verified: 2026-10-06
