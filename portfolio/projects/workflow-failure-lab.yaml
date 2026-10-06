@@ -1,0 +1,23 @@
+project:
+  id: workflow-failure-lab
+  repository: achirothmane/workflow-failure-lab
+  role: reliability-failure-experimentation
+  status: ACTIVE
+  owner_of:
+    - workflow failure corpus
+    - retry behavior experiments
+    - reproducible CI failure knowledge
+  produces:
+    - failure evidence
+    - test cases
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: active
+  next_gate: keep evidence corpus aligned with real integration failures
+  blockers: []
+  evidence:
+    - validated CI failure cases
+  distribution: github
+  economic_role: evidence-asset
+  last_verified: 2026-10-06
