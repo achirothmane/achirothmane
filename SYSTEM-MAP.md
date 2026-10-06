@@ -423,12 +423,12 @@ Prefer work whose value compounds through:
 
 1. ✅ Add `portfolio/projects/*.yaml` machine-readable project records.
 2. ✅ Add `portfolio/index.yaml` and an agent/Dot read protocol.
-3. Add verified `contracts/` only for relationships that actually exist.
+3. ✅ Add verified `contracts/` only for relationships that actually exist.
 4. Add a generated dependency graph from project records.
-4. Add `LAST_VERIFIED` freshness checks so stale project state is visible.
-5. Let future Dot/agents read the map + records before touching repositories.
-6. Keep commercial/product status separate from technical status.
-7. Never create a dependency merely to make the portfolio look unified.
+5. Add `LAST_VERIFIED` freshness checks so stale project state is visible.
+6. Let future Dot/agents read the map + records before touching repositories.
+7. Keep commercial/product status separate from technical status.
+8. Never create a dependency merely to make the portfolio look unified.
 
 ---
 
