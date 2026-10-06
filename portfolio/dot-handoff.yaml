@@ -19,7 +19,12 @@ dot_handoff:
     post_merge_verification:
       - project: data-engine
         merge_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
-        status: CI_RUNNING
+        status: PASS
+        evidence:
+          - ci run 37442832655 success
+          - g2-oracle-harness run 37442832744 success
+          - g3-semantic-takeover run 37442832554 success
+          - g4-product-divergence run 37442832607 success
     waiting_evidence:
       - project: ci-retry-gate-engine
         condition: E1 real-exposure evidence
