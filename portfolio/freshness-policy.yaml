@@ -1,0 +1,55 @@
+freshness_policy:
+  schema_version: 1
+  reference_clock: UTC
+  states:
+    - FRESH
+    - AGING
+    - STALE
+    - UNKNOWN
+  principles:
+    - freshness-does-not-imply-completeness
+    - unknown-last-verified-is-unknown-not-fresh
+    - stale-state-must-be-reverified-before-material-action
+    - dependencies-inherit-caution-from-stale-upstream-state
+    - human-authority-remains-final
+  classes:
+    active:
+      statuses:
+        - ACTIVE
+        - ACTIVE_PRIVATE
+      fresh_through_days: 14
+      stale_after_days: 30
+    review:
+      statuses:
+        - EVALUATE
+        - RETEST
+        - PRIVATE
+        - PRIVATE_RETEST
+      fresh_through_days: 30
+      stale_after_days: 60
+    planned:
+      statuses:
+        - PLANNED
+      fresh_through_days: 30
+      stale_after_days: 90
+    dormant:
+      statuses:
+        - HOLD
+        - DEFERRED
+        - INDEPENDENT
+        - FORK_INDEPENDENT
+        - CLOSED_COMMERCIAL
+      fresh_through_days: 60
+      stale_after_days: 120
+  default:
+    fresh_through_days: 14
+    stale_after_days: 30
+  action_rules:
+    FRESH:
+      material_action: allowed-subject-to-normal-gates
+    AGING:
+      material_action: verify-if-decision-depends-on-current-state
+    STALE:
+      material_action: reverify-first
+    UNKNOWN:
+      material_action: reverify-first
