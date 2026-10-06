@@ -1,0 +1,17 @@
+project:
+  id: grok-build
+  repository: achirothmane/grok-build
+  role: build-exploration-asset
+  status: EVALUATE
+  owner_of: [UNKNOWN]
+  produces: [UNKNOWN]
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: evaluate
+  next_gate: clarify owned capability and value
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: exploration-asset
+  last_verified: 2026-10-06
