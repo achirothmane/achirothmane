@@ -1,0 +1,21 @@
+project:
+  id: aegis-ege
+  repository: achirothmane/aegis-ege
+  role: governance-verification-lineage
+  status: CLOSED_COMMERCIAL
+  owner_of:
+    - historical engineering evidence
+    - reusable verified primitives where separately justified
+  produces:
+    - engineering evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: preserve-do-not-expand-as-platform
+  next_gate: extract only independently proven reusable capabilities
+  blockers: []
+  evidence:
+    - falsification and runtime-governance work
+  distribution: github
+  economic_role: engineering-lineage-asset
+  last_verified: 2026-10-06
