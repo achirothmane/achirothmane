@@ -1,0 +1,22 @@
+project:
+  id: ci-retry-gate-consumer-e2e
+  repository: achirothmane/ci-retry-gate-consumer-e2e
+  role: consumer-integration-proof-harness
+  status: ACTIVE_PRIVATE
+  owner_of:
+    - end-to-end adoption validation
+  produces:
+    - integration evidence
+  consumes:
+    - ci-retry-gate-engine
+  dependencies:
+    - ci-retry-gate-engine
+  contracts: []
+  current_state: validation
+  next_gate: maintain real consumer-path proof
+  blockers: []
+  evidence:
+    - consumer E2E scenarios
+  distribution: internal
+  economic_role: validation-asset
+  last_verified: 2026-10-06
