@@ -1,0 +1,19 @@
+project:
+  id: conversion-truth-auditor
+  repository: achirothmane/conversion-truth-auditor
+  role: conversion-measurement-verification
+  status: ACTIVE
+  owner_of:
+    - journey-to-signal verification
+  produces:
+    - conversion integrity evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: product-exploration
+  next_gate: establish differentiated economic value and packaging
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: product-candidate
+  last_verified: 2026-10-06
