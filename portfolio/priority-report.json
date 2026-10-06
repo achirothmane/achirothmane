@@ -24,8 +24,10 @@
       "id": "data-engine",
       "lane": "NOW",
       "reason": "broad self-use foundational asset that compounds across future systems",
-      "next_action": "prove capability contracts and explicit failure boundaries on inherited and new capabilities",
-      "blockers": [],
+      "next_action": "decide whether to merge verified draft PR #8 into hard-fork/dlt-genesis; do not open another G4 slice automatically",
+      "blockers": [
+        "verified G4.8 changes remain in draft PR #8 until human merge approval"
+      ],
       "knowledge": "COMPLETE",
       "source": "human-directive",
       "freshness": "FRESH"
