@@ -15,7 +15,7 @@
 
 Only **one project currently consumes a NOW slot**:
 
-- `data-engine` — prove capability contracts and explicit failure boundaries across inherited and new capabilities.
+- `data-engine` — G4.8 is verified; next gate is the human merge decision for draft PR #8.
 
 The remaining NOW capacity is intentionally unused. Empty WIP capacity is preferable to promoting projects without enough evidence.
 
