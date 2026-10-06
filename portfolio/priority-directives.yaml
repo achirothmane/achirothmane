@@ -1,0 +1,97 @@
+priority_directives:
+  schema_version: 1
+  as_of: 2026-10-06
+  authority: human-strategic-decisions
+  focus:
+    - project: data-engine
+      lane: NOW
+      reason: broad self-use foundational asset that compounds across future systems
+      next_action: prove capability contracts and explicit failure boundaries on inherited and new capabilities
+      constraints:
+        - do-not-narrow-commercially-early
+        - capability-and-boundary-must-ship-together
+
+    - project: marketing-automation-suite
+      lane: NEXT
+      reason: broad self-use-first system intended to replace paid tooling before commercial narrowing
+      next_action: establish the repository and first useful general capability after the Data Engine boundary is usable
+      constraints:
+        - self-use-first
+        - no-early-niche-narrowing
+        - commercial-narrowing-last
+
+    - project: ci-retry-gate-engine
+      lane: WATCH
+      reason: engineering is frozen while waiting for E1 real-exposure evidence
+      next_action: observe for real exposure and E1; do not add features merely to create activity
+      constraints:
+        - if-no-E1-after-real-exposure-park-or-kill-commercially
+        - no-feature-expansion-before-evidence
+
+    - project: ci-retry-gate-consumer-e2e
+      lane: WATCH
+      reason: validation support asset for CI Retry Gate rather than an independent focus
+      next_action: maintain consumer-path proof only when needed for the E1/adoption question
+
+    - project: workflow-failure-lab
+      lane: WATCH
+      reason: evidence-support asset for CI reliability work
+      next_action: add failure evidence only when it answers a live product or integration question
+
+    - project: mini-foot
+      lane: NEXT
+      reason: active product experiment with a clear retention gate
+      next_action: reach enjoyable playable feel and voluntary rematch evidence
+      constraints:
+        - prioritize-football-feel
+        - no-store-or-menu-expansion-before-feel-gate
+
+    - project: releaseguard-n8n
+      lane: WATCH
+      reason: prior marketplace learning exists but depth/readiness must be proven before republishing
+      next_action: prove sufficient product depth and readiness rather than adding superficial features
+
+    - project: conversion-truth-auditor
+      lane: WATCH
+      reason: commercial value still needs evidence before more engineering
+      next_action: establish differentiated economic value and packaging before new build work
+
+    - project: postgres-change-safety
+      lane: NEXT
+      reason: product asset with a concrete value-validation gate
+      next_action: prove repeatable user value and packaging
+
+    - project: private-code-modernization-factory
+      lane: NEXT
+      reason: retest candidate with explicit verification and onboarding gaps
+      next_action: prove reliable verification and onboarding before expansion
+
+    - project: easl
+      lane: PARKED
+      reason: reusable primitive must not become a required dependency without a real consumer
+      next_action: reactivate only when a concrete downstream consumer proves value
+
+    - project: assumption-gate
+      lane: PARKED
+      reason: reusable primitive awaiting a real consumer
+      next_action: reactivate only for a concrete consumer integration
+
+    - project: token-governance-protocol
+      lane: PARKED
+      reason: reusable primitive awaiting a genuine token-budget consumer
+      next_action: reactivate only for a real agent or model execution budget need
+
+    - project: intelligence-layer
+      lane: PARKED
+      reason: do not create a standalone layer until a real second consumer exists
+      next_action: keep reasoning capability inside the consuming system until extraction is justified
+
+    - project: revenue-engine
+      lane: PARKED
+      reason: deferred by design until upstream data and marketing capabilities produce real operational evidence
+      next_action: wait for upstream evidence
+
+    - project: aegis-ege
+      lane: CLOSED
+      reason: commercial platform direction is closed
+      next_action: extract only independently proven reusable capabilities when another project demonstrates the need
