@@ -16,6 +16,10 @@ portfolio:
   priority_report: ./PRIORITY-REPORT.md
   priority_report_json: ./priority-report.json
   priority_report_generator: ./scripts/generate_priority_report.py
+  execution_policy: ./execution-policy.yaml
+  execution_queue: ./execution-queue.yaml
+  dot_operating_contract: ./DOT-OPERATING-CONTRACT.md
+  dot_handoff: ./dot-handoff.yaml
   last_structural_review: 2026-10-06
   truth_policy:
     - explicit-records-over-inference
