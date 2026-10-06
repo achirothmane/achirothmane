@@ -11,6 +11,11 @@ portfolio:
   freshness_report: ./FRESHNESS-REPORT.md
   freshness_report_json: ./freshness-report.json
   freshness_report_generator: ./scripts/generate_freshness_report.py
+  priority_policy: ./priority-policy.yaml
+  priority_directives: ./priority-directives.yaml
+  priority_report: ./PRIORITY-REPORT.md
+  priority_report_json: ./priority-report.json
+  priority_report_generator: ./scripts/generate_priority_report.py
   last_structural_review: 2026-10-06
   truth_policy:
     - explicit-records-over-inference
