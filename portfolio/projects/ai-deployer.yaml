@@ -1,0 +1,19 @@
+project:
+  id: ai-deployer
+  repository: achirothmane/ai-deployer
+  role: ai-deployment-operation-experiments
+  status: ACTIVE
+  owner_of:
+    - UNKNOWN
+  produces:
+    - deployment learning
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: learning-build-asset
+  next_gate: identify reusable capability with proven demand
+  blockers: []
+  evidence: []
+  distribution: github
+  economic_role: learning-asset
+  last_verified: 2026-10-06
