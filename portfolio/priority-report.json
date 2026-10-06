@@ -24,8 +24,10 @@
       "id": "data-engine",
       "lane": "NOW",
       "reason": "broad self-use foundational asset that compounds across future systems",
-      "next_action": "verify post-merge CI for G4.8 on hard-fork/dlt-genesis; then admit another capability only if a concrete lifecycle or self-use need justifies it",
-      "blockers": [],
+      "next_action": "merge verified PR #7 into main before any G4.10 or structured indexing work",
+      "blockers": [
+        "main is 101 commits behind verified hard-fork product branch"
+      ],
       "knowledge": "COMPLETE",
       "source": "human-directive",
       "freshness": "FRESH"
