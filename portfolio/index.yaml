@@ -3,6 +3,7 @@ portfolio:
   owner: achirothmane
   canonical_map: ../../SYSTEM-MAP.md
   records_root: ./projects
+  contracts_root: ./contracts
   last_structural_review: 2026-10-06
   truth_policy:
     - explicit-records-over-inference
@@ -58,3 +59,6 @@ portfolio:
     - projects/token-governance-protocol.yaml
     - projects/window-worlds-lab.yaml
     - projects/workflow-failure-lab.yaml
+  contract_records:
+    - contracts/workflow-failure-lab--ci-retry-gate-engine.yaml
+    - contracts/ci-retry-gate-engine--consumer-e2e.yaml
