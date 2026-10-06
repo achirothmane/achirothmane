@@ -1,0 +1,79 @@
+priority_policy:
+  schema_version: 1
+  principle: active-is-not-priority
+  lanes:
+    - NOW
+    - NEXT
+    - WATCH
+    - PARKED
+    - REVERIFY
+    - CLOSED
+  invariants:
+    - freshness-gates-priority
+    - active-status-does-not-imply-now
+    - technical-admiration-is-not-business-evidence
+    - now-requires-explicit-promotion-or-strong-economic-evidence
+    - human-directive-overrides-derived-priority
+    - blockers-must-be-visible-not-hidden-by-score
+    - unknown-over-inference
+    - wip-cap-is-enforced
+  wip:
+    now_cap: 3
+    next_cap: 6
+  precedence:
+    - CLOSED
+    - REVERIFY
+    - explicit_human_directive
+    - PARKED
+    - derived_lane
+  derived_rules:
+    CLOSED:
+      statuses:
+        - CLOSED_COMMERCIAL
+    PARKED:
+      statuses:
+        - HOLD
+        - DEFERRED
+        - INDEPENDENT
+        - FORK_INDEPENDENT
+    REVERIFY:
+      freshness:
+        - STALE
+        - UNKNOWN
+    NEXT:
+      statuses:
+        - PLANNED
+        - RETEST
+      requires_known_next_gate: true
+    WATCH:
+      statuses:
+        - ACTIVE
+        - ACTIVE_PRIVATE
+        - PRIVATE
+        - PRIVATE_RETEST
+        - EVALUATE
+      meaning: active-or-reviewable-but-not-promoted-to-now
+  promotion_to_now:
+    requires_any:
+      - explicit_human_directive
+      - strong_economic_evidence
+    strong_economic_evidence_fields:
+      - existing_spend
+      - paid_adoption
+      - repeated_real_usage
+      - validated_distribution
+    disallowed_basis:
+      - technical_complexity_only
+      - repository_activity_only
+      - architectural_interest_only
+  decision_factors:
+    - freshness
+    - explicit_human_directive
+    - economic_evidence
+    - user_self_use_value
+    - asset_compounding
+    - real_adoption
+    - blockers
+    - next_gate
+    - dependency_state
+    - distribution_readiness
