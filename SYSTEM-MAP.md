@@ -404,6 +404,23 @@ Before positioning a capability as a product, require evidence of:
 - product packaging;
 - willingness to adopt/pay.
 
+### Execution Gate
+
+Priority alone does not authorize work.
+
+A work item may execute only when it is explicitly admitted with:
+
+- a `NOW` project;
+- admissible freshness;
+- a `READY` state;
+- an explicit objective;
+- explicit authority;
+- required evidence;
+- stop conditions;
+- visible blockers.
+
+Default Dot authority is read/prepare, not merge/publish/spend. Merge, release, external messaging, paid spend, destructive changes, new hard dependencies, and business-positioning changes remain human-controlled.
+
 ### Priority Gate
 
 Project activity is not priority.
@@ -452,10 +469,11 @@ Prefer work whose value compounds through:
 4. ✅ Add a generated dependency graph from project records and verified contracts.
 5. ✅ Add `LAST_VERIFIED` freshness checks with FRESH / AGING / STALE / UNKNOWN state.
 6. Automatic CI freshness verification for generated graph remains pending; the connected GitHub write surface currently blocks creation of the workflow file.
-7. Let future Dot/agents read the map + records before touching repositories.
+7. ✅ Add an execution admission layer and Dot handoff manifest before allowing project mutation.
 8. Keep commercial/product status separate from technical status.
 9. ✅ Add Priority / Next-Action layer with NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED and WIP caps.
-10. Never create a dependency merely to make the portfolio look unified.
+10. Execution source of truth: `portfolio/execution-queue.yaml` + `portfolio/DOT-OPERATING-CONTRACT.md`.
+11. Never create a dependency merely to make the portfolio look unified.
 
 ---
 
