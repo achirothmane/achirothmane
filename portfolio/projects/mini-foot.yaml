@@ -1,0 +1,23 @@
+project:
+  id: mini-foot
+  repository: achirothmane/mini-foot
+  role: mobile-4v4-football-game
+  status: ACTIVE_PRIVATE
+  owner_of:
+    - deterministic match simulation
+    - player control model
+    - mobile game loop
+  produces:
+    - gameplay telemetry
+    - retention evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: vertical-slice
+  next_gate: playable feel and rematch-rate evidence
+  blockers: []
+  evidence:
+    - simulation contract
+  distribution: google-play-candidate
+  economic_role: game-product
+  last_verified: 2026-10-06
