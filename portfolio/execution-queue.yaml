@@ -58,7 +58,8 @@ execution_queue:
           - g2-oracle-harness run 37442032330 success
           - ci run 37442032319 success
           - verifier proves comparison-only transforms cannot bypass repair authority
-        merge_state: human-approval-required
+        merge_state: merged
+        merge_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
       completed_on: 2026-10-06
       on_completion:
         - project last_verified remains 2026-10-06
