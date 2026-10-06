@@ -15,7 +15,7 @@
 
 Only **one project currently consumes a NOW slot**:
 
-- `data-engine` — G4.8 is merged; next gate is post-merge CI verification before admitting any new slice.
+- `data-engine` — G4.9 is verified; the current gate is convergence of PR #7 into `main` before any G4.10.8 is merged; next gate is post-merge CI verification before admitting any new slice.
 
 The remaining NOW capacity is intentionally unused. Empty WIP capacity is preferable to promoting projects without enough evidence.
 
@@ -34,7 +34,7 @@ The remaining NOW capacity is intentionally unused. Empty WIP capacity is prefer
 
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
-| `data-engine` | broad self-use foundational asset that compounds across future systems | prove capability contracts and explicit failure boundaries on inherited and new capabilities | — | COMPLETE |
+| `data-engine` | broad self-use foundational asset that compounds across future systems | merge verified PR #7 into `main` before any G4.10 or structured indexing work | main is 101 commits behind verified hard-fork product branch | COMPLETE |
 
 ## NEXT
 
