@@ -1,0 +1,31 @@
+contract:
+  id: workflow-failure-lab--ci-retry-gate-engine
+  version: 1
+  status: VERIFIED_RELATIONSHIP
+  source_project: workflow-failure-lab
+  target_project: ci-retry-gate-engine
+  relations:
+    - PRODUCES
+    - CONSUMES
+  hard_dependency: false
+  purpose: provide reproducible CI failure evidence and test cases that can be used to evaluate retry decision behavior
+  source_owns:
+    - workflow failure corpus
+    - retry behavior experiments
+    - reproducible CI failure knowledge
+  source_produces:
+    - failure evidence
+    - test cases
+  target_consumes:
+    - CI failure evidence
+  boundary:
+    - the engine must not require this lab to exist at runtime
+    - absence of lab evidence does not imply retry eligibility
+    - evidence provenance remains owned by the producing project
+    - repository-local schemas remain authoritative for implementation details
+  verification:
+    status: evidenced
+    evidence:
+      - validated CI failure cases exist
+      - real recovery validation exists in the engine lineage
+  last_verified: 2026-10-06
