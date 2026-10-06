@@ -1,0 +1,23 @@
+project:
+  id: ci-retry-gate-engine
+  repository: achirothmane/ci-retry-gate-engine
+  role: evidence-based-ci-retry-decision-engine
+  status: ACTIVE_PRIVATE
+  owner_of:
+    - retry decision logic
+  produces:
+    - retry decisions
+    - causal evidence
+  consumes:
+    - CI failure evidence
+  dependencies: []
+  contracts: []
+  current_state: validation
+  next_gate: prove adoption path without weakening trust boundaries
+  blockers:
+    - external action trust boundary
+  evidence:
+    - real recovery validation
+  distribution: pending
+  economic_role: product-candidate
+  last_verified: 2026-10-06
