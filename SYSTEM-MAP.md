@@ -161,17 +161,20 @@ These are the strongest candidates for reusable portfolio primitives.
 **Current state:** PLANNED.  
 **Constraint:** do not create as a vague AI umbrella; it must own concrete capabilities and boundaries.
 
-### Execution Fabric — upstream evaluation
+### Execution Fabric — proven upstream composition
 
 **Role:** internal-first execution/orchestration fabric for running real cross-project workflows without collapsing project ownership.  
-**Candidate upstream:** Kestra (kestra-io/kestra, Apache-2.0) selected for a bounded spike after comparison with Activepieces and Windmill.  
-**Why Kestra:** polyglot script execution, open-source Docker/Process task runners, workflow/event orchestration, and a permissive hard-fork base.  
+**Upstream:** Kestra (kestra-io/kestra, Apache-2.0), tested on OSS v2.0.5 with the open-source Process Task Runner.  
+**Why Kestra:** polyglot script execution, workflow/event orchestration, evidence-preserving task outputs, and a permissive upstream base.  
 **Activepieces position:** useful integration/pieces source and possible Marketing Automation composition candidate; not selected as the portfolio execution core because some platform/private-piece controls are commercial.  
-**Windmill position:** rejected as the hard-fork base for this role because the repository mixes AGPL/Apache/proprietary licensing and the distributed Community Edition adds restrictions that are unattractive for our intended owned asset.  
-**Current state:** EVALUATE / first bounded Data Engine spike PASS; Kestra is a proven upstream candidate, but no owned fork or portfolio dependency is declared.  
-**First proof:** PASS — GitHub Actions run `37583709577` executed the real Data Engine through Kestra OSS Process Runner, preserved required artifacts, produced a machine-readable `KNOWN_SUCCESS` record, and required no Enterprise-only capability.  
-**Next gate:** run a second distinct real portfolio workflow through the same fabric and measure repeated utility / glue reduction.  
-**Hard-fork entry condition:** repeated internal utility plus a concrete architectural divergence whose ownership is cheaper and safer than remaining upstream-compatible.  
+**Windmill position:** rejected as the hard-fork base for this role because the repository mixes AGPL/Apache/proprietary licensing and the distributed Community Edition adds restrictions unattractive for our intended owned asset.  
+**Current state:** **PROVEN_UPSTREAM_COMPOSITION / TWO-DOMAIN PASS / NO_FORK**. Kestra has two verified soft `COMPOSES_WITH` contracts and is not a hard runtime dependency of either consumer.  
+**Data Engine proof:** PASS — strengthened GitHub Actions run `37599273399`, Kestra execution `6GteU2ysL0Qw6plDsZCJqM`, `KNOWN_SUCCESS`, process exit 0, Data Engine publishability preserved separately, evidence artifacts hash-bound, and strict tracked + untracked checkout-clean gate passed.  
+**PostgreSQL Change Safety proof:** PASS — Kestra run `37599130862`, normal product test run `37599131069`, Kestra execution `4jf8cUbl1usnD1cc96LaEN`, strict blind benchmark 12/12, zero false causal attributions, zero false-clearance events, hash-bound benchmark evidence, and strict checkout-clean gate passed.  
+**Execution boundary:** Kestra runtime must run outside the consumer checkout; orchestration may execute, observe, retain, and hash artifacts, but may not mutate the checkout or replace project-local semantic authority.  
+**Next gate:** factor the common adapter/runtime glue and measure repeated operational savings versus project-specific integration.  
+**Hard-fork decision:** **NO FORK YET.** Cross-domain utility is proven, but no concrete upstream architectural divergence currently makes fork ownership cheaper or safer than upstream-compatible composition.  
+**Hard-fork entry condition:** a specific recurring architectural divergence, demonstrated across real usage, whose maintenance cost and strategic value justify owning the fork and its upstream-sync burden.  
 **Commercial constraint:** do not sell a generic orchestration platform; commercial value must come from downstream products/data/workflows that use the fabric.
 
 ### Revenue Engine — deferred
@@ -183,7 +186,8 @@ These are the strongest candidates for reusable portfolio primitives.
 ### PostgreSQL Change Safety — `achirothmane/postgres-change-safety`
 
 **Role:** database change reliability product/asset.  
-**Owns:** observation and regression evidence around PostgreSQL changes.  
+**Owns:** observation, regression evidence, causal attribution/abstention semantics, and false-clearance benchmark evidence around PostgreSQL changes.  
+**Composes with:** Execution Fabric through a verified soft contract; remains independently runnable and retains semantic authority.  
 **Current state:** ACTIVE.
 
 ### Conversion Truth Auditor — `achirothmane/conversion-truth-auditor`
@@ -339,10 +343,12 @@ Data Engine
   └── future knowledge/evidence source ──> products that prove a need
 
 
-Execution Fabric (EVALUATE / FIRST SPIKE PASS)
+Execution Fabric (PROVEN UPSTREAM / NO FORK)
   │
-  ├── PROVEN COMPOSITION ──> Data Engine (execution only; not semantic authority)
-  └── NEXT GATE ──> second distinct real portfolio workflow
+  ├── COMPOSES_WITH ──> Data Engine
+  │                      (soft; Data Engine remains semantic authority)
+  └── COMPOSES_WITH ──> PostgreSQL Change Safety
+                         (soft; product remains semantic authority)
 
 
 Aegis-EGE + governance lineage
