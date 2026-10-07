@@ -17,6 +17,8 @@ project:
   consumes: []
   dependencies: []
   contracts:
+    - execution-fabric--data-engine.yaml
+  doctrine:
     - capability constitution: build the capability and its boundary together
   current_state: hard-fork-g4.9-converged-on-main
   next_gate: verify post-convergence main state; admit new capability work only through the next explicit gate
@@ -41,10 +43,13 @@ project:
     - current head g3-semantic-takeover run 37528767836 success
     - current head g4-product-divergence run 37528767819 success
     - convergence review portfolio/reviews/data-engine-convergence-2026-10-06.yaml
+    - Kestra Execution Fabric run 37599273399 success with strict clean-checkout gate
+    - Kestra execution 6GteU2ysL0Qw6plDsZCJqM KNOWN_SUCCESS
   active_branch: main
   merged_pull_request: 8
   merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
   distribution: internal-first
   economic_role: shared-capability-asset
   last_verified: 2026-10-07
-  converged_main_commit: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76\n  convergence_pull_request: 7\n
+  converged_main_commit: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
+  convergence_pull_request: 7
