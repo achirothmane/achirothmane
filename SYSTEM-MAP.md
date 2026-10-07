@@ -168,9 +168,10 @@ These are the strongest candidates for reusable portfolio primitives.
 **Why Kestra:** polyglot script execution, open-source Docker/Process task runners, workflow/event orchestration, and a permissive hard-fork base.  
 **Activepieces position:** useful integration/pieces source and possible Marketing Automation composition candidate; not selected as the portfolio execution core because some platform/private-piece controls are commercial.  
 **Windmill position:** rejected as the hard-fork base for this role because the repository mixes AGPL/Apache/proprietary licensing and the distributed Community Edition adds restrictions that are unattractive for our intended owned asset.  
-**Current state:** EVALUATE / upstream selected for spike; no repository and no dependency declared.  
-**First proof:** orchestrate one real Data Engine run, preserve its evidence/result artifacts, and expose a machine-readable execution result without requiring Enterprise-only functionality.  
-**Hard-fork entry condition:** only after the spike proves repeated internal utility, acceptable operational cost, and a concrete architectural divergence that justifies owning the fork.  
+**Current state:** EVALUATE / first bounded Data Engine spike PASS; Kestra is a proven upstream candidate, but no owned fork or portfolio dependency is declared.  
+**First proof:** PASS — GitHub Actions run `37583709577` executed the real Data Engine through Kestra OSS Process Runner, preserved required artifacts, produced a machine-readable `KNOWN_SUCCESS` record, and required no Enterprise-only capability.  
+**Next gate:** run a second distinct real portfolio workflow through the same fabric and measure repeated utility / glue reduction.  
+**Hard-fork entry condition:** repeated internal utility plus a concrete architectural divergence whose ownership is cheaper and safer than remaining upstream-compatible.  
 **Commercial constraint:** do not sell a generic orchestration platform; commercial value must come from downstream products/data/workflows that use the fabric.
 
 ### Revenue Engine — deferred
@@ -338,9 +339,10 @@ Data Engine
   └── future knowledge/evidence source ──> products that prove a need
 
 
-Execution Fabric (EVALUATE)
+Execution Fabric (EVALUATE / FIRST SPIKE PASS)
   │
-  └── candidate first proof ──> orchestrate Data Engine without becoming its dependency
+  ├── PROVEN COMPOSITION ──> Data Engine (execution only; not semantic authority)
+  └── NEXT GATE ──> second distinct real portfolio workflow
 
 
 Aegis-EGE + governance lineage
