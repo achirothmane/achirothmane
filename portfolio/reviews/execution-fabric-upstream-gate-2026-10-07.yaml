@@ -88,20 +88,61 @@ review:
     - https://github.com/windmill-labs/windmill
 
   spike_status:
-    state: READY_TO_RUN
+    state: PASS_BOUNDED_SPIKE
     harness_path: portfolio/spikes/kestra-data-engine
+    data_engine_pull_request: 10
+    data_engine_spike_branch: spike/kestra-execution-fabric
     target_data_engine_main: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
-    current_evidence:
-      - Data Engine PR #7 merged into main on 2026-10-07
-      - post-merge main CI run 37556014730 succeeded
-      - Kestra OSS Process runner is documented as open-source
-      - spike flow preserves Data Engine quality decision separately from orchestration state
-    not_yet_proven:
-      - a real Kestra execution of the private Data Engine checkout
-      - runtime artifact hashes from that execution
-      - measured glue reduction across repeated runs
-    environment_blocker:
-      - current execution sandbox has Java 21 and Go but no Docker
-      - current execution sandbox cannot resolve external hosts to download the Kestra binary
-      - private GitHub repository checkout cannot be materialized into this runtime through the available GitHub connector
-    decision: DO_NOT_CLAIM_PASS
+    final_ci:
+      run_id: 37583709577
+      conclusion: success
+      test_job: success
+      kestra_spike_job: success
+      evidence_artifact_id: 11465352137
+      evidence_artifact_name: kestra-data-engine-spike
+      evidence_artifact_bytes: 10478
+    kestra:
+      version: 2.0.5
+      runtime_jdk: 25
+      runner: io.kestra.plugin.core.runner.Process
+      enterprise_feature_required: false
+      execution_id: 2UkqKuYaKbeZuU7YdKC4p0
+    execution_record:
+      orchestration_state: KNOWN_SUCCESS
+      reason: PROCESS_AND_ARTIFACTS_OBSERVED
+      engine_process_exit: 0
+      evidence_authority: data-engine
+      orchestrator_mutates_evidence: false
+      data_publishable: true
+      data_quality:
+        entities: 3
+        coverage: 1
+        mean_confidence: 0.9513333333333333
+        conflicting_cells: 0
+        unknown_cells: 0
+      artifact_hashes:
+        dataset_csv: 24417a0ce98888e93a2ff425fab88848fa9f29de76eb0e2837ec0a39aec9b9fa
+        provenance_jsonl: fc968acdf74fa2c632966a8dab7a84b460a1eabcac098226c81cfeb8c96a95db
+        quality_json: 08d8ac2cbf22580a3be33878b2e3c8df0d464b89ae7282e7caf0f6fffc556b35
+        result_json: 32c5f58426f9f9da5042b9c05c2fa085eb44057ef9978375cfab2a4dc8efb412
+    proven:
+      - Kestra OSS starts and authenticates in a clean GitHub Actions runner
+      - Kestra creates and executes the Data Engine flow through the OSS Process runner
+      - Data Engine exits zero and emits all required evidence/result artifacts
+      - orchestration state remains separate from Data Engine publishability
+      - required artifacts are hashed and retained in Kestra internal storage
+      - the tracked Data Engine checkout remains clean after orchestration
+      - no Enterprise-only Kestra feature is required for this proof
+    learned_boundaries:
+      - Kestra 2.0.5 requires JDK 25 in this tested standalone path
+      - local API access requires Basic Auth
+      - Kestra 2.0 task outputs are fetched through /outputs/tasks/{executionId}/{taskRunId}
+    remaining_unproven:
+      - repeated utility across more than one portfolio workflow
+      - measurable reduction in manual glue over repeated operation
+      - a concrete architectural divergence that justifies owning a Kestra hard fork
+    decision: KEEP_KESTRA_AS_PROVEN_UPSTREAM_CANDIDATE_DO_NOT_FORK_YET
+    next_gate: >
+      Run a second distinct real portfolio workflow through the same fabric, preferably a
+      revenue-bearing or developer-tool path, and measure whether reuse is materially cheaper
+      and safer than project-specific glue before admitting a hard fork.
