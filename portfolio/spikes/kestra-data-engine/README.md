@@ -1,6 +1,6 @@
 # Kestra -> Data Engine bounded spike
 
-**Status:** READY_TO_RUN — not PASS.
+**Status:** PASS_BOUNDED_SPIKE.
 
 This spike tests whether Kestra OSS can act as a neutral execution fabric around the
 converged Data Engine without becoming a semantic authority or a product dependency.
@@ -72,10 +72,45 @@ This spike becomes PASS only when a real Kestra execution shows:
 - the input checkout remains unchanged except for no repository-owned files;
 - no Enterprise feature is required.
 
-Until that evidence exists, the state remains READY_TO_RUN.
+The gate passed in GitHub Actions run `37583709577`.
+
+Verified evidence:
+
+- normal Data Engine test job: `success`;
+- Kestra spike job: `success`;
+- Kestra execution: `2UkqKuYaKbeZuU7YdKC4p0`;
+- `orchestration_state=KNOWN_SUCCESS`;
+- Data Engine exit code: `0`;
+- `data_publishable=true`;
+- entities: `3`, coverage: `1.0`, conflicts: `0`, unknown cells: `0`;
+- evidence authority: `data-engine`;
+- orchestrator evidence mutation: `false`;
+- GitHub Actions evidence artifact: `11465352137`.
+
+Artifact SHA-256:
+
+- `dataset.csv`: `24417a0ce98888e93a2ff425fab88848fa9f29de76eb0e2837ec0a39aec9b9fa`
+- `provenance.jsonl`: `fc968acdf74fa2c632966a8dab7a84b460a1eabcac098226c81cfeb8c96a95db`
+- `quality.json`: `08d8ac2cbf22580a3be33878b2e3c8df0d464b89ae7282e7caf0f6fffc556b35`
+- `result.json`: `32c5f58426f9f9da5042b9c05c2fa085eb44057ef9978375cfab2a4dc8efb412`
+
+The spike also exposed three operational facts that are now part of the harness: Kestra
+2.0.5 uses JDK 25 in this standalone path, local API calls are authenticated, and task
+outputs are read from the Kestra 2.0 task-output API rather than assumed to be inline
+inside the synchronous execution response.
 
 ## Hard-fork gate
 
-Even after PASS, Kestra is **not** forked automatically. A hard fork requires repeated
-internal use plus a concrete architectural divergence that is cheaper to own than to
-maintain as external glue.
+PASS proves that Kestra is a viable Execution Fabric upstream; it does **not** prove
+that we should own a fork.
+
+A hard fork still requires:
+
+1. a second distinct real portfolio workflow;
+2. repeated internal usefulness;
+3. measurable reduction in manual/project-specific glue;
+4. a concrete architectural divergence;
+5. evidence that maintaining the divergence is cheaper than staying upstream-compatible.
+
+Until those conditions are met, Kestra remains a proven upstream candidate rather than
+a new owned repository.
