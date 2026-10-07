@@ -1,0 +1,39 @@
+contract:
+  id: execution-fabric--postgres-change-safety
+  version: 1
+  status: VERIFIED_RELATIONSHIP
+  source_project: execution-fabric
+  target_project: postgres-change-safety
+  relations:
+    - COMPOSES_WITH
+  hard_dependency: false
+  purpose: execute PostgreSQL Change Safety through the same shared orchestration substrate without transferring regression or causal-decision authority
+  source_produces:
+    - orchestration state
+    - execution logs
+    - retained benchmark artifact references
+  target_produces:
+    - regression detection evidence
+    - causal attribution or UNKNOWN abstention
+    - false-clearance benchmark evidence
+  boundary:
+    - PostgreSQL Change Safety remains independently runnable without Execution Fabric
+    - PostgreSQL Change Safety remains the authority over regression and causal semantics
+    - orchestration success is separate from benchmark truth
+    - Kestra runtime must execute outside the product checkout
+    - Python bytecode writes are disabled during the benchmark path
+    - tracked and untracked checkout mutation is forbidden
+    - benchmark evidence is hash-bound
+    - no Enterprise-only Kestra capability is required
+  verification:
+    status: evidenced
+    evidence:
+      - GitHub Actions Kestra run 37599130862 succeeded
+      - normal repository test run 37599131069 succeeded
+      - Kestra execution 4jf8cUbl1usnD1cc96LaEN reached KNOWN_SUCCESS
+      - strict blind benchmark passed 12 of 12 cases
+      - false causal attributions were 0
+      - false-clearance events were 0
+      - strict git status clean-checkout gate passed
+      - evidence artifact 11471389341 retained
+  last_verified: 2026-10-07
