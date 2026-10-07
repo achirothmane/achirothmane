@@ -1,0 +1,54 @@
+execution_fabric_adapter:
+  version: 0.1.0
+  status: PROVEN_TWO_DOMAIN
+  scope:
+    owns:
+      - Kestra OSS local runtime bootstrap
+      - isolated runtime directory
+      - flow creation transport
+      - synchronous execution transport
+      - task-output retrieval
+      - minimum execution-envelope validation
+      - tracked-and-untracked checkout cleanliness verification
+    does_not_own:
+      - consumer business logic
+      - consumer semantic decisions
+      - publishability decisions
+      - causal attribution
+      - product-specific artifact requirements
+      - hard dependency admission
+  runtime:
+    upstream: kestra-io/kestra
+    tested_version: 2.0.5
+    jdk: 25
+    runner: io.kestra.plugin.core.runner.Process
+    isolation: outside-consumer-checkout
+    enterprise_feature_required: false
+  minimum_execution_envelope:
+    required:
+      schema_version: 1
+      orchestration_state: KNOWN_SUCCESS
+      reason: non-empty
+      kestra_execution_id: non-empty
+      orchestrator_mutates_evidence: false
+      artifacts: object
+      authority_field: consumer-defined
+    consumer_specific:
+      - process exit semantics
+      - quality or benchmark decision
+      - artifact names and required hashes
+      - domain-specific UNKNOWN / failure semantics
+  dependency_policy:
+    consumer_runtime_dependency: false
+    vendored_snapshot_allowed: true
+    canonical_reference: portfolio/execution-fabric/adapter/v0.1/execution-fabric-adapter.sh
+    fork_required: false
+  evidence:
+    - data-engine CI run 37599273399
+    - postgres-change-safety Kestra run 37599130862
+    - postgres-change-safety normal test run 37599131069
+  next_gate:
+    - vendor the exact adapter snapshot into both proven consumer spikes
+    - replace duplicated transport/runtime glue with adapter calls
+    - re-run both consumers
+    - compare glue before and after without weakening semantic assertions
