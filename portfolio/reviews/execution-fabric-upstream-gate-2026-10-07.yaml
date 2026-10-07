@@ -90,8 +90,21 @@ review:
     - https://github.com/windmill-labs/windmill
 
   spike_status:
-    state: PASS_TWO_DOMAIN_COMPOSITION
+    state: PASS_TWO_DOMAIN_ADAPTER_REUSE
     upstream_mode: UPSTREAM_COMPATIBLE_NO_FORK
+    adapter:
+      version: 0.1.0
+      git_blob_sha: b40f485d0f8b71de721bbd0fd732d9b65ff97e35
+      exact_match_across_canonical_and_consumers: true
+      data_engine_run_id: 37622847435
+      data_engine_evidence_artifact_id: 11482981688
+      postgres_kestra_run_id: 37622867249
+      postgres_normal_test_run_id: 37622867261
+      postgres_evidence_artifact_id: 11483265726
+      measured_glue_reduction:
+        data_engine: 74.7
+        postgres_change_safety: 76.5
+        combined_lines_removed: 127
     contracts:
       - execution-fabric--data-engine
       - execution-fabric--postgres-change-safety
@@ -191,13 +204,13 @@ review:
       - language-specific runtime writes such as Python bytecode must not pollute consumer repositories
 
     remaining_unproven:
-      - measurable operational savings versus project-specific orchestration glue over repeated use
+      - operational time or failure savings from repeated real product use
       - a concrete recurring architectural divergence that warrants owning a Kestra hard fork
       - fork ownership and upstream-sync policy if such a divergence eventually appears
 
     decision: KEEP_UPSTREAM_COMPATIBLE_COMPOSITION_DO_NOT_FORK
     next_gate: >
-      Factor the common runtime and execution-record adapter contract across the two proven
-      consumers, measure the amount of project-specific glue that remains, and continue
-      upstream-compatible use. Admit a hard fork only if a specific recurring architectural
+      Stop infrastructure expansion. Reuse Adapter v0.1 only when an active product has a real
+      workflow that benefits from shared execution. Measure operational time/failure savings
+      from that real use. Admit a hard fork only if a specific recurring architectural
       divergence makes ownership economically and technically superior.
