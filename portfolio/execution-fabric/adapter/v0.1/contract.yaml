@@ -1,6 +1,6 @@
 execution_fabric_adapter:
   version: 0.1.0
-  status: PROVEN_TWO_DOMAIN
+  status: PASS_TWO_DOMAIN_REUSE
   scope:
     owns:
       - Kestra OSS local runtime bootstrap
@@ -43,12 +43,43 @@ execution_fabric_adapter:
     vendored_snapshot_allowed: true
     canonical_reference: portfolio/execution-fabric/adapter/v0.1/execution-fabric-adapter.sh
     fork_required: false
+  vendored_identity:
+    git_blob_sha: b40f485d0f8b71de721bbd0fd732d9b65ff97e35
+    exact_match_consumers:
+      - achirothmane/data-engine
+      - achirothmane/postgres-change-safety
+  measured_glue_reduction:
+    data_engine:
+      orchestration_block_lines_before: 83
+      orchestration_block_lines_after: 21
+      lines_removed: 62
+      reduction_pct: 74.7
+    postgres_change_safety:
+      orchestration_block_lines_before: 85
+      orchestration_block_lines_after: 20
+      lines_removed: 65
+      reduction_pct: 76.5
+    combined:
+      orchestration_block_lines_before: 168
+      orchestration_block_lines_after: 41
+      lines_removed: 127
+      note: workflow-local transport/runtime glue only; product-specific flow and semantic assertions intentionally remain local
   evidence:
-    - data-engine CI run 37599273399
-    - postgres-change-safety Kestra run 37599130862
-    - postgres-change-safety normal test run 37599131069
+    - data-engine Adapter v0.1 CI run 37622847435 success
+    - data-engine normal test job in run 37622847435 success
+    - data-engine evidence artifact 11482981688
+    - postgres-change-safety Adapter v0.1 Kestra run 37622867249 success
+    - postgres-change-safety normal test run 37622867261 success
+    - postgres-change-safety evidence artifact 11483265726
+    - identical adapter Git blob b40f485d0f8b71de721bbd0fd732d9b65ff97e35 in canonical and both consumers
+  decision:
+    state: KEEP_UPSTREAM_COMPATIBLE_NO_FORK
+    reason: >
+      The shared adapter removes roughly three quarters of consumer-local orchestration glue
+      while preserving project-local semantic authority. This reduces, rather than increases,
+      the current justification for owning a Kestra hard fork.
   next_gate:
-    - vendor the exact adapter snapshot into both proven consumer spikes
-    - replace duplicated transport/runtime glue with adapter calls
-    - re-run both consumers
-    - compare glue before and after without weakening semantic assertions
+    - stop infrastructure expansion
+    - reuse Adapter v0.1 only when a real active product workflow needs shared execution
+    - measure operational time or failure reduction from real repeated use
+    - reconsider a hard fork only if a concrete upstream divergence appears
