@@ -86,3 +86,22 @@ review:
     - https://github.com/kestra-io/kestra
     - https://github.com/activepieces/activepieces
     - https://github.com/windmill-labs/windmill
+
+  spike_status:
+    state: READY_TO_RUN
+    harness_path: portfolio/spikes/kestra-data-engine
+    target_data_engine_main: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
+    current_evidence:
+      - Data Engine PR #7 merged into main on 2026-10-07
+      - post-merge main CI run 37556014730 succeeded
+      - Kestra OSS Process runner is documented as open-source
+      - spike flow preserves Data Engine quality decision separately from orchestration state
+    not_yet_proven:
+      - a real Kestra execution of the private Data Engine checkout
+      - runtime artifact hashes from that execution
+      - measured glue reduction across repeated runs
+    environment_blocker:
+      - current execution sandbox has Java 21 and Go but no Docker
+      - current execution sandbox cannot resolve external hosts to download the Kestra binary
+      - private GitHub repository checkout cannot be materialized into this runtime through the available GitHub connector
+    decision: DO_NOT_CLAIM_PASS
