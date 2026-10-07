@@ -2,14 +2,14 @@ id: data_engine_execution_spike
 namespace: ai_native_engineering.execution
 
 description: >
-  Bounded OSS Kestra spike. Executes the converged Data Engine from an existing local
-  checkout while preserving Data Engine as the sole authority over data semantics.
+  Bounded Kestra OSS spike executing Data Engine from the checked-out repository.
+  Kestra observes execution and preserves artifacts; Data Engine remains the sole
+  semantic authority.
 
 inputs:
   - id: data_engine_root
     type: STRING
-    defaults: /workspace/data-engine
-    description: Absolute path to an existing achirothmane/data-engine checkout on main.
+    description: Absolute path to the checked-out Data Engine repository.
 
 tasks:
   - id: run_data_engine
@@ -114,7 +114,6 @@ tasks:
       for name, path in required.items():
           if os.path.isfile(path):
               artifacts[name] = {
-                  "path": path,
                   "sha256": sha256(path),
                   "bytes": os.path.getsize(path),
               }
@@ -171,3 +170,17 @@ tasks:
           state = json.load(f)["orchestration_state"]
       raise SystemExit(0 if state == "KNOWN_SUCCESS" else 4)
       PY
+
+      # Small structured metadata goes through Kestra task outputs.
+      # The evidence files themselves remain in outputFiles/internal storage.
+      python3 - "$run_root/execution-record.json" <<'PY'
+      import json, sys
+      with open(sys.argv[1], encoding="utf-8") as f:
+          record = json.load(f)
+      print("::" + json.dumps({"outputs": {"execution_record": json.dumps(record, sort_keys=True)}}) + "::")
+      PY
+
+outputs:
+  - id: execution_record
+    type: STRING
+    value: "{{ outputs.run_data_engine.vars.execution_record }}"
