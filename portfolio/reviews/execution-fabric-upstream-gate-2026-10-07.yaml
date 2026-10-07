@@ -1,0 +1,88 @@
+review:
+  id: execution-fabric-upstream-gate-2026-10-07
+  reviewed_at: 2026-10-07
+  goal: >
+    Select a legally and technically suitable upstream for a single internal execution
+    fabric that can coordinate real workflows across independently owned portfolio projects.
+  doctrine:
+    - single Dots coordination model remains above the project graph
+    - no dependency without a real flow
+    - internal usefulness before commercial narrowing
+    - do not revive a generic agent-control or orchestration platform as the commercial product
+    - hard fork only after a repeated self-use divergence is proven
+  candidates:
+    activepieces:
+      repository: activepieces/activepieces
+      licensing:
+        open_core: MIT outside enterprise directories
+        enterprise: commercial
+      strengths:
+        - strong SaaS integration/pieces ecosystem
+        - TypeScript extensibility
+        - webhook and automation UX
+      constraints:
+        - some private-piece and platform administration capabilities are paid
+        - overlaps more directly with Marketing Automation Suite
+      decision: SECONDARY_INTEGRATION_SOURCE
+    windmill:
+      repository: windmill-labs/windmill
+      licensing:
+        backend_frontend: AGPLv3 unless otherwise specified
+        clients_and_openflow: Apache-2.0
+        enterprise: proprietary
+        distributed_community_edition: contains additional proprietary restrictions
+      strengths:
+        - strong developer workflow and script execution model
+        - polyglot and infrastructure oriented
+      constraints:
+        - licensing mix is unattractive for the intended owned hard-fork asset
+      decision: REJECT_AS_HARD_FORK_BASE
+    kestra:
+      repository: kestra-io/kestra
+      licensing:
+        repository: Apache-2.0
+      strengths:
+        - event and workflow orchestration
+        - polyglot script execution
+        - open-source Docker and Process task runners
+        - clean permissive base for modification and distribution
+      constraints:
+        - heavier JVM/runtime footprint than a connector-first automation tool
+        - some remote/cloud task runners and governance capabilities are Enterprise-only
+      decision: SELECT_FOR_BOUNDED_SPIKE
+  decision:
+    outcome: SELECT_KESTRA_FOR_SPIKE_NOT_FORK_YET
+    reason: >
+      Kestra best matches the portfolio's need for a neutral polyglot execution substrate
+      while keeping the upstream license permissive. A fork is not yet justified because
+      we have not demonstrated a recurring architectural divergence.
+  first_spike:
+    consumer: data-engine
+    objective: >
+      Trigger one real Data Engine job through Kestra, capture the Data Engine's own
+      evidence/result artifacts, propagate success/failure/unknown state, and emit a
+      machine-readable execution record.
+    must_prove:
+      - no Enterprise-only feature is required
+      - project ownership stays in data-engine
+      - execution does not rewrite Data Engine evidence
+      - failure is observable and reproducible
+      - orchestration removes meaningful manual glue
+  hard_fork_entry_conditions:
+    - at least one repeated internal workflow proves utility
+    - a concrete upstream divergence is identified
+    - maintaining the divergence is cheaper than external glue
+    - required capabilities remain legally usable in the chosen open-source boundary
+    - fork ownership and upstream-sync policy are explicit
+  kill_conditions:
+    - required capability depends on paid Enterprise features
+    - orchestration overhead exceeds the manual glue it replaces
+    - the fabric starts absorbing product-specific business logic
+    - the project drifts toward selling a generic orchestration platform
+  commercial_role:
+    direct_product: false
+    role: compounding internal infrastructure that accelerates revenue-bearing products
+  sources:
+    - https://github.com/kestra-io/kestra
+    - https://github.com/activepieces/activepieces
+    - https://github.com/windmill-labs/windmill
