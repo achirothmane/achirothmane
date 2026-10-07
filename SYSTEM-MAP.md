@@ -4,7 +4,7 @@
 
 **Owner:** achirothmane  
 **Status:** ACTIVE  
-**Last structural review:** 2026-10-06
+**Last structural review:** 2026-10-07
 
 ---
 
@@ -160,6 +160,18 @@ These are the strongest candidates for reusable portfolio primitives.
 **Role:** cross-system reasoning/analysis capability.  
 **Current state:** PLANNED.  
 **Constraint:** do not create as a vague AI umbrella; it must own concrete capabilities and boundaries.
+
+### Execution Fabric — upstream evaluation
+
+**Role:** internal-first execution/orchestration fabric for running real cross-project workflows without collapsing project ownership.  
+**Candidate upstream:** Kestra (kestra-io/kestra, Apache-2.0) selected for a bounded spike after comparison with Activepieces and Windmill.  
+**Why Kestra:** polyglot script execution, open-source Docker/Process task runners, workflow/event orchestration, and a permissive hard-fork base.  
+**Activepieces position:** useful integration/pieces source and possible Marketing Automation composition candidate; not selected as the portfolio execution core because some platform/private-piece controls are commercial.  
+**Windmill position:** rejected as the hard-fork base for this role because the repository mixes AGPL/Apache/proprietary licensing and the distributed Community Edition adds restrictions that are unattractive for our intended owned asset.  
+**Current state:** EVALUATE / upstream selected for spike; no repository and no dependency declared.  
+**First proof:** orchestrate one real Data Engine run, preserve its evidence/result artifacts, and expose a machine-readable execution result without requiring Enterprise-only functionality.  
+**Hard-fork entry condition:** only after the spike proves repeated internal utility, acceptable operational cost, and a concrete architectural divergence that justifies owning the fork.  
+**Commercial constraint:** do not sell a generic orchestration platform; commercial value must come from downstream products/data/workflows that use the fabric.
 
 ### Revenue Engine — deferred
 
@@ -324,6 +336,11 @@ Data Engine
   ├── future CONSUMER candidate ──> Marketing Automation Suite
   ├── future CONSUMER candidate ──> Intelligence Layer
   └── future knowledge/evidence source ──> products that prove a need
+
+
+Execution Fabric (EVALUATE)
+  │
+  └── candidate first proof ──> orchestrate Data Engine without becoming its dependency
 
 
 Aegis-EGE + governance lineage
