@@ -7,5 +7,7 @@ contracts:
     - repository-local-interface-schema-is-authoritative
     - unknown-over-inference
   records:
-    - workflow-failure-lab--ci-retry-gate-engine.yaml
     - ci-retry-gate-engine--consumer-e2e.yaml
+    - execution-fabric--data-engine.yaml
+    - execution-fabric--postgres-change-safety.yaml
+    - workflow-failure-lab--ci-retry-gate-engine.yaml
