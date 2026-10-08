@@ -101,22 +101,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: achirothmane/governed-agent-runtime
-          ref: build/dots-durable-decision-loop-v0.1
+          ref: build/dots-openai-provider-v0.1
           path: _integration/runtime
 
-      - name: Prove runtime consumes current sealed D4 snapshot
+      - name: Prove current sealed D5 snapshot through provider and durable gate
         working-directory: _integration/runtime
         env:
           PORTFOLIO_CONTEXT_FILE: /tmp/portfolio-context-v0.1.json
-          DOT_DECISION_EVIDENCE_FILE: /tmp/portfolio-dot-decision-v0.1.json
+          DOT_PROVIDER_EVIDENCE_FILE: /tmp/portfolio-dot-provider-v0.1.json
         run: |
           go test -tags=integration \
             -run TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads \
             -count=1 -v ./integration/dotscontext
 
           go test -tags=integration \
-            -run TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed \
-            -count=1 -v ./integration/dotsdurable
+            -run TestCurrentPortfolioSnapshotFlowsThroughOpenAIAdapterAndDurableGate \
+            -count=1 -v ./integration/dotsprovider
 
       - name: Upload Dots context evidence
         uses: actions/upload-artifact@v4
@@ -124,7 +124,7 @@ jobs:
           name: portfolio-context-v0.1
           path: |
             /tmp/portfolio-context-v0.1.json
-            /tmp/portfolio-dot-decision-v0.1.json
+            /tmp/portfolio-dot-provider-v0.1.json
             portfolio/freshness-report.json
             portfolio/priority-report.json
             portfolio/dependency-graph.json
