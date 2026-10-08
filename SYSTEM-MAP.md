@@ -4,7 +4,7 @@
 
 **Owner:** achirothmane  
 **Status:** ACTIVE  
-**Last structural review:** 2026-10-07
+**Last structural review:** 2026-10-08
 
 ---
 
@@ -50,21 +50,24 @@ No shared owner is enough. No thematic similarity is enough. No future possibili
                  Future Portfolio Dot / Agent
 ```
 
-### Future Dot role
+### Portfolio Dot role — ACTIVE BUILD
 
-A future portfolio Dot should consume this map as its primary navigation layer.
+The single Portfolio Dot consumes this map as its primary navigation layer.
+
+**D1 PASS:** the Dot can now bind an immutable MCP capability snapshot and durably invoke Data Engine `data.reconcile` through Temporal + PostgreSQL while preserving `DIVERGED` and `UNKNOWN` exactly.
+
+**D2 READY:** build one immutable, digest-bound Portfolio Context Snapshot before next-action reasoning.
 
 It may:
 
-- inspect project state;
-- follow declared dependencies;
+- inspect explicit project state;
+- follow declared contracts and dependencies;
 - identify stale or missing evidence;
 - propose the next gate;
 - coordinate work across repositories;
-- surface conflicts between projects;
-- call execution tools when authorized.
+- call explicitly admitted read-only execution tools.
 
-It must **not** infer undeclared dependencies or silently collapse repositories into one platform.
+It must **not** infer undeclared dependencies, reinterpret another project's boundary decision, silently promote priorities, or collapse repositories into one platform. Runtime durability is supplied by governed-agent-runtime; portfolio authority remains with the Dot operating contract and human authority gates.
 
 ---
 
@@ -161,6 +164,18 @@ These are the strongest candidates for reusable portfolio primitives.
 **Current state:** PLANNED.  
 **Constraint:** do not create as a vague AI umbrella; it must own concrete capabilities and boundaries.
 
+### Portfolio Dot — active build
+
+**Role:** single coordination system above the portfolio graph.  
+**Owns:** digest-bound portfolio context, admitted-work selection, cross-project coordination, next-gate proposals, and execution intent under explicit authority.  
+**Consumes:** System Map, project records, verified contracts, freshness, priority, execution queue, and explicitly admitted capability results.  
+**Runtime substrate:** `achirothmane/governed-agent-runtime` for capability binding, Temporal durability, and PostgreSQL execution evidence.  
+**First executable capability:** Data Engine `data.reconcile` through a verified soft contract.  
+**D1 state:** **PASS** — runtime CI `37732121431`, Data Engine CI `37732132716`, real reconciliation `37732132706`, cross-repository Dots proof `37732132719`, and `TestDotsDurablyInvokesDataReconcile` PASS.  
+**Current state:** ACTIVE BUILD.  
+**Next gate:** Portfolio Context Snapshot v0.1 — one deterministic source-bound snapshot before any next-action reasoning.  
+**Authority boundary:** priority is not execution authority; merge, release, publication, spend, destructive action, new hard dependency, and business-positioning changes remain human-controlled.
+
 ### Execution Fabric — proven upstream composition
 
 **Role:** internal-first execution/orchestration fabric for running real cross-project workflows without collapsing project ownership.  
@@ -255,14 +270,17 @@ These repositories remain valuable as engineering evidence, primitives, or histo
 **Do not:** revive generic agent-control/IAM/orchestration positioning under a new name.  
 **Allowed:** extract independently valuable capabilities only when another project proves the need.
 
-### Governed Agent Runtime — `achirothmane/governed-agent-runtime`
+### Governed Agent Runtime — promoted out of lineage
+
+`achirothmane/governed-agent-runtime` now has a concrete consumer: Portfolio Dot. It is an **ACTIVE durable runtime substrate**, not a commercial platform and not the portfolio authority. A6.1 durable reasoning plus the Dots `data.reconcile` bridge are verified.
+
 ### Agent Action Guard — `achirothmane/agent-action-guard`
 ### Agent Model Gate — `achirothmane/agent-model-gate`
 ### Legal Authority Diff — `achirothmane/legal-authority-diff`
 
-**Portfolio treatment:** verification/governance lineage.  
+**Portfolio treatment for the remaining repositories:** verification/governance lineage.  
 **Default relation:** none.  
-**Promotion rule:** only re-enter the active capability graph when a current product has a concrete dependency and measurable benefit.
+**Promotion rule:** only re-enter the active capability graph when a current consumer has a concrete need and measurable benefit.
 
 ---
 
@@ -335,6 +353,15 @@ EASL
   │ COMPOSES_WITH
   ▼
 Assumption Gate
+
+
+Portfolio Dot (ACTIVE BUILD)
+  │
+  ├── CONSUMES / COMPOSES_WITH ──> Data Engine
+  │       └── data.reconcile: MATCH | DIVERGED | UNKNOWN
+  │
+  └── COMPOSES_WITH ──> Governed Agent Runtime
+          └── MCP snapshot binding + Temporal durability + PostgreSQL evidence
 
 
 Data Engine
