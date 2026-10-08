@@ -187,7 +187,7 @@ execution_queue:
     - id: dots-decision-contract-003
       project: portfolio-dot
       priority_lane: NOW
-      state: READY
+      state: DONE
       authority: PREPARE
       objective: prove Dots can emit one typed snapshot-bound next-gate decision without gaining execution authority
       entry_conditions:
@@ -224,8 +224,68 @@ execution_queue:
         - one real current Portfolio Context Snapshot produces a valid typed next-gate proposal
         - falsification cases reject digest work-item authority and human-boundary violations
         - no tool or external action executes as part of the decision proof
+      result:
+        status: PASS
+        portfolio_run: 37733886188
+        runtime_ci_run: 37733967731
+        evidence_artifact_id: 11530533185
+        snapshot_state: EXECUTABLE
+        snapshot_digest: 5823c604c3843299c54b6b56468c48093e2bb4d839fb0365467200ec8669bb25
+        context_integration_test: TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads
+        decision_integration_test: TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal
+        falsification:
+          - snapshot digest mismatch rejected
+          - hallucinated work item rejected
+          - authority escalation rejected
+          - human-final merge rejected as ordinary proposal
+          - ASK_HUMAN accepted only for registered human-final action
+      completed_on: 2026-10-08
       on_completion:
-        - admit a real model-provider reasoning adapter only if the decision contract passes
+        - admit durable decision-loop composition before any paid real-model call
+
+
+    - id: dots-durable-decision-loop-004
+      project: portfolio-dot
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: prove a validated snapshot-bound Dot decision is durably committed and replayed without re-reasoning
+      entry_conditions:
+        - dots-decision-contract-003 is PASS
+        - governed-agent-runtime A6.1 durable reasoning substrate is available
+        - current Portfolio Context Snapshot is EXECUTABLE
+      allowed_actions:
+        - compose sealed Portfolio Context with the typed Decision Contract
+        - persist validated decision and digest in PostgreSQL
+        - execute decision activity through Temporal
+        - prove same decision ID replays idempotently
+        - prove caller disconnect does not cause a second reasoning decision
+      forbidden_without_human_approval:
+        - execute proposed tools or external effects
+        - call a paid model provider
+        - merge or release
+        - publish or send external messages
+        - spend money
+        - destructive changes
+        - new hard dependencies
+      evidence_required:
+        - validated decision is bound to exact snapshot digest before durable commit
+        - invalid decision never reaches committed state
+        - committed decision survives worker or caller interruption
+        - repeated request with same decision identity returns same committed document
+        - reasoning provider is invoked once for the committed decision
+        - no tool execution occurs in this slice
+      stop_conditions:
+        - decision durability requires bypassing the D3 validator
+        - replay can replace an already committed decision
+        - raw Portfolio source files enter durable reasoning state
+        - model or reasoner gains execution authority
+      completion_definition:
+        - Temporal plus PostgreSQL prove one durable validated Dot decision end to end
+        - replay and disconnect paths preserve the same decision digest
+        - decision remains inert data with no external effect
+      on_completion:
+        - admit a real model-provider adapter behind the durable Decision Gate
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite
