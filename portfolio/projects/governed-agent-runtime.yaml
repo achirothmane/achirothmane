@@ -1,19 +1,37 @@
 project:
   id: governed-agent-runtime
   repository: achirothmane/governed-agent-runtime
-  role: governance-verification-lineage
-  status: HOLD
+  role: durable-agent-runtime-substrate
+  status: ACTIVE
   owner_of:
-    - UNKNOWN
+    - MCP capability snapshot binding
+    - explicit runtime-owned tool admission
+    - durable read-only tool execution through Temporal
+    - durable agent reasoning loop
+    - PostgreSQL invocation and reasoning evidence
+    - caller-disconnect recovery
   produces:
-    - engineering evidence
-  consumes: []
+    - bound runtime fingerprints
+    - durable tool results
+    - durable reasoning decisions
+    - compact observation references
+    - execution evidence
+  consumes:
+    - explicitly admitted MCP capabilities
   dependencies: []
-  contracts: []
-  current_state: lineage-only
-  next_gate: re-enter active graph only with concrete consumer and measurable benefit
-  blockers: []
-  evidence: []
-  distribution: github
-  economic_role: engineering-lineage-asset
-  last_verified: 2026-10-06
+  contracts:
+    - portfolio-dot--governed-agent-runtime.yaml
+  current_state: a6.1-durable-reasoning-plus-dots-data-reconcile-bridge-pass
+  next_gate: support Portfolio Context Snapshot v0.1 without expanding runtime into a commercial platform
+  blockers:
+    - real model-provider adapter not yet proven
+  evidence:
+    - A6.1 durable reasoning loop merged on main
+    - caller-disconnect recovery proven
+    - governed-agent-runtime PR #25 prepares explicit data.reconcile admission
+    - CI run 37732121431 success
+    - cross-repository Data Engine run 37732132719 success
+    - TestDotsDurablyInvokesDataReconcile PASS
+  distribution: internal-runtime
+  economic_role: shared-runtime-substrate
+  last_verified: 2026-10-08
