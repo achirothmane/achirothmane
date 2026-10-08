@@ -89,9 +89,23 @@ review:
       - generic Reddit promotion
 
   commercial_gate:
-    state: WORKFLOW_ADMITTED_NOT_PRODUCT_VALIDATED
+    state: TECHNICAL_WORKFLOW_PASS_COMMERCIAL_VALIDATION_PENDING
+    technical_proof:
+      data_engine_pull_request: 18
+      final_run_id: 37720450592
+      conclusion: success
+      evidence_artifact_id: 11525766459
+      evidence_artifact_name: real-postgres-reconciliation-proof
+      machine_readable_reconciliation: PASS
+      human_readable_acceptance_report: PASS
+      observed_state: DIVERGED
+      observed_exceptions:
+        value_mismatches: 1
+        missing_in_target: 1
+        extra_in_target: 1
+        duplicate_identities: 0
+      cutover_authority: human
     before_more_build:
-      - prove one complete acceptance-report artifact over a realistic PostgreSQL-to-RDS/Aurora rehearsal
       - confirm report reduces manual validation work versus SQL/spreadsheet process
       - obtain external adoption signal from a migration practitioner or partner workflow
     do_not_build_yet:
