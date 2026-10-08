@@ -26,11 +26,11 @@ project:
   contracts:
     - portfolio-dot--data-engine.yaml
     - portfolio-dot--governed-agent-runtime.yaml
-  current_state: d1-data-reconcile-durable-bridge-pass
-  next_gate: build Portfolio Context Snapshot v0.1 before adding more engine capabilities
+  current_state: d2-portfolio-context-snapshot-pass
+  next_gate: prove snapshot-bound typed Decision Contract v0.1 before adding a real model-provider adapter
   blockers:
     - real model-provider adapter is not yet proven for autonomous reasoning
-    - portfolio context is not yet bound into one immutable digest snapshot
+    - real model-provider adapter is not yet admitted until D3 decision contract passes
   evidence:
     - governed-agent-runtime PR #25 prepares explicit Data Engine tool admission for Dots
     - governed-agent-runtime CI run 37732121431 success
@@ -39,6 +39,12 @@ project:
     - data-engine real reconciliation run 37732132706 success
     - cross-repository runtime run 37732132719 success
     - TestDotsDurablyInvokesDataReconcile PASS
+    - Portfolio Context run 37733369517 success
+    - Portfolio Context artifact 11530332932
+    - snapshot digest 35edc52811d57a3fd51b29179985b7ffd360690157c63e60397f1b922c3f2598
+    - 55 source bindings
+    - TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads PASS
+    - governed-agent-runtime CI run 37733563241 success
     - durable path preserves DIVERGED and UNKNOWN without reinterpretation
   distribution: internal-only
   economic_role: portfolio-coordination-asset
