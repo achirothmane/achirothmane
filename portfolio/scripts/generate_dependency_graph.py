@@ -111,6 +111,8 @@ def main() -> None:
         key=lambda c: str(c["id"]),
     )
 
+    structural_review = str(index.get("last_structural_review") or "UNKNOWN")
+
     lines = [
         "# Dependency Graph",
         "",
@@ -123,7 +125,7 @@ def main() -> None:
         f"**Soft relationship contracts:** {len(soft_contracts)}  ",
         f"**Connected projects:** {len(connected)}  ",
         f"**Projects with no verified cross-project contract:** {len(projects) - len(connected)}  ",
-        f"**Structural review:** {index.get('last_structural_review', 'UNKNOWN')}",
+        f"**Structural review:** {structural_review}",
         "",
         "## Verified graph",
         "",
@@ -202,7 +204,7 @@ def main() -> None:
 
     graph = {
         "schema_version": 1,
-        "structural_review": index.get("last_structural_review"),
+        "structural_review": structural_review,
         "project_count": len(projects),
         "verified_contract_count": len(contracts),
         "connected_project_count": len(connected),
