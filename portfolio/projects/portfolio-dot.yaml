@@ -1,0 +1,45 @@
+project:
+  id: portfolio-dot
+  repository: null
+  role: single-portfolio-coordination-system
+  status: ACTIVE_BUILD
+  owner_of:
+    - portfolio context snapshot
+    - admitted-work selection
+    - cross-project coordination
+    - next-gate proposals
+    - execution intent under explicit authority
+  produces:
+    - digest-bound portfolio context
+    - coordination decisions
+    - execution intents
+    - evidence-linked next-gate proposals
+  consumes:
+    - System Map
+    - project records
+    - verified contracts
+    - priority state
+    - freshness state
+    - execution queue
+    - durable runtime capabilities when explicitly admitted
+  dependencies: []
+  contracts:
+    - portfolio-dot--data-engine.yaml
+    - portfolio-dot--governed-agent-runtime.yaml
+  current_state: d1-data-reconcile-durable-bridge-pass
+  next_gate: build Portfolio Context Snapshot v0.1 before adding more engine capabilities
+  blockers:
+    - real model-provider adapter is not yet proven for autonomous reasoning
+    - portfolio context is not yet bound into one immutable digest snapshot
+  evidence:
+    - governed-agent-runtime PR #25 prepares explicit Data Engine tool admission for Dots
+    - governed-agent-runtime CI run 37732121431 success
+    - data-engine PR #21 exposes data.reconcile through MCP
+    - data-engine ci run 37732132716 success
+    - data-engine real reconciliation run 37732132706 success
+    - cross-repository runtime run 37732132719 success
+    - TestDotsDurablyInvokesDataReconcile PASS
+    - durable path preserves DIVERGED and UNKNOWN without reinterpretation
+  distribution: internal-only
+  economic_role: portfolio-coordination-asset
+  last_verified: 2026-10-08
