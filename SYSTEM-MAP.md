@@ -54,9 +54,15 @@ No shared owner is enough. No thematic similarity is enough. No future possibili
 
 The single Portfolio Dot consumes this map as its primary navigation layer.
 
-**D1 PASS:** the Dot can now bind an immutable MCP capability snapshot and durably invoke Data Engine `data.reconcile` through Temporal + PostgreSQL while preserving `DIVERGED` and `UNKNOWN` exactly.
+**D1 PASS:** the Dot binds an immutable MCP capability snapshot and durably invokes Data Engine `data.reconcile` through Temporal + PostgreSQL while preserving `DIVERGED` and `UNKNOWN` exactly.
 
-**D2 READY:** build one immutable, digest-bound Portfolio Context Snapshot before next-action reasoning.
+**D2 PASS:** the Dot consumes one deterministic, source-bound, digest-verified Portfolio Context Snapshot and fails closed on stale, missing, or unknown inputs.
+
+**D3 PASS:** next-gate reasoning is represented by a typed snapshot-bound decision contract; authority escalation, hallucinated work items, stale digests, and human-final actions fail closed.
+
+**D4 PASS:** Temporal + PostgreSQL durably commit one D3-validated decision as inert data. Caller rejoin and store restart return the same committed document, the reasoner is invoked once, tool invocations remain zero, and raw Portfolio source identities do not enter Temporal history.
+
+**D5 READY:** bind one concrete model-provider adapter behind the D4 Reasoner interface. Repository tests remain credential-free; any paid live provider call remains human-gated.
 
 It may:
 
@@ -172,8 +178,11 @@ These are the strongest candidates for reusable portfolio primitives.
 **Runtime substrate:** `achirothmane/governed-agent-runtime` for capability binding, Temporal durability, and PostgreSQL execution evidence.  
 **First executable capability:** Data Engine `data.reconcile` through a verified soft contract.  
 **D1 state:** **PASS** — runtime CI `37732121431`, Data Engine CI `37732132716`, real reconciliation `37732132706`, cross-repository Dots proof `37732132719`, and `TestDotsDurablyInvokesDataReconcile` PASS.  
+**D2 state:** **PASS** — Portfolio Context artifact is deterministic, digest-bound, and executable only when freshness/completeness gates hold.  
+**D3 state:** **PASS** — typed snapshot-bound next-gate decisions cannot exceed admitted authority or silently cross human-final boundaries.  
+**D4 state:** **PASS** — runtime CI `37735201094`, Portfolio run `37735226181`, artifact `11531133449`, snapshot `a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c`, decision digest `b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f`. Reasoner calls = 1; tool invocations = 0; replay/rejoin/store-restart preserve the same committed document.  
 **Current state:** ACTIVE BUILD.  
-**Next gate:** Portfolio Context Snapshot v0.1 — one deterministic source-bound snapshot before any next-action reasoning.  
+**Next gate:** D5 model-provider adapter behind the durable Decision Gate; no paid live call without explicit human approval.  
 **Authority boundary:** priority is not execution authority; merge, release, publication, spend, destructive action, new hard dependency, and business-positioning changes remain human-controlled.
 
 ### Execution Fabric — proven upstream composition
