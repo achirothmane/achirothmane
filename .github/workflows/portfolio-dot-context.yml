@@ -81,7 +81,7 @@ jobs:
           assert len(doc["snapshot_digest"]) == 64
           assert all(c in "0123456789abcdef" for c in doc["snapshot_digest"])
           assert "portfolio-dot" in doc["projection"]["now_projects"]
-          assert any(item["id"] == "dots-durable-decision-loop-004" for item in doc["projection"]["runnable_items"])
+          assert any(item["id"] == "dots-model-provider-adapter-005" for item in doc["projection"]["runnable_items"])
           assert "merge" in doc["projection"]["human_final_on"]
           assert len(doc["source_bindings"]) >= 10
 
