@@ -20,7 +20,7 @@ portfolio:
   execution_queue: ./execution-queue.yaml
   dot_operating_contract: ./DOT-OPERATING-CONTRACT.md
   dot_handoff: ./dot-handoff.yaml
-  last_structural_review: 2026-10-07
+  last_structural_review: 2026-10-08
   truth_policy:
     - explicit-records-over-inference
     - unknown-over-guessing
@@ -67,6 +67,7 @@ portfolio:
     - projects/legal-authority-diff.yaml
     - projects/marketing-automation-suite.yaml
     - projects/mini-foot.yaml
+    - projects/portfolio-dot.yaml
     - projects/postgres-change-safety.yaml
     - projects/private-code-modernization-factory.yaml
     - projects/releaseguard-n8n.yaml
@@ -80,4 +81,6 @@ portfolio:
     - contracts/ci-retry-gate-engine--consumer-e2e.yaml
     - contracts/execution-fabric--data-engine.yaml
     - contracts/execution-fabric--postgres-change-safety.yaml
+    - contracts/portfolio-dot--data-engine.yaml
+    - contracts/portfolio-dot--governed-agent-runtime.yaml
     - contracts/workflow-failure-lab--ci-retry-gate-engine.yaml
