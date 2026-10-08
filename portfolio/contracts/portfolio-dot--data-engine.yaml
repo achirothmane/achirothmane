@@ -1,0 +1,32 @@
+contract:
+  id: portfolio-dot--data-engine
+  version: 1
+  status: VERIFIED_RELATIONSHIP
+  source_project: portfolio-dot
+  target_project: data-engine
+  relations:
+    - CONSUMES
+    - COMPOSES_WITH
+  hard_dependency: false
+  purpose: allow Dots to consume explicit read-only Data Engine decisions without owning data semantics
+  source_consumes:
+    - data.profile structured decision
+    - data.reconcile structured MATCH / DIVERGED / UNKNOWN evidence
+  target_produces:
+    - profile boundary decisions
+    - cross-system reconciliation decisions
+    - snapshot hashes and mismatch evidence
+  boundary:
+    - Dots may invoke only tools explicitly admitted by its AgentSpec and runtime allowlist
+    - Data Engine remains semantic authority for returned decisions
+    - Dots must preserve UNKNOWN as UNKNOWN
+    - Dots may not repair data or declare cutover safe
+    - remote MCP discovery does not expand authority
+  verification:
+    status: evidenced
+    evidence:
+      - data-engine PR #21
+      - governed-agent-runtime PR #25
+      - data-engine cross-repository run 37732132719 success
+      - TestDotsDurablyInvokesDataReconcile PASS
+  last_verified: 2026-10-08
