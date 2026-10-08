@@ -26,8 +26,8 @@ project:
   contracts:
     - portfolio-dot--data-engine.yaml
     - portfolio-dot--governed-agent-runtime.yaml
-  current_state: d2-portfolio-context-snapshot-pass
-  next_gate: prove snapshot-bound typed Decision Contract v0.1 before adding a real model-provider adapter
+  current_state: d3-snapshot-bound-decision-contract-pass
+  next_gate: prove durable validated decision commit and replay before any paid real-model call
   blockers:
     - real model-provider adapter is not yet proven for autonomous reasoning
     - real model-provider adapter is not yet admitted until D3 decision contract passes
@@ -45,6 +45,11 @@ project:
     - 55 source bindings
     - TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads PASS
     - governed-agent-runtime CI run 37733563241 success
+    - D3 Portfolio Context/Decision run 37733886188 success
+    - D3 snapshot digest 5823c604c3843299c54b6b56468c48093e2bb4d839fb0365467200ec8669bb25
+    - D3 evidence artifact 11530533185
+    - TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal PASS
+    - governed-agent-runtime D3 CI run 37733967731 success
     - durable path preserves DIVERGED and UNKNOWN without reinterpretation
   distribution: internal-only
   economic_role: portfolio-coordination-asset
