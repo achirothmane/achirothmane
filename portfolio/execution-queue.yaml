@@ -1,8 +1,8 @@
 execution_queue:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-08
   source_priority_report: ./priority-report.json
-  runnable_count: 0
+  runnable_count: 1
   items:
     - id: data-engine-capability-boundaries-001
       project: data-engine
@@ -66,6 +66,105 @@ execution_queue:
         - capability proof recorded
         - no new G4 slice is admitted automatically
         - human merge decision for PR #8 is the next gate
+
+
+    - id: dots-data-reconcile-001
+      project: portfolio-dot
+      priority_lane: NOW
+      state: DONE
+      authority: PREPARE
+      objective: prove Portfolio Dots can bind and durably invoke Data Engine data.reconcile while preserving MATCH / DIVERGED / UNKNOWN semantics
+      entry_conditions:
+        - portfolio-dot is explicitly promoted to active build by human directive
+        - Data Engine exposes reconciliation with an explicit boundary
+        - governed-agent-runtime A6.1 durable tool path is available
+      allowed_actions:
+        - expose data.reconcile through Data Engine MCP
+        - admit data.reconcile only through explicit AgentSpec and runtime allowlist
+        - prepare reversible branches and draft pull requests in Data Engine and governed-agent-runtime
+        - run Temporal PostgreSQL and MCP integration proofs
+      forbidden_without_human_approval:
+        - merge to main
+        - publish a release
+        - add a hard dependency
+        - give Dots mutating data authority
+        - reinterpret UNKNOWN as success
+        - grant cutover approval authority
+      evidence_required:
+        - real MCP discovery of data.reconcile
+        - immutable capability snapshot binding
+        - Temporal durable invocation
+        - PostgreSQL invocation result evidence
+        - idempotent retry with the same invocation ID
+        - DIVERGED evidence preserved
+        - unsupported comparison remains UNKNOWN
+        - raw input evidence is not copied into Agent Server events
+      stop_conditions:
+        - remote MCP metadata would grant authority automatically
+        - Dots must access Data Engine filesystem directly
+        - runtime requires mutating tool semantics
+        - UNKNOWN is collapsed into success
+      completion_definition:
+        - Data Engine repository CI passes
+        - governed-agent-runtime repository CI passes
+        - cross-repository Dots durable integration passes
+        - resulting Dots and project state are recorded
+      result:
+        status: PASS
+        data_engine_pull_request: 21
+        runtime_pull_request: 25
+        data_engine_ci_run: 37732132716
+        data_engine_reconciliation_run: 37732132706
+        runtime_ci_run: 37732121431
+        cross_repository_run: 37732132719
+        integration_test: TestDotsDurablyInvokesDataReconcile
+        observed_boundaries:
+          - DIVERGED preserved
+          - unsupported comparison preserved as UNKNOWN
+          - runtime tool admission remains explicit and read-only
+          - raw reconciliation evidence absent from Agent Server event payloads
+      completed_on: 2026-10-08
+
+    - id: dots-portfolio-context-snapshot-002
+      project: portfolio-dot
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: build one immutable digest-bound Portfolio Context Snapshot for Dots before any next-action reasoning
+      entry_conditions:
+        - dots-data-reconcile-001 is PASS
+        - portfolio machine records and verified contracts are available
+        - no mutation authority is required
+      allowed_actions:
+        - define a compact Portfolio Context Snapshot schema
+        - bind source file digests and structural review date
+        - include priority freshness dependency and execution-admission state
+        - prepare parser and falsification tests
+        - prepare reversible branch and draft pull request
+      forbidden_without_human_approval:
+        - merge to main
+        - publish
+        - infer missing project dependencies
+        - silently promote a project to NOW
+        - execute a work item from stale or incomplete context
+        - create a new hard dependency
+      evidence_required:
+        - deterministic snapshot digest
+        - same inputs produce same digest
+        - source change changes digest
+        - UNKNOWN or missing required source fails closed
+        - snapshot preserves current human authority boundaries
+      stop_conditions:
+        - snapshot duplicates project truth instead of referencing it
+        - stale data can be admitted without an explicit freshness state
+        - parser must guess missing fields
+        - implementation expands into a generic knowledge platform
+      completion_definition:
+        - one real Portfolio Context Snapshot is generated from current portfolio records
+        - digest and source bindings are verified
+        - a Dots reasoner can consume the snapshot without reading arbitrary repository files
+      on_completion:
+        - admit next reasoning slice only if snapshot boundary passes
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite
