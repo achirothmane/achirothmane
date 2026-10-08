@@ -13,13 +13,43 @@
       "status": "ACTIVE_PRIVATE"
     },
     {
+      "id": "data-engine",
+      "repository": "achirothmane/data-engine",
+      "role": "trustworthy-data-capability-layer",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "execution-fabric",
+      "repository": null,
+      "role": "shared-polyglot-execution-substrate",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "governed-agent-runtime",
+      "repository": "achirothmane/governed-agent-runtime",
+      "role": "durable-agent-runtime-substrate",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "portfolio-dot",
+      "repository": null,
+      "role": "single-portfolio-coordination-system",
+      "status": "ACTIVE_BUILD"
+    },
+    {
+      "id": "postgres-change-safety",
+      "repository": "achirothmane/postgres-change-safety",
+      "role": "database-change-reliability",
+      "status": "ACTIVE"
+    },
+    {
       "id": "workflow-failure-lab",
       "repository": "achirothmane/workflow-failure-lab",
       "role": "reliability-failure-experimentation",
       "status": "ACTIVE"
     }
   ],
-  "connected_project_count": 3,
+  "connected_project_count": 8,
   "edges": [
     {
       "hard_dependency": true,
@@ -35,6 +65,43 @@
     },
     {
       "hard_dependency": false,
+      "id": "execution-fabric--data-engine",
+      "relations": [
+        "COMPOSES_WITH"
+      ],
+      "source": "execution-fabric",
+      "target": "data-engine"
+    },
+    {
+      "hard_dependency": false,
+      "id": "execution-fabric--postgres-change-safety",
+      "relations": [
+        "COMPOSES_WITH"
+      ],
+      "source": "execution-fabric",
+      "target": "postgres-change-safety"
+    },
+    {
+      "hard_dependency": false,
+      "id": "portfolio-dot--data-engine",
+      "relations": [
+        "CONSUMES",
+        "COMPOSES_WITH"
+      ],
+      "source": "portfolio-dot",
+      "target": "data-engine"
+    },
+    {
+      "hard_dependency": false,
+      "id": "portfolio-dot--governed-agent-runtime",
+      "relations": [
+        "COMPOSES_WITH"
+      ],
+      "source": "portfolio-dot",
+      "target": "governed-agent-runtime"
+    },
+    {
+      "hard_dependency": false,
       "id": "workflow-failure-lab--ci-retry-gate-engine",
       "relations": [
         "PRODUCES",
@@ -44,8 +111,8 @@
       "target": "ci-retry-gate-engine"
     }
   ],
-  "project_count": 38,
+  "project_count": 40,
   "schema_version": 1,
-  "structural_review": "2026-10-06",
-  "verified_contract_count": 2
+  "structural_review": "2026-10-08",
+  "verified_contract_count": 6
 }

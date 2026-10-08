@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-engineering.local/schemas/portfolio-context-v0.1.json",
+  "title": "Portfolio Context Snapshot v0.1",
+  "type": "object",
+  "required": ["schema_version", "state", "reasons", "source_bindings", "projection", "snapshot_digest"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "state": {"enum": ["EXECUTABLE", "NON_EXECUTABLE"]},
+    "reasons": {"type": "array", "items": {"type": "string"}},
+    "source_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string"},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "projection": {"type": "object"},
+    "snapshot_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-native-engineering.local/schemas/kestra-data-engine-execution-record-v1.json",
+  "title": "Kestra Data Engine Execution Record v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "orchestration_state",
+    "reason",
+    "engine_process_exit",
+    "data_publishable",
+    "evidence_authority",
+    "orchestrator_mutates_evidence",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "orchestration_state": {
+      "enum": ["KNOWN_SUCCESS", "KNOWN_FAILURE", "UNKNOWN"]
+    },
+    "reason": {"type": "string"},
+    "kestra_execution_id": {"type": ["string", "null"]},
+    "data_engine_commit": {"type": ["string", "null"]},
+    "engine_process_exit": {"type": ["integer", "null"]},
+    "started_at": {"type": ["string", "null"]},
+    "ended_at": {"type": ["string", "null"]},
+    "data_publishable": {"type": ["boolean", "null"]},
+    "data_quality": {"type": ["object", "null"]},
+    "evidence_authority": {"const": "data-engine"},
+    "orchestrator_mutates_evidence": {"const": false},
+    "artifacts": {"type": "object"}
+  },
+  "additionalProperties": true
+}

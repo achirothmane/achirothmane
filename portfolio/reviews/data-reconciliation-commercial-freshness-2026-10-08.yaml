@@ -1,0 +1,144 @@
+review:
+  id: data-reconciliation-commercial-freshness-2026-10-08
+  reviewed_at: 2026-10-08
+  subject: Data Engine cross-system reconciliation / migration verification
+  decision: CAPABILITY_PROVEN_KEEP_GENERIC_PRODUCT_REJECTED
+
+  market_evidence:
+    category_exists: true
+    existing_spend: true
+    mature_competitors:
+      - Datafold
+      - QuerySurge
+      - Datagaps
+    incumbent_capabilities:
+      - row-level source-to-target reconciliation
+      - migration validation
+      - value-level diffing
+      - audit-ready reports
+      - CI/CD integration
+      - broad connector catalogs
+      - enterprise deployment
+    platform_encroachment:
+      - Snowflake provides PostgreSQL migration validation workflows
+
+  competitive_freshness_gate:
+    strongest_competitors_today: >
+      Datafold, QuerySurge, and Datagaps already sell mature reconciliation and migration
+      validation; Snowflake also exposes native PostgreSQL validation workflows.
+    is_generic_idea_already_a_feature: true
+    generic_positioning_decision: REJECT
+    allowed_build: >
+      A broad self-hosted Cross-System Reconciliation Core inside Data Engine, because it is
+      directly useful as an owned capability and does not require claiming category novelty.
+    required_future_difference:
+      - independent evidence-bound verification
+      - explicit MATCH / DIVERGED / UNKNOWN boundary
+      - refusal when identity/comparison authority is insufficient
+      - integration with Data Engine provenance and boundary contracts
+      - measurable operational advantage over existing tools for a specific buyer workflow
+
+  upstream_signal:
+    datafold_data_diff:
+      license: MIT
+      status: archived
+      archived_since: 2024-05-17
+      treatment: REFERENCE_OR_SECONDARY_UPSTREAM_NOT_HARD_FORK_YET
+      reason: >
+        The archived open-source implementation proves the problem shape but is Python and no
+        longer maintained by Datafold. Data Engine should first prove its own bounded capability
+        before importing or forking code.
+
+  commercial_boundary:
+    do_not_claim:
+      - generic migration validator novelty
+      - PostgreSQL to Snowflake as a differentiated product by itself
+      - enterprise connector breadth
+      - audit platform completeness
+    buyer_positioning: DEFERRED
+    packaging: DEFERRED
+    pricing: DEFERRED
+
+  build_gate:
+    state: PASS_REAL_DATABASE_PROOF
+    capability: Cross-System Reconciliation Core
+    first_contract:
+      input: pinned CSV source and target snapshots
+      identity: explicit unique key
+      comparison: EXACT_RAW
+      states:
+        - MATCH
+        - DIVERGED
+        - UNKNOWN
+      must_detect:
+        - missing rows
+        - extra rows
+        - value mismatches
+        - duplicate identities
+        - required-column divergence
+      must_not:
+        - infer mappings
+        - normalize values
+        - repair data
+        - collapse duplicate identities
+        - declare cutover safe
+
+  stop_conditions:
+    - capability begins copying mature enterprise platform breadth without a proven buyer wedge
+    - comparison requires implicit semantic coercion
+    - product positioning depends only on lower price or open source
+    - no real internal workflow benefits from the capability
+
+
+  proof:
+    data_engine_pull_request: 18
+    branch: capability/cross-system-reconciliation-v0.1
+    repository_ci:
+      run_id: 37719661919
+      conclusion: success
+    real_database_workflow:
+      run_id: 37719661975
+      conclusion: success
+      databases:
+        source: PostgreSQL 16
+        target: PostgreSQL 16
+        independent_instances: true
+      acquisition:
+        source_rows: 3
+        target_rows: 3
+        method: PostgreSQL client-side COPY over explicit ordered SQL query
+        query_hash_bound: true
+        snapshots_sha256_bound: true
+      observed_decision:
+        state: DIVERGED
+        compared_rows: 2
+        value_mismatches: 1
+        missing_in_target: 1
+        extra_in_target: 1
+        duplicate_keys: 0
+      expected_specific_evidence:
+        - ord-002 amount source 50.00 vs target 55.00
+        - ord-003 missing in target
+        - ord-004 extra in target
+      boundary_preserved:
+        transforms_values: false
+        infers_mappings: false
+        repairs_data: false
+        declares_cutover_safe: false
+      evidence_artifact_id: 11525262469
+      evidence_artifact_name: real-postgres-reconciliation-proof
+
+  post_proof_decision:
+    capability: KEEP
+    more_feature_building_now: STOP
+    generic_product_positioning: REJECT
+    connector_arms_race: REJECT
+    next_commercial_gate: >
+      Identify one buyer workflow where independent evidence-bound verification has a
+      measurable advantage over incumbent or platform-native migration validation.
+    required_buyer_evidence:
+      - named workflow and buyer
+      - economic consequence of a missed divergence
+      - why platform-native validation is insufficient
+      - realistic distribution path
+      - willingness to adopt or pay

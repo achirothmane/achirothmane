@@ -75,8 +75,18 @@ The Dot must stop rather than fill gaps by inference when:
 
 ## Current execution state
 
-As of 2026-10-06 there is **no READY work item**.
+As of 2026-10-08 the Portfolio Dot is in **active build**.
 
-`data-engine-capability-boundaries-001` completed with PASS evidence. The resulting draft PR #8 is verified and mergeable, but merge authority remains human-controlled.
+`dots-data-reconcile-001` completed with PASS evidence across Data Engine + governed-agent-runtime:
 
-All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.
+- Data Engine PR #21;
+- governed-agent-runtime PR #25;
+- Data Engine CI run `37732132716` PASS;
+- real reconciliation run `37732132706` PASS;
+- governed-agent-runtime CI run `37732121431` PASS;
+- cross-repository Dots runtime run `37732132719` PASS;
+- `TestDotsDurablyInvokesDataReconcile` PASS.
+
+The current READY item is `dots-portfolio-context-snapshot-002`.
+
+Its purpose is to bind the portfolio's machine-readable state into one immutable, digest-bound context snapshot before Dots performs next-action reasoning. No merge, publication, spend, destructive action, new hard dependency, or business-positioning change is authorized by that READY state.

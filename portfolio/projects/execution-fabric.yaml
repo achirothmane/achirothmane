@@ -1,0 +1,46 @@
+project:
+  id: execution-fabric
+  repository: null
+  upstream:
+    repository: kestra-io/kestra
+    tested_version: 2.0.5
+    license: Apache-2.0
+  role: shared-polyglot-execution-substrate
+  status: ACTIVE
+  owner_of:
+    - cross-project execution orchestration boundary
+    - orchestration-state observation
+    - execution log and artifact retention
+    - machine-readable execution evidence contract
+  produces:
+    - orchestration state
+    - execution logs
+    - retained artifact references
+    - execution evidence records
+  consumes:
+    - project-local executable contracts
+  dependencies: []
+  contracts:
+    - execution-fabric--data-engine.yaml
+    - execution-fabric--postgres-change-safety.yaml
+  current_state: adapter-v0.1-proven-two-domain-upstream-compatible-no-fork
+  next_gate: stop infrastructure expansion; reuse adapter v0.1 only inside the next real active product workflow and measure operational savings
+  blockers:
+    - no architectural divergence currently justifies ownership of a Kestra fork
+    - long-run operational time and failure savings from repeated real use are not yet measured
+  evidence:
+    - Data Engine run 37599273399 success with strict clean-checkout gate
+    - Data Engine Kestra execution 6GteU2ysL0Qw6plDsZCJqM KNOWN_SUCCESS
+    - PostgreSQL Change Safety run 37599130862 success with strict clean-checkout gate
+    - PostgreSQL Change Safety normal test run 37599131069 success
+    - PostgreSQL Change Safety Kestra execution 4jf8cUbl1usnD1cc96LaEN KNOWN_SUCCESS
+    - both proofs use Kestra OSS Process runner and no Enterprise-only capability
+    - Kestra runtime is isolated outside consumer checkouts
+    - Execution Fabric Adapter v0.1 Git blob b40f485d0f8b71de721bbd0fd732d9b65ff97e35 is identical across canonical + both consumers
+    - Adapter v0.1 Data Engine run 37622847435 success; evidence artifact 11482981688
+    - Adapter v0.1 PostgreSQL run 37622867249 success; normal test run 37622867261 success; evidence artifact 11483265726
+    - consumer-local orchestration block reduced 83 -> 21 lines for Data Engine (74.7%)
+    - consumer-local orchestration block reduced 85 -> 20 lines for PostgreSQL Change Safety (76.5%)
+  distribution: internal-first
+  economic_role: compounding-shared-infrastructure
+  last_verified: 2026-10-07

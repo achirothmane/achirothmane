@@ -1,0 +1,186 @@
+id: data_engine_execution_spike
+namespace: ai_native_engineering.execution
+
+description: >
+  Bounded Kestra OSS spike executing Data Engine from the checked-out repository.
+  Kestra observes execution and preserves artifacts; Data Engine remains the sole
+  semantic authority.
+
+inputs:
+  - id: data_engine_root
+    type: STRING
+    description: Absolute path to the checked-out Data Engine repository.
+
+tasks:
+  - id: run_data_engine
+    type: io.kestra.plugin.scripts.shell.Script
+    taskRunner:
+      type: io.kestra.plugin.core.runner.Process
+    outputFiles:
+      - "run/execution-record.json"
+      - "run/stdout.log"
+      - "run/stderr.log"
+      - "run/out/result.json"
+      - "run/out/quality.json"
+      - "run/out/provenance.jsonl"
+      - "run/out/dataset.csv"
+      - "run/work/source-plan.json"
+      - "run/work/acquisition-manifest.json"
+    script: |
+      set -u
+
+      root="{{ inputs.data_engine_root }}"
+      run_root="{{ workingDir }}/run"
+      out_dir="$run_root/out"
+      work_dir="$run_root/work"
+      memory_file="$run_root/memory.json"
+
+      mkdir -p "$out_dir" "$work_dir"
+
+      if [ ! -f "$root/go.mod" ] || [ ! -f "$root/cmd/dataengine/main.go" ]; then
+        printf '%s\n' "Data Engine checkout not found at: $root" > "$run_root/stderr.log"
+        python3 - "$run_root/execution-record.json" "{{ execution.id }}" "$root" <<'PY'
+      import json, sys
+      path, execution_id, root = sys.argv[1:4]
+      record = {
+          "schema_version": 1,
+          "orchestration_state": "UNKNOWN",
+          "reason": "DATA_ENGINE_CHECKOUT_UNAVAILABLE",
+          "kestra_execution_id": execution_id,
+          "data_engine_root": root,
+          "engine_process_exit": None,
+          "data_publishable": None,
+          "evidence_authority": "data-engine",
+          "orchestrator_mutates_evidence": False,
+          "artifacts": {}
+      }
+      with open(path, "w", encoding="utf-8") as f:
+          json.dump(record, f, indent=2, sort_keys=True)
+      PY
+        exit 3
+      fi
+
+      cp "$root/examples/real-gpu-market/memory.json" "$memory_file"
+
+      engine_commit="$(git -C "$root" rev-parse HEAD 2>/dev/null || printf UNKNOWN)"
+      started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+      set +e
+      (
+        cd "$root"
+        go run ./cmd/dataengine auto \
+          --request examples/real-gpu-market/request.json \
+          --catalog examples/real-gpu-market/catalog.json \
+          --memory "$memory_file" \
+          --work "$work_dir" \
+          --out "$out_dir"
+      ) >"$run_root/stdout.log" 2>"$run_root/stderr.log"
+      engine_exit=$?
+      set -e
+
+      ended_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+      python3 - \
+        "$run_root/execution-record.json" \
+        "{{ execution.id }}" \
+        "$engine_commit" \
+        "$engine_exit" \
+        "$started_at" \
+        "$ended_at" \
+        "$out_dir" <<'PY'
+      import hashlib
+      import json
+      import os
+      import sys
+
+      record_path, execution_id, commit, exit_code, started_at, ended_at, out_dir = sys.argv[1:8]
+      exit_code = int(exit_code)
+
+      required = {
+          "result": os.path.join(out_dir, "result.json"),
+          "quality": os.path.join(out_dir, "quality.json"),
+          "provenance": os.path.join(out_dir, "provenance.jsonl"),
+          "dataset": os.path.join(out_dir, "dataset.csv"),
+      }
+
+      def sha256(path):
+          h = hashlib.sha256()
+          with open(path, "rb") as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                  h.update(chunk)
+          return h.hexdigest()
+
+      artifacts = {}
+      for name, path in required.items():
+          if os.path.isfile(path):
+              artifacts[name] = {
+                  "sha256": sha256(path),
+                  "bytes": os.path.getsize(path),
+              }
+
+      quality = None
+      if os.path.isfile(required["quality"]):
+          with open(required["quality"], encoding="utf-8") as f:
+              quality = json.load(f)
+
+      if exit_code != 0:
+          state = "KNOWN_FAILURE"
+          reason = "DATA_ENGINE_NONZERO_EXIT"
+      elif len(artifacts) != len(required):
+          state = "UNKNOWN"
+          reason = "REQUIRED_ARTIFACTS_MISSING"
+      else:
+          state = "KNOWN_SUCCESS"
+          reason = "PROCESS_AND_ARTIFACTS_OBSERVED"
+
+      record = {
+          "schema_version": 1,
+          "orchestration_state": state,
+          "reason": reason,
+          "kestra_execution_id": execution_id,
+          "data_engine_commit": commit,
+          "engine_process_exit": exit_code,
+          "started_at": started_at,
+          "ended_at": ended_at,
+          "data_publishable": None if quality is None else quality.get("publishable"),
+          "data_quality": None if quality is None else {
+              "entities": quality.get("entities"),
+              "coverage": quality.get("coverage"),
+              "mean_confidence": quality.get("mean_confidence"),
+              "conflicting_cells": quality.get("conflicting_cells"),
+              "unknown_cells": quality.get("unknown_cells"),
+              "reasons": quality.get("reasons"),
+          },
+          "evidence_authority": "data-engine",
+          "orchestrator_mutates_evidence": False,
+          "artifacts": artifacts,
+      }
+
+      with open(record_path, "w", encoding="utf-8") as f:
+          json.dump(record, f, indent=2, sort_keys=True)
+      PY
+
+      if [ "$engine_exit" -ne 0 ]; then
+        exit "$engine_exit"
+      fi
+
+      python3 - "$run_root/execution-record.json" <<'PY'
+      import json, sys
+      with open(sys.argv[1], encoding="utf-8") as f:
+          state = json.load(f)["orchestration_state"]
+      raise SystemExit(0 if state == "KNOWN_SUCCESS" else 4)
+      PY
+
+      # Small structured metadata goes through Kestra task outputs.
+      # The evidence files themselves remain in outputFiles/internal storage.
+      python3 - "$run_root/execution-record.json" <<'PY'
+      import json, sys
+      with open(sys.argv[1], encoding="utf-8") as f:
+          record = json.load(f)
+      print("::" + json.dumps({"outputs": {"execution_record": json.dumps(record, sort_keys=True)}}) + "::")
+      PY
+
+outputs:
+  - id: execution_record
+    type: STRING
+    value: "{{ outputs.run_data_engine.vars.execution_record }}"

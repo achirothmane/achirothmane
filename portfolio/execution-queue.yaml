@@ -1,8 +1,8 @@
 execution_queue:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-08
   source_priority_report: ./priority-report.json
-  runnable_count: 0
+  runnable_count: 1
   items:
     - id: data-engine-capability-boundaries-001
       project: data-engine
@@ -66,6 +66,290 @@ execution_queue:
         - capability proof recorded
         - no new G4 slice is admitted automatically
         - human merge decision for PR #8 is the next gate
+
+
+    - id: dots-data-reconcile-001
+      project: portfolio-dot
+      priority_lane: NOW
+      state: DONE
+      authority: PREPARE
+      objective: prove Portfolio Dots can bind and durably invoke Data Engine data.reconcile while preserving MATCH / DIVERGED / UNKNOWN semantics
+      entry_conditions:
+        - portfolio-dot is explicitly promoted to active build by human directive
+        - Data Engine exposes reconciliation with an explicit boundary
+        - governed-agent-runtime A6.1 durable tool path is available
+      allowed_actions:
+        - expose data.reconcile through Data Engine MCP
+        - admit data.reconcile only through explicit AgentSpec and runtime allowlist
+        - prepare reversible branches and draft pull requests in Data Engine and governed-agent-runtime
+        - run Temporal PostgreSQL and MCP integration proofs
+      forbidden_without_human_approval:
+        - merge to main
+        - publish a release
+        - add a hard dependency
+        - give Dots mutating data authority
+        - reinterpret UNKNOWN as success
+        - grant cutover approval authority
+      evidence_required:
+        - real MCP discovery of data.reconcile
+        - immutable capability snapshot binding
+        - Temporal durable invocation
+        - PostgreSQL invocation result evidence
+        - idempotent retry with the same invocation ID
+        - DIVERGED evidence preserved
+        - unsupported comparison remains UNKNOWN
+        - raw input evidence is not copied into Agent Server events
+      stop_conditions:
+        - remote MCP metadata would grant authority automatically
+        - Dots must access Data Engine filesystem directly
+        - runtime requires mutating tool semantics
+        - UNKNOWN is collapsed into success
+      completion_definition:
+        - Data Engine repository CI passes
+        - governed-agent-runtime repository CI passes
+        - cross-repository Dots durable integration passes
+        - resulting Dots and project state are recorded
+      result:
+        status: PASS
+        data_engine_pull_request: 21
+        runtime_pull_request: 25
+        data_engine_ci_run: 37732132716
+        data_engine_reconciliation_run: 37732132706
+        runtime_ci_run: 37732121431
+        cross_repository_run: 37732132719
+        integration_test: TestDotsDurablyInvokesDataReconcile
+        observed_boundaries:
+          - DIVERGED preserved
+          - unsupported comparison preserved as UNKNOWN
+          - runtime tool admission remains explicit and read-only
+          - raw reconciliation evidence absent from Agent Server event payloads
+      completed_on: 2026-10-08
+
+    - id: dots-portfolio-context-snapshot-002
+      project: portfolio-dot
+      priority_lane: NOW
+      state: DONE
+      authority: PREPARE
+      objective: build one immutable digest-bound Portfolio Context Snapshot for Dots before any next-action reasoning
+      entry_conditions:
+        - dots-data-reconcile-001 is PASS
+        - portfolio machine records and verified contracts are available
+        - no mutation authority is required
+      allowed_actions:
+        - define a compact Portfolio Context Snapshot schema
+        - bind source file digests and structural review date
+        - include priority freshness dependency and execution-admission state
+        - prepare parser and falsification tests
+        - prepare reversible branch and draft pull request
+      forbidden_without_human_approval:
+        - merge to main
+        - publish
+        - infer missing project dependencies
+        - silently promote a project to NOW
+        - execute a work item from stale or incomplete context
+        - create a new hard dependency
+      evidence_required:
+        - deterministic snapshot digest
+        - same inputs produce same digest
+        - source change changes digest
+        - UNKNOWN or missing required source fails closed
+        - snapshot preserves current human authority boundaries
+      stop_conditions:
+        - snapshot duplicates project truth instead of referencing it
+        - stale data can be admitted without an explicit freshness state
+        - parser must guess missing fields
+        - implementation expands into a generic knowledge platform
+      completion_definition:
+        - one real Portfolio Context Snapshot is generated from current portfolio records
+        - digest and source bindings are verified
+        - a Dots reasoner can consume the snapshot without reading arbitrary repository files
+      result:
+        status: PASS
+        portfolio_run: 37733369517
+        runtime_ci_run: 37733563241
+        evidence_artifact_id: 11530332932
+        snapshot_state: EXECUTABLE
+        snapshot_digest: 35edc52811d57a3fd51b29179985b7ffd360690157c63e60397f1b922c3f2598
+        source_bindings: 55
+        integration_test: TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads
+        falsification:
+          - same inputs produce same digest
+          - bound source mutation changes digest
+          - stale generated state fails closed
+          - UNKNOWN NOW freshness fails closed
+          - missing required source fails hard
+          - READY item outside NOW fails closed
+      completed_on: 2026-10-08
+      on_completion:
+        - admit next reasoning slice only if snapshot boundary passes
+
+
+    - id: dots-decision-contract-003
+      project: portfolio-dot
+      priority_lane: NOW
+      state: DONE
+      authority: PREPARE
+      objective: prove Dots can emit one typed snapshot-bound next-gate decision without gaining execution authority
+      entry_conditions:
+        - dots-portfolio-context-snapshot-002 is PASS
+        - Portfolio Context Snapshot is EXECUTABLE
+        - runtime can consume the sealed snapshot without arbitrary repository reads
+      allowed_actions:
+        - define typed Dot decision schema
+        - bind every decision to snapshot_digest and work_item_id
+        - validate proposed authority against the admitted work item
+        - distinguish PROPOSE_NEXT_GATE ASK_HUMAN and REFUSE
+        - prepare reversible runtime tests and draft changes
+      forbidden_without_human_approval:
+        - execute the proposed work item
+        - merge or release
+        - publish or send external messages
+        - spend money
+        - destructive changes
+        - new hard dependencies
+        - reinterpret another capability boundary
+      evidence_required:
+        - valid decision references the exact current snapshot digest
+        - hallucinated work item is rejected
+        - stale or mutated snapshot digest is rejected
+        - requested authority cannot exceed the admitted work item authority
+        - human-final action cannot be emitted as ordinary PROPOSE_NEXT_GATE
+        - NON_EXECUTABLE context cannot reach decision validation
+      stop_conditions:
+        - decision validator needs arbitrary repository reads
+        - model output can bypass typed decision validation
+        - priority is treated as execution authority
+        - external commitment can be represented as ordinary PREPARE work
+      completion_definition:
+        - one real current Portfolio Context Snapshot produces a valid typed next-gate proposal
+        - falsification cases reject digest work-item authority and human-boundary violations
+        - no tool or external action executes as part of the decision proof
+      result:
+        status: PASS
+        portfolio_run: 37733886188
+        runtime_ci_run: 37733967731
+        evidence_artifact_id: 11530533185
+        snapshot_state: EXECUTABLE
+        snapshot_digest: 5823c604c3843299c54b6b56468c48093e2bb4d839fb0365467200ec8669bb25
+        context_integration_test: TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads
+        decision_integration_test: TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal
+        falsification:
+          - snapshot digest mismatch rejected
+          - hallucinated work item rejected
+          - authority escalation rejected
+          - human-final merge rejected as ordinary proposal
+          - ASK_HUMAN accepted only for registered human-final action
+      completed_on: 2026-10-08
+      on_completion:
+        - admit durable decision-loop composition before any paid real-model call
+
+
+    - id: dots-durable-decision-loop-004
+      project: portfolio-dot
+      priority_lane: NOW
+      state: DONE
+      authority: PREPARE
+      objective: prove a validated snapshot-bound Dot decision is durably committed and replayed without re-reasoning
+      entry_conditions:
+        - dots-decision-contract-003 is PASS
+        - governed-agent-runtime A6.1 durable reasoning substrate is available
+        - current Portfolio Context Snapshot is EXECUTABLE
+      allowed_actions:
+        - compose sealed Portfolio Context with the typed Decision Contract
+        - persist validated decision and digest in PostgreSQL
+        - execute decision activity through Temporal
+        - prove same decision ID replays idempotently
+        - prove caller disconnect does not cause a second reasoning decision
+      forbidden_without_human_approval:
+        - execute proposed tools or external effects
+        - call a paid model provider
+        - merge or release
+        - publish or send external messages
+        - spend money
+        - destructive changes
+        - new hard dependencies
+      evidence_required:
+        - validated decision is bound to exact snapshot digest before durable commit
+        - invalid decision never reaches committed state
+        - committed decision survives worker or caller interruption
+        - repeated request with same decision identity returns same committed document
+        - reasoning provider is invoked once for the committed decision
+        - no tool execution occurs in this slice
+      stop_conditions:
+        - decision durability requires bypassing the D3 validator
+        - replay can replace an already committed decision
+        - raw Portfolio source files enter durable reasoning state
+        - model or reasoner gains execution authority
+      completion_definition:
+        - Temporal plus PostgreSQL prove one durable validated Dot decision end to end
+        - replay and disconnect paths preserve the same decision digest
+        - decision remains inert data with no external effect
+      result:
+        status: PASS
+        runtime_pull_request: 28
+        runtime_branch: build/dots-durable-decision-loop-v0.1
+        runtime_ci_run: 37735201094
+        portfolio_run: 37735226181
+        evidence_artifact_id: 11531133449
+        snapshot_digest: a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c
+        decision_id: portfolio-dot-d4-current
+        decision_digest: b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f
+        decision_kind: PROPOSE_NEXT_GATE
+        requested_authority: PREPARE
+        integration_test: TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed
+        reasoner_calls: 1
+        tool_invocations: 0
+        caller_rejoin_match: true
+        store_restart_match: true
+        temporal_history_source_leak: false
+      completed_on: 2026-10-08
+      on_completion:
+        - admit a real model-provider adapter behind the durable Decision Gate
+
+    - id: dots-model-provider-adapter-005
+      project: portfolio-dot
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: bind one real model-provider adapter behind the D4 durable Decision Gate without granting execution authority
+      entry_conditions:
+        - dots-durable-decision-loop-004 is PASS
+        - D4 committed decisions remain inert data
+        - provider credentials are never required for repository tests
+      allowed_actions:
+        - define a provider adapter behind the dotdurable Reasoner contract
+        - send only the sealed Portfolio ReasoningView needed for the admitted work item
+        - require structured typed decision output
+        - validate provider output through D3 before durable commit
+        - test provider transport with a local deterministic HTTP server
+        - prepare an opt-in live smoke test that is disabled by default
+      forbidden_without_human_approval:
+        - make a paid live model call
+        - spend money
+        - execute tools or external effects
+        - expose raw Portfolio source files to the provider
+        - bypass D3 validation
+        - merge or release
+        - publish or send external messages
+        - introduce a new hard dependency
+      evidence_required:
+        - provider adapter cannot emit execution authority beyond the admitted work item
+        - provider receives a bounded ReasoningView rather than arbitrary repository files
+        - malformed or authority-escalating provider output is rejected before commit
+        - repository CI proves deterministic transport behavior without credentials
+        - live provider use remains opt-in and human-authorized
+      stop_conditions:
+        - provider requires tool execution to produce the decision
+        - raw source files or secrets must enter the prompt
+        - structured decision output cannot be validated deterministically
+        - adapter couples Portfolio Dot to one provider-specific execution model
+      completion_definition:
+        - one concrete provider adapter compiles behind the Reasoner interface
+        - fake transport proves valid and invalid typed decision paths
+        - D4 durable commit remains the only persistence path
+        - no paid call occurs without explicit human approval
+      on_completion:
+        - request human approval for one bounded live provider smoke test only if it materially changes confidence
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite

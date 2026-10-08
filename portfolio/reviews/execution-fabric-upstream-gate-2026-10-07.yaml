@@ -1,0 +1,216 @@
+review:
+  id: execution-fabric-upstream-gate-2026-10-07
+  reviewed_at: 2026-10-07
+  goal: >
+    Select a legally and technically suitable upstream for a single internal execution
+    fabric that can coordinate real workflows across independently owned portfolio projects.
+  doctrine:
+    - single Dots coordination model remains above the project graph
+    - no dependency without a real flow
+    - internal usefulness before commercial narrowing
+    - do not revive a generic agent-control or orchestration platform as the commercial product
+    - hard fork only after a repeated self-use divergence is proven
+  candidates:
+    activepieces:
+      repository: activepieces/activepieces
+      licensing:
+        open_core: MIT outside enterprise directories
+        enterprise: commercial
+      strengths:
+        - strong SaaS integration/pieces ecosystem
+        - TypeScript extensibility
+        - webhook and automation UX
+      constraints:
+        - some private-piece and platform administration capabilities are paid
+        - overlaps more directly with Marketing Automation Suite
+      decision: SECONDARY_INTEGRATION_SOURCE
+    windmill:
+      repository: windmill-labs/windmill
+      licensing:
+        backend_frontend: AGPLv3 unless otherwise specified
+        clients_and_openflow: Apache-2.0
+        enterprise: proprietary
+        distributed_community_edition: contains additional proprietary restrictions
+      strengths:
+        - strong developer workflow and script execution model
+        - polyglot and infrastructure oriented
+      constraints:
+        - licensing mix is unattractive for the intended owned hard-fork asset
+      decision: REJECT_AS_HARD_FORK_BASE
+    kestra:
+      repository: kestra-io/kestra
+      licensing:
+        repository: Apache-2.0
+      strengths:
+        - event and workflow orchestration
+        - polyglot script execution
+        - open-source Docker and Process task runners
+        - clean permissive base for modification and distribution
+      constraints:
+        - heavier JVM/runtime footprint than a connector-first automation tool
+        - some remote/cloud task runners and governance capabilities are Enterprise-only
+      decision: SELECT_FOR_BOUNDED_SPIKE
+  decision:
+    outcome: PROVEN_UPSTREAM_COMPOSITION_NO_FORK
+    reason: >
+      Kestra has now passed two materially different real portfolio executions: Data Engine
+      and PostgreSQL Change Safety. Cross-domain reuse and the core execution boundary are
+      proven. A hard fork is still not justified because no concrete recurring architectural
+      divergence has appeared that would make ownership cheaper or safer than remaining
+      upstream-compatible.
+  first_spike:
+    consumer: data-engine
+    objective: >
+      Trigger one real Data Engine job through Kestra, capture the Data Engine's own
+      evidence/result artifacts, propagate success/failure/unknown state, and emit a
+      machine-readable execution record.
+    must_prove:
+      - no Enterprise-only feature is required
+      - project ownership stays in data-engine
+      - execution does not rewrite Data Engine evidence
+      - failure is observable and reproducible
+      - orchestration removes meaningful manual glue
+  hard_fork_entry_conditions:
+    - at least one repeated internal workflow proves utility
+    - a concrete upstream divergence is identified
+    - maintaining the divergence is cheaper than external glue
+    - required capabilities remain legally usable in the chosen open-source boundary
+    - fork ownership and upstream-sync policy are explicit
+  kill_conditions:
+    - required capability depends on paid Enterprise features
+    - orchestration overhead exceeds the manual glue it replaces
+    - the fabric starts absorbing product-specific business logic
+    - the project drifts toward selling a generic orchestration platform
+  commercial_role:
+    direct_product: false
+    role: compounding internal infrastructure that accelerates revenue-bearing products
+  sources:
+    - https://github.com/kestra-io/kestra
+    - https://github.com/activepieces/activepieces
+    - https://github.com/windmill-labs/windmill
+
+  spike_status:
+    state: PASS_TWO_DOMAIN_ADAPTER_REUSE
+    upstream_mode: UPSTREAM_COMPATIBLE_NO_FORK
+    adapter:
+      version: 0.1.0
+      git_blob_sha: b40f485d0f8b71de721bbd0fd732d9b65ff97e35
+      exact_match_across_canonical_and_consumers: true
+      data_engine_run_id: 37622847435
+      data_engine_evidence_artifact_id: 11482981688
+      postgres_kestra_run_id: 37622867249
+      postgres_normal_test_run_id: 37622867261
+      postgres_evidence_artifact_id: 11483265726
+      measured_glue_reduction:
+        data_engine: 74.7
+        postgres_change_safety: 76.5
+        combined_lines_removed: 127
+    contracts:
+      - execution-fabric--data-engine
+      - execution-fabric--postgres-change-safety
+    kestra:
+      version: 2.0.5
+      runtime_jdk: 25
+      runner: io.kestra.plugin.core.runner.Process
+      enterprise_feature_required: false
+      runtime_isolation: outside-consumer-checkout
+      api_auth: basic-auth
+      task_outputs_route: /api/v1/{tenant}/outputs/tasks/{executionId}/{taskRunId}
+
+    data_engine_spike:
+      pull_request: 10
+      branch: spike/kestra-execution-fabric
+      final_ci:
+        run_id: 37599273399
+        conclusion: success
+        test_job: success
+        kestra_spike_job: success
+        evidence_artifact_id: 11471434590
+        evidence_artifact_name: kestra-data-engine-spike
+        evidence_artifact_bytes: 10499
+      kestra_execution_id: 6GteU2ysL0Qw6plDsZCJqM
+      execution_record:
+        orchestration_state: KNOWN_SUCCESS
+        reason: PROCESS_AND_ARTIFACTS_OBSERVED
+        engine_process_exit: 0
+        evidence_authority: data-engine
+        orchestrator_mutates_evidence: false
+        data_publishable: true
+        data_quality:
+          entities: 3
+          coverage: 1
+          mean_confidence: 0.9513333333333333
+          conflicting_cells: 0
+          unknown_cells: 0
+        artifact_hashes:
+          dataset_csv: 24417a0ce98888e93a2ff425fab88848fa9f29de76eb0e2837ec0a39aec9b9fa
+          provenance_jsonl: 1ca513f64a0e4c46aeec23a26abff74e6d6c4052765abfe34deedc13867b8d50
+          quality_json: 08d8ac2cbf22580a3be33878b2e3c8df0d464b89ae7282e7caf0f6fffc556b35
+          result_json: adb0509fb7575cfd37c804d23ad48d0ae24a166c770ff6a4e61afdf3403fd351
+      checkout_boundary:
+        tracked_and_untracked_clean: true
+        verifier: git status --porcelain
+
+    postgres_change_safety_spike:
+      pull_request: 12
+      branch: spike/kestra-execution-fabric
+      final_ci:
+        kestra_run_id: 37599130862
+        kestra_conclusion: success
+        normal_test_run_id: 37599131069
+        normal_test_conclusion: success
+        evidence_artifact_id: 11471389341
+        evidence_artifact_name: kestra-postgres-change-safety-spike
+        evidence_artifact_bytes: 10344
+      kestra_execution_id: 4jf8cUbl1usnD1cc96LaEN
+      execution_record:
+        orchestration_state: KNOWN_SUCCESS
+        reason: STRICT_BENCHMARK_AND_REPORT_OBSERVED
+        process_exit: 0
+        semantic_authority: postgres-change-safety
+        orchestrator_mutates_evidence: false
+        benchmark_pass: true
+        benchmark_metrics:
+          cases: 12
+          passed: 12
+          detection_accuracy: 1
+          provable_cause_accuracy: 1
+          unknown_abstention_accuracy: 1
+          false_causal_attributions: 0
+          workload_regression_recall: 1
+          workload_false_positives: 0
+          false_clearance_events: 0
+        benchmark_report_sha256: 73de713e5a99781c8fae3559a3e771caf26738fc8516304e1b2ce3325a186ccc
+      checkout_boundary:
+        tracked_and_untracked_clean: true
+        verifier: git status --porcelain
+        python_bytecode_writes_disabled: true
+
+    proven:
+      - Kestra OSS can execute two materially different portfolio domains through the same Process runner model
+      - consumers remain independently runnable and do not become hard dependencies on Execution Fabric
+      - orchestration state remains separate from consumer semantic decisions
+      - required evidence can be hash-bound and retained
+      - Kestra runtime can be isolated outside consumer checkouts
+      - strict tracked and untracked checkout cleanliness can be enforced
+      - no Enterprise-only Kestra capability is required by either proof
+
+    learned_boundaries:
+      - Kestra 2.0.5 requires JDK 25 in the tested standalone path
+      - local API access requires Basic Auth
+      - Kestra 2.0 task outputs are fetched through /outputs/tasks/{executionId}/{taskRunId}
+      - local Kestra runtime must not run from a consumer checkout
+      - checkout integrity must be checked with git status --porcelain, not only git diff
+      - language-specific runtime writes such as Python bytecode must not pollute consumer repositories
+
+    remaining_unproven:
+      - operational time or failure savings from repeated real product use
+      - a concrete recurring architectural divergence that warrants owning a Kestra hard fork
+      - fork ownership and upstream-sync policy if such a divergence eventually appears
+
+    decision: KEEP_UPSTREAM_COMPATIBLE_COMPOSITION_DO_NOT_FORK
+    next_gate: >
+      Stop infrastructure expansion. Reuse Adapter v0.1 only when an active product has a real
+      workflow that benefits from shared execution. Measure operational time/failure savings
+      from that real use. Admit a hard fork only if a specific recurring architectural
+      divergence makes ownership economically and technically superior.

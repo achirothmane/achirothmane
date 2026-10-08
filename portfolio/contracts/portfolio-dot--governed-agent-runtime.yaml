@@ -1,0 +1,32 @@
+contract:
+  id: portfolio-dot--governed-agent-runtime
+  version: 1
+  status: VERIFIED_RELATIONSHIP
+  source_project: portfolio-dot
+  target_project: governed-agent-runtime
+  relations:
+    - COMPOSES_WITH
+  hard_dependency: false
+  purpose: provide durable execution and capability binding for Dots without turning the runtime into the portfolio authority
+  source_owns:
+    - portfolio coordination decisions
+    - admitted objective and authority
+  target_owns:
+    - runtime fingerprint binding
+    - Temporal durability
+    - tool invocation durability
+    - reasoning execution durability
+    - invocation and decision evidence
+  boundary:
+    - runtime does not choose portfolio priorities by itself
+    - runtime does not infer undeclared dependencies
+    - runtime does not grant tool authority from MCP annotations alone
+    - merge publish spend destructive actions and new hard dependencies remain human-controlled
+  verification:
+    status: evidenced
+    evidence:
+      - governed-agent-runtime A6.1 main
+      - governed-agent-runtime CI run 37732121431 success
+      - data-engine cross-repository run 37732132719 success
+      - TestDotsDurablyInvokesDataReconcile PASS
+  last_verified: 2026-10-08

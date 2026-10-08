@@ -1,0 +1,66 @@
+project:
+  id: portfolio-dot
+  repository: null
+  role: single-portfolio-coordination-system
+  status: ACTIVE_BUILD
+  owner_of:
+    - portfolio context snapshot
+    - admitted-work selection
+    - cross-project coordination
+    - next-gate proposals
+    - execution intent under explicit authority
+  produces:
+    - digest-bound portfolio context
+    - coordination decisions
+    - execution intents
+    - evidence-linked next-gate proposals
+  consumes:
+    - System Map
+    - project records
+    - verified contracts
+    - priority state
+    - freshness state
+    - execution queue
+    - durable runtime capabilities when explicitly admitted
+  dependencies: []
+  contracts:
+    - portfolio-dot--data-engine.yaml
+    - portfolio-dot--governed-agent-runtime.yaml
+  current_state: d4-durable-snapshot-bound-decision-pass
+  next_gate: build one concrete model-provider adapter behind D4; live paid call remains human-gated
+  blockers:
+    - real model-provider adapter is not yet proven
+    - any paid live provider smoke test requires explicit human approval
+  evidence:
+    - governed-agent-runtime PR #25 prepares explicit Data Engine tool admission for Dots
+    - governed-agent-runtime CI run 37732121431 success
+    - data-engine PR #21 exposes data.reconcile through MCP
+    - data-engine ci run 37732132716 success
+    - data-engine real reconciliation run 37732132706 success
+    - cross-repository runtime run 37732132719 success
+    - TestDotsDurablyInvokesDataReconcile PASS
+    - Portfolio Context run 37733369517 success
+    - Portfolio Context artifact 11530332932
+    - snapshot digest 35edc52811d57a3fd51b29179985b7ffd360690157c63e60397f1b922c3f2598
+    - 55 source bindings
+    - TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads PASS
+    - governed-agent-runtime CI run 37733563241 success
+    - D3 Portfolio Context/Decision run 37733886188 success
+    - D3 snapshot digest 5823c604c3843299c54b6b56468c48093e2bb4d839fb0365467200ec8669bb25
+    - D3 evidence artifact 11530533185
+    - TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal PASS
+    - governed-agent-runtime D3 CI run 37733967731 success
+    - D4 governed-agent-runtime PR #28
+    - D4 runtime CI run 37735201094 success
+    - D4 Portfolio run 37735226181 success
+    - D4 evidence artifact 11531133449
+    - D4 snapshot digest a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c
+    - D4 decision digest b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f
+    - TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed PASS
+    - D4 reasoner invoked once; tool invocations zero
+    - D4 caller rejoin and PostgreSQL store restart returned the same committed decision
+    - D4 Temporal history contained no raw Portfolio source identities
+    - durable path preserves DIVERGED and UNKNOWN without reinterpretation
+  distribution: internal-only
+  economic_role: portfolio-coordination-asset
+  last_verified: 2026-10-08

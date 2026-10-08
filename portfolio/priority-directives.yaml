@@ -1,15 +1,35 @@
 priority_directives:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-08
   authority: human-strategic-decisions
   focus:
+    - project: portfolio-dot
+      lane: NOW
+      reason: explicit human directive places the single Portfolio Dot in active build
+      next_action: build Portfolio Context Snapshot v0.1 after durable data.reconcile bridge PASS
+      constraints:
+        - single-coordination-system
+        - priority-is-not-execution-authority
+        - no-inferred-dependencies
+        - human-final-authority-on-external-commitments
+
     - project: data-engine
       lane: NOW
-      reason: broad self-use foundational asset that compounds across future systems
-      next_action: merge verified PR #7 into main before any G4.10 or structured indexing work
+      reason: foundational capability provider currently being integrated into Dots
+      next_action: support Portfolio Context Snapshot v0.1; add no further tool without a concrete Dots need
       constraints:
         - do-not-narrow-commercially-early
         - capability-and-boundary-must-ship-together
+        - Dots-must-preserve-engine-boundary-decisions
+
+    - project: governed-agent-runtime
+      lane: NOW
+      reason: concrete Dots consumer reactivates the durable runtime as an execution substrate
+      next_action: support Portfolio Context Snapshot and Dots reasoning without becoming portfolio authority
+      constraints:
+        - runtime-is-substrate-not-commercial-platform
+        - remote-tool-metadata-does-not-grant-authority
+        - read-only-durable-tools-only-until-new-boundary-proven
 
     - project: marketing-automation-suite
       lane: NEXT

@@ -17,9 +17,12 @@ project:
   consumes: []
   dependencies: []
   contracts:
+    - execution-fabric--data-engine.yaml
+    - portfolio-dot--data-engine.yaml
+  doctrine:
     - capability constitution: build the capability and its boundary together
-  current_state: hard-fork-g4.9-verified-awaiting-convergence
-  next_gate: human approval to merge PR #7 into main; no G4.10 before convergence
+  current_state: dots-data-reconcile-mcp-bridge-pass
+  next_gate: support Portfolio Context Snapshot v0.1; add no further Data Engine tool until Dots proves a concrete need
   blockers: []
   evidence:
     - capability boundary doctrine adopted
@@ -41,9 +44,19 @@ project:
     - current head g3-semantic-takeover run 37528767836 success
     - current head g4-product-divergence run 37528767819 success
     - convergence review portfolio/reviews/data-engine-convergence-2026-10-06.yaml
-  active_branch: hard-fork/dlt-genesis
+    - Kestra Execution Fabric run 37599273399 success with strict clean-checkout gate
+    - Kestra execution 6GteU2ysL0Qw6plDsZCJqM KNOWN_SUCCESS
+    - cross-system reconciliation real PostgreSQL proof run 37732132706 success
+    - data.reconcile MCP capability exposed on Dots build branch
+    - data-engine ci run 37732132716 success
+    - cross-repository runtime run 37732132719 success
+    - TestDotsDurablyInvokesDataReconcile PASS
+    - unsupported comparison preserved as UNKNOWN through Dots durable runtime
+  active_branch: main
   merged_pull_request: 8
   merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
   distribution: internal-first
   economic_role: shared-capability-asset
-  last_verified: 2026-10-06
+  last_verified: 2026-10-08
+  converged_main_commit: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
+  convergence_pull_request: 7

@@ -4,7 +4,7 @@
 
 **Owner:** achirothmane  
 **Status:** ACTIVE  
-**Last structural review:** 2026-10-06
+**Last structural review:** 2026-10-08
 
 ---
 
@@ -50,21 +50,30 @@ No shared owner is enough. No thematic similarity is enough. No future possibili
                  Future Portfolio Dot / Agent
 ```
 
-### Future Dot role
+### Portfolio Dot role — ACTIVE BUILD
 
-A future portfolio Dot should consume this map as its primary navigation layer.
+The single Portfolio Dot consumes this map as its primary navigation layer.
+
+**D1 PASS:** the Dot binds an immutable MCP capability snapshot and durably invokes Data Engine `data.reconcile` through Temporal + PostgreSQL while preserving `DIVERGED` and `UNKNOWN` exactly.
+
+**D2 PASS:** the Dot consumes one deterministic, source-bound, digest-verified Portfolio Context Snapshot and fails closed on stale, missing, or unknown inputs.
+
+**D3 PASS:** next-gate reasoning is represented by a typed snapshot-bound decision contract; authority escalation, hallucinated work items, stale digests, and human-final actions fail closed.
+
+**D4 PASS:** Temporal + PostgreSQL durably commit one D3-validated decision as inert data. Caller rejoin and store restart return the same committed document, the reasoner is invoked once, tool invocations remain zero, and raw Portfolio source identities do not enter Temporal history.
+
+**D5 READY:** bind one concrete model-provider adapter behind the D4 Reasoner interface. Repository tests remain credential-free; any paid live provider call remains human-gated.
 
 It may:
 
-- inspect project state;
-- follow declared dependencies;
+- inspect explicit project state;
+- follow declared contracts and dependencies;
 - identify stale or missing evidence;
 - propose the next gate;
 - coordinate work across repositories;
-- surface conflicts between projects;
-- call execution tools when authorized.
+- call explicitly admitted read-only execution tools.
 
-It must **not** infer undeclared dependencies or silently collapse repositories into one platform.
+It must **not** infer undeclared dependencies, reinterpret another project's boundary decision, silently promote priorities, or collapse repositories into one platform. Runtime durability is supplied by governed-agent-runtime; portfolio authority remains with the Dot operating contract and human authority gates.
 
 ---
 
@@ -161,6 +170,38 @@ These are the strongest candidates for reusable portfolio primitives.
 **Current state:** PLANNED.  
 **Constraint:** do not create as a vague AI umbrella; it must own concrete capabilities and boundaries.
 
+### Portfolio Dot — active build
+
+**Role:** single coordination system above the portfolio graph.  
+**Owns:** digest-bound portfolio context, admitted-work selection, cross-project coordination, next-gate proposals, and execution intent under explicit authority.  
+**Consumes:** System Map, project records, verified contracts, freshness, priority, execution queue, and explicitly admitted capability results.  
+**Runtime substrate:** `achirothmane/governed-agent-runtime` for capability binding, Temporal durability, and PostgreSQL execution evidence.  
+**First executable capability:** Data Engine `data.reconcile` through a verified soft contract.  
+**D1 state:** **PASS** — runtime CI `37732121431`, Data Engine CI `37732132716`, real reconciliation `37732132706`, cross-repository Dots proof `37732132719`, and `TestDotsDurablyInvokesDataReconcile` PASS.  
+**D2 state:** **PASS** — Portfolio Context artifact is deterministic, digest-bound, and executable only when freshness/completeness gates hold.  
+**D3 state:** **PASS** — typed snapshot-bound next-gate decisions cannot exceed admitted authority or silently cross human-final boundaries.  
+**D4 state:** **PASS** — runtime CI `37735201094`, Portfolio run `37735226181`, artifact `11531133449`, snapshot `a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c`, decision digest `b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f`. Reasoner calls = 1; tool invocations = 0; replay/rejoin/store-restart preserve the same committed document.  
+**Current state:** ACTIVE BUILD.  
+**Next gate:** D5 model-provider adapter behind the durable Decision Gate; no paid live call without explicit human approval.  
+**Authority boundary:** priority is not execution authority; merge, release, publication, spend, destructive action, new hard dependency, and business-positioning changes remain human-controlled.
+
+### Execution Fabric — proven upstream composition
+
+**Role:** internal-first execution/orchestration fabric for running real cross-project workflows without collapsing project ownership.  
+**Upstream:** Kestra (kestra-io/kestra, Apache-2.0), tested on OSS v2.0.5 with the open-source Process Task Runner.  
+**Why Kestra:** polyglot script execution, workflow/event orchestration, evidence-preserving task outputs, and a permissive upstream base.  
+**Activepieces position:** useful integration/pieces source and possible Marketing Automation composition candidate; not selected as the portfolio execution core because some platform/private-piece controls are commercial.  
+**Windmill position:** rejected as the hard-fork base for this role because the repository mixes AGPL/Apache/proprietary licensing and the distributed Community Edition adds restrictions unattractive for our intended owned asset.  
+**Current state:** **ADAPTER v0.1 PROVEN / TWO-DOMAIN PASS / UPSTREAM-COMPATIBLE / NO_FORK**. Kestra has two verified soft `COMPOSES_WITH` contracts and is not a hard runtime dependency of either consumer.  
+**Data Engine proof:** PASS — strengthened GitHub Actions run `37599273399`, Kestra execution `6GteU2ysL0Qw6plDsZCJqM`, `KNOWN_SUCCESS`, process exit 0, Data Engine publishability preserved separately, evidence artifacts hash-bound, and strict tracked + untracked checkout-clean gate passed.  
+**PostgreSQL Change Safety proof:** PASS — Kestra run `37599130862`, normal product test run `37599131069`, Kestra execution `4jf8cUbl1usnD1cc96LaEN`, strict blind benchmark 12/12, zero false causal attributions, zero false-clearance events, hash-bound benchmark evidence, and strict checkout-clean gate passed.  
+**Execution boundary:** Kestra runtime must run outside the consumer checkout; orchestration may execute, observe, retain, and hash artifacts, but may not mutate the checkout or replace project-local semantic authority.  
+**Adapter proof:** v0.1 is vendored byte-for-byte into both consumers (Git blob `b40f485d0f8b71de721bbd0fd732d9b65ff97e35`). Data Engine re-pass: run `37622847435`; PostgreSQL Change Safety re-pass: run `37622867249`; its full normal test run `37622867261` also passed. Consumer-local orchestration glue fell from 83→21 lines (-74.7%) and 85→20 lines (-76.5%) respectively, while semantic assertions stayed local.  
+**Next gate:** stop infrastructure expansion. Reuse Adapter v0.1 only when a real active product workflow needs shared execution, then measure actual operational time/failure savings.  
+**Hard-fork decision:** **NO FORK YET.** Cross-domain utility is proven, but no concrete upstream architectural divergence currently makes fork ownership cheaper or safer than upstream-compatible composition.  
+**Hard-fork entry condition:** a specific recurring architectural divergence, demonstrated across real usage, whose maintenance cost and strategic value justify owning the fork and its upstream-sync burden.  
+**Commercial constraint:** do not sell a generic orchestration platform; commercial value must come from downstream products/data/workflows that use the fabric.
+
 ### Revenue Engine — deferred
 
 **Role:** monetization/revenue operations layer.  
@@ -170,7 +211,8 @@ These are the strongest candidates for reusable portfolio primitives.
 ### PostgreSQL Change Safety — `achirothmane/postgres-change-safety`
 
 **Role:** database change reliability product/asset.  
-**Owns:** observation and regression evidence around PostgreSQL changes.  
+**Owns:** observation, regression evidence, causal attribution/abstention semantics, and false-clearance benchmark evidence around PostgreSQL changes.  
+**Composes with:** Execution Fabric through a verified soft contract; remains independently runnable and retains semantic authority.  
 **Current state:** ACTIVE.
 
 ### Conversion Truth Auditor — `achirothmane/conversion-truth-auditor`
@@ -237,14 +279,17 @@ These repositories remain valuable as engineering evidence, primitives, or histo
 **Do not:** revive generic agent-control/IAM/orchestration positioning under a new name.  
 **Allowed:** extract independently valuable capabilities only when another project proves the need.
 
-### Governed Agent Runtime — `achirothmane/governed-agent-runtime`
+### Governed Agent Runtime — promoted out of lineage
+
+`achirothmane/governed-agent-runtime` now has a concrete consumer: Portfolio Dot. It is an **ACTIVE durable runtime substrate**, not a commercial platform and not the portfolio authority. A6.1 durable reasoning plus the Dots `data.reconcile` bridge are verified.
+
 ### Agent Action Guard — `achirothmane/agent-action-guard`
 ### Agent Model Gate — `achirothmane/agent-model-gate`
 ### Legal Authority Diff — `achirothmane/legal-authority-diff`
 
-**Portfolio treatment:** verification/governance lineage.  
+**Portfolio treatment for the remaining repositories:** verification/governance lineage.  
 **Default relation:** none.  
-**Promotion rule:** only re-enter the active capability graph when a current product has a concrete dependency and measurable benefit.
+**Promotion rule:** only re-enter the active capability graph when a current consumer has a concrete need and measurable benefit.
 
 ---
 
@@ -319,11 +364,28 @@ EASL
 Assumption Gate
 
 
+Portfolio Dot (ACTIVE BUILD)
+  │
+  ├── CONSUMES / COMPOSES_WITH ──> Data Engine
+  │       └── data.reconcile: MATCH | DIVERGED | UNKNOWN
+  │
+  └── COMPOSES_WITH ──> Governed Agent Runtime
+          └── MCP snapshot binding + Temporal durability + PostgreSQL evidence
+
+
 Data Engine
   │
   ├── future CONSUMER candidate ──> Marketing Automation Suite
   ├── future CONSUMER candidate ──> Intelligence Layer
   └── future knowledge/evidence source ──> products that prove a need
+
+
+Execution Fabric (PROVEN UPSTREAM / NO FORK)
+  │
+  ├── COMPOSES_WITH ──> Data Engine
+  │                      (soft; Data Engine remains semantic authority)
+  └── COMPOSES_WITH ──> PostgreSQL Change Safety
+                         (soft; product remains semantic authority)
 
 
 Aegis-EGE + governance lineage

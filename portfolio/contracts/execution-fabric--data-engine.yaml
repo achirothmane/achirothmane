@@ -1,0 +1,35 @@
+contract:
+  id: execution-fabric--data-engine
+  version: 1
+  status: VERIFIED_RELATIONSHIP
+  source_project: execution-fabric
+  target_project: data-engine
+  relations:
+    - COMPOSES_WITH
+  hard_dependency: false
+  purpose: execute Data Engine through a shared orchestration substrate without transferring semantic or evidence authority
+  source_produces:
+    - orchestration state
+    - execution logs
+    - retained artifact references
+  target_produces:
+    - data result
+    - quality decision
+    - provenance evidence
+  boundary:
+    - Data Engine remains independently runnable without Execution Fabric
+    - Data Engine remains the sole authority over data semantics and publishability
+    - orchestration success is separate from Data Engine publishability
+    - Kestra runtime must execute outside the Data Engine checkout
+    - tracked and untracked checkout mutation is forbidden
+    - required evidence artifacts are hash-bound
+    - no Enterprise-only Kestra capability is required
+  verification:
+    status: evidenced
+    evidence:
+      - GitHub Actions run 37599273399 succeeded
+      - Kestra execution 6GteU2ysL0Qw6plDsZCJqM reached KNOWN_SUCCESS
+      - Data Engine process exit was 0
+      - strict git status clean-checkout gate passed
+      - evidence artifact 11471434590 retained
+  last_verified: 2026-10-07

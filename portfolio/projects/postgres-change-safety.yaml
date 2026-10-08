@@ -10,11 +10,19 @@ project:
     - change comparison evidence
   consumes: []
   dependencies: []
-  contracts: []
+  contracts:
+    - execution-fabric--postgres-change-safety.yaml
   current_state: active-product-asset
   next_gate: prove repeatable user value and packaging
   blockers: []
-  evidence: []
+  evidence:
+    - normal test workflow run 37599131069 success
+    - Kestra Execution Fabric run 37599130862 success
+    - strict blind benchmark passed 12 of 12 cases
+    - false causal attributions 0
+    - false-clearance events 0
+    - Kestra execution 4jf8cUbl1usnD1cc96LaEN KNOWN_SUCCESS
+    - strict tracked and untracked clean-checkout gate passed
   distribution: github
   economic_role: product-asset
-  last_verified: 2026-10-06
+  last_verified: 2026-10-07
