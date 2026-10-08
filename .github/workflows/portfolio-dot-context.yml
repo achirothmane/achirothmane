@@ -1,0 +1,88 @@
+name: Portfolio Dot Context v0.1
+
+on:
+  pull_request:
+    paths:
+      - "SYSTEM-MAP.md"
+      - "portfolio/**"
+      - ".github/workflows/portfolio-dot-context.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  context-snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install portfolio generator dependency
+        run: python -m pip install --disable-pip-version-check PyYAML
+
+      - name: Resolve structural review date
+        id: review
+        run: |
+          review_date="$(python - <<'PY'
+          import yaml
+          with open("portfolio/index.yaml", encoding="utf-8") as f:
+              print(yaml.safe_load(f)["portfolio"]["last_structural_review"])
+          PY
+          )"
+          echo "date=$review_date" >> "$GITHUB_OUTPUT"
+
+      - name: Regenerate machine reports from source records
+        run: |
+          python portfolio/scripts/generate_freshness_report.py --as-of '${{ steps.review.outputs.date }}'
+          python portfolio/scripts/generate_dependency_graph.py
+          python portfolio/scripts/generate_priority_report.py
+
+      - name: Run Portfolio Context falsification tests
+        run: python -m unittest -v portfolio.tests.test_dot_context
+
+      - name: Build executable Portfolio Context Snapshot
+        run: |
+          python portfolio/scripts/generate_dot_context.py \
+            --out /tmp/portfolio-context-v0.1.json \
+            --require-executable
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("/tmp/portfolio-context-v0.1.json")
+          doc = json.loads(path.read_text(encoding="utf-8"))
+
+          assert doc["state"] == "EXECUTABLE", doc
+          assert doc["reasons"] == [], doc["reasons"]
+          assert len(doc["snapshot_digest"]) == 64
+          assert all(c in "0123456789abcdef" for c in doc["snapshot_digest"])
+          assert "portfolio-dot" in doc["projection"]["now_projects"]
+          assert any(item["id"] == "dots-portfolio-context-snapshot-002" for item in doc["projection"]["runnable_items"])
+          assert "merge" in doc["projection"]["human_final_on"]
+          assert len(doc["source_bindings"]) >= 10
+
+          print("portfolio-context-state=EXECUTABLE")
+          print("portfolio-context-digest=" + doc["snapshot_digest"])
+          print("source-bindings=" + str(len(doc["source_bindings"])))
+          print("now-projects=" + ",".join(doc["projection"]["now_projects"]))
+          print("runnable-items=" + ",".join(item["id"] for item in doc["projection"]["runnable_items"]))
+          PY
+
+      - name: Upload Dots context evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-context-v0.1
+          path: |
+            /tmp/portfolio-context-v0.1.json
+            portfolio/freshness-report.json
+            portfolio/priority-report.json
+            portfolio/dependency-graph.json
+          if-no-files-found: error
+          retention-days: 7
