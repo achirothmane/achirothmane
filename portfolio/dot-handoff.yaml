@@ -1,6 +1,6 @@
 dot_handoff:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-08
   role: portfolio-systems-steward
   read_order:
     - ../SYSTEM-MAP.md
@@ -13,38 +13,34 @@ dot_handoff:
     - ./DOT-OPERATING-CONTRACT.md
   current:
     now_projects:
+      - portfolio-dot
       - data-engine
-    runnable_items: []
-    waiting_human_approval:
-      - project: data-engine
-        decision: merge PR #7 from hard-fork/dlt-genesis into main
-        pull_request: 7
-        reason: converge verified product truth before any new G4 slice
-        evidence:
-          - hard-fork head 7889f992965406f079284bd88725d79fc6d845be
-          - 101 commits ahead of main and 0 behind
-          - PR #7 mergeable
-          - ci run 37528767849 success
-          - g2-oracle-harness run 37528767750 success
-          - g3-semantic-takeover run 37528767836 success
-          - g4-product-divergence run 37528767819 success
-    post_merge_verification:
-      - project: data-engine
-        merge_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
+      - governed-agent-runtime
+    runnable_items:
+      - dots-portfolio-context-snapshot-002
+    completed_build_slices:
+      - id: dots-data-reconcile-001
         status: PASS
         evidence:
-          - ci run 37442832655 success
-          - g2-oracle-harness run 37442832744 success
-          - g3-semantic-takeover run 37442832554 success
-          - g4-product-divergence run 37442832607 success
+          - data-engine PR #21
+          - governed-agent-runtime PR #25
+          - data-engine CI run 37732132716 success
+          - real reconciliation run 37732132706 success
+          - governed-agent-runtime CI run 37732121431 success
+          - cross-repository runtime run 37732132719 success
+          - TestDotsDurablyInvokesDataReconcile PASS
+    waiting_human_approval:
+      - project: data-engine
+        decision: merge Dots data.reconcile build when human chooses
+        pull_request: 21
+      - project: governed-agent-runtime
+        decision: merge Dots runtime bridge when human chooses
+        pull_request: 25
     waiting_evidence:
-      - project: ci-retry-gate-engine
-        condition: E1 real-exposure evidence
+      - project: portfolio-dot
+        condition: Portfolio Context Snapshot v0.1 boundary proof
     next_candidates:
-      - marketing-automation-suite
-      - mini-foot
-      - postgres-change-safety
-      - private-code-modernization-factory
+      - dots-portfolio-context-snapshot-002
   operating_rules:
     - priority-is-not-execution-authority
     - evidence-before-material-action
@@ -53,6 +49,8 @@ dot_handoff:
     - do-not-fill-unused-wip-capacity-artificially
     - no-hard-dependency-without-explicit-contract
     - no-merge-publish-spend-or-external-commitment-without-human-approval
+    - runtime-is-substrate-not-portfolio-authority
+    - remote-mcp-metadata-does-not-expand-authority
   human_authority:
     final_on:
       - merge
