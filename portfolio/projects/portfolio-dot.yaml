@@ -26,11 +26,11 @@ project:
   contracts:
     - portfolio-dot--data-engine.yaml
     - portfolio-dot--governed-agent-runtime.yaml
-  current_state: d3-snapshot-bound-decision-contract-pass
-  next_gate: prove durable validated decision commit and replay before any paid real-model call
+  current_state: d4-durable-snapshot-bound-decision-pass
+  next_gate: build one concrete model-provider adapter behind D4; live paid call remains human-gated
   blockers:
-    - real model-provider adapter is not yet proven for autonomous reasoning
-    - real model-provider adapter is not yet admitted until D3 decision contract passes
+    - real model-provider adapter is not yet proven
+    - any paid live provider smoke test requires explicit human approval
   evidence:
     - governed-agent-runtime PR #25 prepares explicit Data Engine tool admission for Dots
     - governed-agent-runtime CI run 37732121431 success
@@ -50,6 +50,16 @@ project:
     - D3 evidence artifact 11530533185
     - TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal PASS
     - governed-agent-runtime D3 CI run 37733967731 success
+    - D4 governed-agent-runtime PR #28
+    - D4 runtime CI run 37735201094 success
+    - D4 Portfolio run 37735226181 success
+    - D4 evidence artifact 11531133449
+    - D4 snapshot digest a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c
+    - D4 decision digest b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f
+    - TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed PASS
+    - D4 reasoner invoked once; tool invocations zero
+    - D4 caller rejoin and PostgreSQL store restart returned the same committed decision
+    - D4 Temporal history contained no raw Portfolio source identities
     - durable path preserves DIVERGED and UNKNOWN without reinterpretation
   distribution: internal-only
   economic_role: portfolio-coordination-asset
