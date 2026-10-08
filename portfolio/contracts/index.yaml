@@ -10,4 +10,6 @@ contracts:
     - ci-retry-gate-engine--consumer-e2e.yaml
     - execution-fabric--data-engine.yaml
     - execution-fabric--postgres-change-safety.yaml
+    - portfolio-dot--data-engine.yaml
+    - portfolio-dot--governed-agent-runtime.yaml
     - workflow-failure-lab--ci-retry-gate-engine.yaml
