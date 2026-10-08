@@ -1,0 +1,109 @@
+review:
+  id: data-reconciliation-buyer-workflow-2026-10-08
+  reviewed_at: 2026-10-08
+  decision: ADMIT_ONE_COMMERCIAL_WORKFLOW_FOR_VALIDATION
+
+  buyer:
+    primary: AWS database migration consultancy / AWS Migration and Modernization partner
+    operator: migration DBA or database migration engineer responsible for cutover
+    economic_buyer: migration practice lead / delivery lead
+    end_customer: company moving PostgreSQL to Amazon RDS for PostgreSQL or Aurora PostgreSQL
+
+  workflow:
+    name: independent pre-cutover proof for AWS DMS homogeneous PostgreSQL migrations
+    sequence:
+      - AWS DMS homogeneous migration moves PostgreSQL source to RDS or Aurora PostgreSQL
+      - partner reaches pre-cutover acceptance gate
+      - source and target are queried read-only using an explicit comparison contract
+      - snapshots and query definitions are hash-bound
+      - Data Engine produces MATCH / DIVERGED / UNKNOWN
+      - exceptions are attached to migration acceptance / cutover evidence
+      - human migration lead still owns GO / NO-GO
+    native_gap:
+      statement: AWS DMS homogeneous data migrations do not provide a built-in data validation tool
+      consequence: migration partner must supply validation by another mechanism
+
+  buyer_evidence:
+    marketplace_signal:
+      - PostgreSQL-to-Aurora services explicitly sell validation tests, data-validation reports, cutover checkpoints, and rollback readiness
+      - AWS database migration consulting engagements include validation testing and comprehensive migration reports
+      - multiple AWS Marketplace migration providers advertise post-migration validation as a deliverable
+    service_economics:
+      engagement_model: custom-price professional services
+      interpretation: >
+        Validation is part of a paid migration deliverable, so reducing manual reconciliation
+        work and strengthening acceptance evidence can improve delivery margin and reduce cutover risk.
+
+  pain:
+    operational:
+      - manual SQL and spreadsheet reconciliation consumes senior DBA/engineer time
+      - cutover cannot be signed off confidently when validation evidence is incomplete
+      - mismatches discovered after cutover create rework and rollback pressure
+    economic:
+      - delayed cutover extends paid project effort
+      - failed acceptance delays project completion and invoicing
+      - rollback or post-cutover correction consumes high-cost specialist time
+      - weak validation evidence increases delivery and reputation risk for the migration partner
+
+  why_existing_platform_is_insufficient:
+    - homogeneous AWS DMS path has no built-in validation
+    - ordinary DMS validation has endpoint/type/key limitations and can suspend after large failure counts
+    - migration-tool-owned validation is not independent evidence of the migration tool's own result
+    - partner still needs a client-facing acceptance artifact and exception inventory
+
+  product_wedge:
+    working_name: Cutover Proof
+    category: self-hosted migration acceptance evidence
+    relationship_to_data_engine: packaged commercial workflow over Cross-System Reconciliation Core
+    does_not_become:
+      - generic ETL testing platform
+      - connector marketplace
+      - replacement for AWS DMS
+      - automated GO/NO-GO authority
+    output:
+      - source/target identity
+      - query hashes
+      - snapshot hashes
+      - MATCH / DIVERGED / UNKNOWN
+      - missing/extra identity inventory
+      - field-level mismatch inventory
+      - boundary statement
+      - machine-readable evidence bundle
+      - human-readable acceptance report later
+
+  differentiation:
+    - independent from the migration tool
+    - read-only and self-hosted inside the customer's environment
+    - evidence-bound rather than dashboard-only
+    - explicit UNKNOWN when identity or comparison authority is insufficient
+    - does not silently normalize or coerce values
+    - can validate arbitrary read-only queries rather than only tables accepted by DMS validation rules
+
+  distribution:
+    primary:
+      - GitHub
+      - SEO around AWS DMS homogeneous migration validation
+      - AWS migration partner ecosystem / AWS Marketplace later after proof
+    not_primary:
+      - cold LinkedIn outreach
+      - generic Reddit promotion
+
+  commercial_gate:
+    state: WORKFLOW_ADMITTED_NOT_PRODUCT_VALIDATED
+    before_more_build:
+      - prove one complete acceptance-report artifact over a realistic PostgreSQL-to-RDS/Aurora rehearsal
+      - confirm report reduces manual validation work versus SQL/spreadsheet process
+      - obtain external adoption signal from a migration practitioner or partner workflow
+    do_not_build_yet:
+      - more database connectors
+      - SaaS control plane
+      - team dashboard
+      - enterprise RBAC
+      - automated cutover decision
+      - pricing tiers
+
+  kill_conditions:
+    - migration practitioners say native/manual validation is already sufficient
+    - acceptance report does not save meaningful engineer time
+    - buyer insists on broad heterogeneous connector coverage before trying the workflow
+    - product value collapses to being only a cheaper row-diff tool
