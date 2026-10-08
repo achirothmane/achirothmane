@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "as_of": "2026-10-06",
+  "as_of": "2026-10-08",
   "policy": "priority-policy.yaml",
   "directives": "priority-directives.yaml",
   "lane_counts": {
-    "NOW": 1,
+    "NOW": 3,
     "NEXT": 4,
     "WATCH": 19,
-    "PARKED": 13,
+    "PARKED": 12,
     "REVERIFY": 0,
     "CLOSED": 1
   },
   "wip": {
     "now_cap": 3,
-    "now_count": 1,
+    "now_count": 3,
     "now_overflow": 0,
     "next_cap": 6,
     "next_count": 4,
@@ -21,13 +21,23 @@
   },
   "projects": [
     {
+      "id": "portfolio-dot",
+      "lane": "NOW",
+      "reason": "explicit human directive places the single Portfolio Dot in active build",
+      "next_action": "build Portfolio Context Snapshot v0.1 after durable data.reconcile bridge PASS",
+      "blockers": [
+        "portfolio context is not yet bound into one immutable digest snapshot"
+      ],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
+      "freshness": "FRESH"
+    },
+    {
       "id": "data-engine",
       "lane": "NOW",
-      "reason": "broad self-use foundational asset that compounds across future systems",
-      "next_action": "merge verified PR #7 into main before any G4.10 or structured indexing work",
-      "blockers": [
-        "main is 101 commits behind verified hard-fork product branch"
-      ],
+      "reason": "foundational capability provider currently being integrated into Dots",
+      "next_action": "support Portfolio Context Snapshot v0.1; add no further tool without a concrete Dots need",
+      "blockers": [],
       "knowledge": "COMPLETE",
       "source": "human-directive",
       "freshness": "FRESH"
@@ -373,12 +383,14 @@
     },
     {
       "id": "governed-agent-runtime",
-      "lane": "PARKED",
-      "reason": "status HOLD is parked by policy",
-      "next_action": "re-enter active graph only with concrete consumer and measurable benefit",
-      "blockers": [],
-      "knowledge": "INCOMPLETE",
-      "source": "derived-status",
+      "lane": "NOW",
+      "reason": "concrete Portfolio Dot consumer reactivates the durable runtime as an execution substrate",
+      "next_action": "support Portfolio Context Snapshot and Dots reasoning without becoming portfolio authority",
+      "blockers": [
+        "real model-provider adapter not yet proven"
+      ],
+      "knowledge": "COMPLETE",
+      "source": "human-directive",
       "freshness": "FRESH"
     },
     {
