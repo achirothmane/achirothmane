@@ -2,7 +2,7 @@ review:
   id: data-reconciliation-commercial-freshness-2026-10-08
   reviewed_at: 2026-10-08
   subject: Data Engine cross-system reconciliation / migration verification
-  decision: BUILD_CAPABILITY_NOT_GENERIC_PRODUCT
+  decision: CAPABILITY_PROVEN_KEEP_GENERIC_PRODUCT_REJECTED
 
   market_evidence:
     category_exists: true
@@ -60,7 +60,7 @@ review:
     pricing: DEFERRED
 
   build_gate:
-    state: ADMITTED
+    state: PASS_REAL_DATABASE_PROOF
     capability: Cross-System Reconciliation Core
     first_contract:
       input: pinned CSV source and target snapshots
@@ -88,3 +88,57 @@ review:
     - comparison requires implicit semantic coercion
     - product positioning depends only on lower price or open source
     - no real internal workflow benefits from the capability
+
+
+  proof:
+    data_engine_pull_request: 18
+    branch: capability/cross-system-reconciliation-v0.1
+    repository_ci:
+      run_id: 37719661919
+      conclusion: success
+    real_database_workflow:
+      run_id: 37719661975
+      conclusion: success
+      databases:
+        source: PostgreSQL 16
+        target: PostgreSQL 16
+        independent_instances: true
+      acquisition:
+        source_rows: 3
+        target_rows: 3
+        method: PostgreSQL client-side COPY over explicit ordered SQL query
+        query_hash_bound: true
+        snapshots_sha256_bound: true
+      observed_decision:
+        state: DIVERGED
+        compared_rows: 2
+        value_mismatches: 1
+        missing_in_target: 1
+        extra_in_target: 1
+        duplicate_keys: 0
+      expected_specific_evidence:
+        - ord-002 amount source 50.00 vs target 55.00
+        - ord-003 missing in target
+        - ord-004 extra in target
+      boundary_preserved:
+        transforms_values: false
+        infers_mappings: false
+        repairs_data: false
+        declares_cutover_safe: false
+      evidence_artifact_id: 11525262469
+      evidence_artifact_name: real-postgres-reconciliation-proof
+
+  post_proof_decision:
+    capability: KEEP
+    more_feature_building_now: STOP
+    generic_product_positioning: REJECT
+    connector_arms_race: REJECT
+    next_commercial_gate: >
+      Identify one buyer workflow where independent evidence-bound verification has a
+      measurable advantage over incumbent or platform-native migration validation.
+    required_buyer_evidence:
+      - named workflow and buyer
+      - economic consequence of a missed divergence
+      - why platform-native validation is insufficient
+      - realistic distribution path
+      - willingness to adopt or pay
