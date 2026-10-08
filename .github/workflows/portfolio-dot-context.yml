@@ -14,7 +14,24 @@ permissions:
 jobs:
   context-snapshot:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: governed_agent_runtime
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d governed_agent_runtime"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/governed_agent_runtime?sslmode=disable
 
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +81,7 @@ jobs:
           assert len(doc["snapshot_digest"]) == 64
           assert all(c in "0123456789abcdef" for c in doc["snapshot_digest"])
           assert "portfolio-dot" in doc["projection"]["now_projects"]
-          assert any(item["id"] == "dots-decision-contract-003" for item in doc["projection"]["runnable_items"])
+          assert any(item["id"] == "dots-durable-decision-loop-004" for item in doc["projection"]["runnable_items"])
           assert "merge" in doc["projection"]["human_final_on"]
           assert len(doc["source_bindings"]) >= 10
 
@@ -84,21 +101,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: achirothmane/governed-agent-runtime
-          ref: build/dots-data-reconcile-v0.1
+          ref: build/dots-durable-decision-loop-v0.1
           path: _integration/runtime
 
-      - name: Prove runtime consumes sealed snapshot only
+      - name: Prove runtime consumes current sealed D4 snapshot
         working-directory: _integration/runtime
         env:
           PORTFOLIO_CONTEXT_FILE: /tmp/portfolio-context-v0.1.json
+          DOT_DECISION_EVIDENCE_FILE: /tmp/portfolio-dot-decision-v0.1.json
         run: |
           go test -tags=integration \
             -run TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads \
             -count=1 -v ./integration/dotscontext
 
           go test -tags=integration \
-            -run TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal \
-            -count=1 -v ./integration/dotsdecision
+            -run TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed \
+            -count=1 -v ./integration/dotsdurable
 
       - name: Upload Dots context evidence
         uses: actions/upload-artifact@v4
@@ -106,6 +124,7 @@ jobs:
           name: portfolio-context-v0.1
           path: |
             /tmp/portfolio-context-v0.1.json
+            /tmp/portfolio-dot-decision-v0.1.json
             portfolio/freshness-report.json
             portfolio/priority-report.json
             portfolio/dependency-graph.json
