@@ -25,6 +25,18 @@
       "status": "ACTIVE"
     },
     {
+      "id": "governed-agent-runtime",
+      "repository": "achirothmane/governed-agent-runtime",
+      "role": "durable-agent-runtime-substrate",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "portfolio-dot",
+      "repository": null,
+      "role": "single-portfolio-coordination-system",
+      "status": "ACTIVE_BUILD"
+    },
+    {
       "id": "postgres-change-safety",
       "repository": "achirothmane/postgres-change-safety",
       "role": "database-change-reliability",
@@ -37,7 +49,7 @@
       "status": "ACTIVE"
     }
   ],
-  "connected_project_count": 6,
+  "connected_project_count": 8,
   "edges": [
     {
       "hard_dependency": true,
@@ -71,6 +83,25 @@
     },
     {
       "hard_dependency": false,
+      "id": "portfolio-dot--data-engine",
+      "relations": [
+        "CONSUMES",
+        "COMPOSES_WITH"
+      ],
+      "source": "portfolio-dot",
+      "target": "data-engine"
+    },
+    {
+      "hard_dependency": false,
+      "id": "portfolio-dot--governed-agent-runtime",
+      "relations": [
+        "COMPOSES_WITH"
+      ],
+      "source": "portfolio-dot",
+      "target": "governed-agent-runtime"
+    },
+    {
+      "hard_dependency": false,
       "id": "workflow-failure-lab--ci-retry-gate-engine",
       "relations": [
         "PRODUCES",
@@ -80,8 +111,8 @@
       "target": "ci-retry-gate-engine"
     }
   ],
-  "project_count": 39,
+  "project_count": 40,
   "schema_version": 1,
-  "structural_review": "2026-10-07",
-  "verified_contract_count": 4
+  "structural_review": "2026-10-08",
+  "verified_contract_count": 6
 }
