@@ -75,6 +75,27 @@ jobs:
           print("runnable-items=" + ",".join(item["id"] for item in doc["projection"]["runnable_items"]))
           PY
 
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+          cache: false
+
+      - name: Checkout Dots runtime consumer
+        uses: actions/checkout@v4
+        with:
+          repository: achirothmane/governed-agent-runtime
+          ref: build/dots-data-reconcile-v0.1
+          path: _integration/runtime
+
+      - name: Prove runtime consumes sealed snapshot only
+        working-directory: _integration/runtime
+        env:
+          PORTFOLIO_CONTEXT_FILE: /tmp/portfolio-context-v0.1.json
+        run: |
+          go test -tags=integration \
+            -run TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads \
+            -count=1 -v ./integration/dotscontext
+
       - name: Upload Dots context evidence
         uses: actions/upload-artifact@v4
         with:
