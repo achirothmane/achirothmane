@@ -64,7 +64,7 @@ jobs:
           assert len(doc["snapshot_digest"]) == 64
           assert all(c in "0123456789abcdef" for c in doc["snapshot_digest"])
           assert "portfolio-dot" in doc["projection"]["now_projects"]
-          assert any(item["id"] == "dots-portfolio-context-snapshot-002" for item in doc["projection"]["runnable_items"])
+          assert any(item["id"] == "dots-decision-contract-003" for item in doc["projection"]["runnable_items"])
           assert "merge" in doc["projection"]["human_final_on"]
           assert len(doc["source_bindings"]) >= 10
 
@@ -95,6 +95,10 @@ jobs:
           go test -tags=integration \
             -run TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads \
             -count=1 -v ./integration/dotscontext
+
+          go test -tags=integration \
+            -run TestCurrentPortfolioSnapshotProducesBoundedNextGateProposal \
+            -count=1 -v ./integration/dotsdecision
 
       - name: Upload Dots context evidence
         uses: actions/upload-artifact@v4
