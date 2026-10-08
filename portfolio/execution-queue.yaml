@@ -128,7 +128,7 @@ execution_queue:
     - id: dots-portfolio-context-snapshot-002
       project: portfolio-dot
       priority_lane: NOW
-      state: READY
+      state: DONE
       authority: PREPARE
       objective: build one immutable digest-bound Portfolio Context Snapshot for Dots before any next-action reasoning
       entry_conditions:
@@ -163,8 +163,69 @@ execution_queue:
         - one real Portfolio Context Snapshot is generated from current portfolio records
         - digest and source bindings are verified
         - a Dots reasoner can consume the snapshot without reading arbitrary repository files
+      result:
+        status: PASS
+        portfolio_run: 37733369517
+        runtime_ci_run: 37733563241
+        evidence_artifact_id: 11530332932
+        snapshot_state: EXECUTABLE
+        snapshot_digest: 35edc52811d57a3fd51b29179985b7ffd360690157c63e60397f1b922c3f2598
+        source_bindings: 55
+        integration_test: TestPortfolioContextArtifactCanBeConsumedWithoutRepositoryReads
+        falsification:
+          - same inputs produce same digest
+          - bound source mutation changes digest
+          - stale generated state fails closed
+          - UNKNOWN NOW freshness fails closed
+          - missing required source fails hard
+          - READY item outside NOW fails closed
+      completed_on: 2026-10-08
       on_completion:
         - admit next reasoning slice only if snapshot boundary passes
+
+
+    - id: dots-decision-contract-003
+      project: portfolio-dot
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: prove Dots can emit one typed snapshot-bound next-gate decision without gaining execution authority
+      entry_conditions:
+        - dots-portfolio-context-snapshot-002 is PASS
+        - Portfolio Context Snapshot is EXECUTABLE
+        - runtime can consume the sealed snapshot without arbitrary repository reads
+      allowed_actions:
+        - define typed Dot decision schema
+        - bind every decision to snapshot_digest and work_item_id
+        - validate proposed authority against the admitted work item
+        - distinguish PROPOSE_NEXT_GATE ASK_HUMAN and REFUSE
+        - prepare reversible runtime tests and draft changes
+      forbidden_without_human_approval:
+        - execute the proposed work item
+        - merge or release
+        - publish or send external messages
+        - spend money
+        - destructive changes
+        - new hard dependencies
+        - reinterpret another capability boundary
+      evidence_required:
+        - valid decision references the exact current snapshot digest
+        - hallucinated work item is rejected
+        - stale or mutated snapshot digest is rejected
+        - requested authority cannot exceed the admitted work item authority
+        - human-final action cannot be emitted as ordinary PROPOSE_NEXT_GATE
+        - NON_EXECUTABLE context cannot reach decision validation
+      stop_conditions:
+        - decision validator needs arbitrary repository reads
+        - model output can bypass typed decision validation
+        - priority is treated as execution authority
+        - external commitment can be represented as ordinary PREPARE work
+      completion_definition:
+        - one real current Portfolio Context Snapshot produces a valid typed next-gate proposal
+        - falsification cases reject digest work-item authority and human-boundary violations
+        - no tool or external action executes as part of the decision proof
+      on_completion:
+        - admit a real model-provider reasoning adapter only if the decision contract passes
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite
