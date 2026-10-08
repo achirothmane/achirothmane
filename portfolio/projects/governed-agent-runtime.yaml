@@ -21,8 +21,8 @@ project:
   dependencies: []
   contracts:
     - portfolio-dot--governed-agent-runtime.yaml
-  current_state: a6.1-durable-reasoning-plus-dots-data-reconcile-bridge-pass
-  next_gate: support Portfolio Context Snapshot v0.1 without expanding runtime into a commercial platform
+  current_state: d4-durable-portfolio-decision-substrate-pass
+  next_gate: support D5 provider adapter behind the durable decision gate without gaining portfolio authority
   blockers:
     - real model-provider adapter not yet proven
   evidence:
@@ -32,6 +32,11 @@ project:
     - CI run 37732121431 success
     - cross-repository Data Engine run 37732132719 success
     - TestDotsDurablyInvokesDataReconcile PASS
+    - D4 PR #28 stacked on Dots runtime branch
+    - D4 CI run 37735201094 success
+    - D4 Portfolio cross-repository run 37735226181 success
+    - D4 committed decisions persisted in PostgreSQL and replayed through Temporal
+    - D4 executes no tools and retains no Portfolio source paths in Temporal history
   distribution: internal-runtime
   economic_role: shared-runtime-substrate
   last_verified: 2026-10-08
