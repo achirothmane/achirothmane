@@ -247,7 +247,7 @@ execution_queue:
     - id: dots-durable-decision-loop-004
       project: portfolio-dot
       priority_lane: NOW
-      state: READY
+      state: DONE
       authority: PREPARE
       objective: prove a validated snapshot-bound Dot decision is durably committed and replayed without re-reasoning
       entry_conditions:
@@ -284,8 +284,72 @@ execution_queue:
         - Temporal plus PostgreSQL prove one durable validated Dot decision end to end
         - replay and disconnect paths preserve the same decision digest
         - decision remains inert data with no external effect
+      result:
+        status: PASS
+        runtime_pull_request: 28
+        runtime_branch: build/dots-durable-decision-loop-v0.1
+        runtime_ci_run: 37735201094
+        portfolio_run: 37735226181
+        evidence_artifact_id: 11531133449
+        snapshot_digest: a263414e695d0dab75f814dd40d0a862662d39e9cc7ef25311161fc60c9da62c
+        decision_id: portfolio-dot-d4-current
+        decision_digest: b2c8ac82cd8c20db7aa9365cb08c1d649031a9b656550cac538c88cf6880d83f
+        decision_kind: PROPOSE_NEXT_GATE
+        requested_authority: PREPARE
+        integration_test: TestCurrentPortfolioDecisionIsDurablyCommittedAndReplayed
+        reasoner_calls: 1
+        tool_invocations: 0
+        caller_rejoin_match: true
+        store_restart_match: true
+        temporal_history_source_leak: false
+      completed_on: 2026-10-08
       on_completion:
         - admit a real model-provider adapter behind the durable Decision Gate
+
+    - id: dots-model-provider-adapter-005
+      project: portfolio-dot
+      priority_lane: NOW
+      state: READY
+      authority: PREPARE
+      objective: bind one real model-provider adapter behind the D4 durable Decision Gate without granting execution authority
+      entry_conditions:
+        - dots-durable-decision-loop-004 is PASS
+        - D4 committed decisions remain inert data
+        - provider credentials are never required for repository tests
+      allowed_actions:
+        - define a provider adapter behind the dotdurable Reasoner contract
+        - send only the sealed Portfolio ReasoningView needed for the admitted work item
+        - require structured typed decision output
+        - validate provider output through D3 before durable commit
+        - test provider transport with a local deterministic HTTP server
+        - prepare an opt-in live smoke test that is disabled by default
+      forbidden_without_human_approval:
+        - make a paid live model call
+        - spend money
+        - execute tools or external effects
+        - expose raw Portfolio source files to the provider
+        - bypass D3 validation
+        - merge or release
+        - publish or send external messages
+        - introduce a new hard dependency
+      evidence_required:
+        - provider adapter cannot emit execution authority beyond the admitted work item
+        - provider receives a bounded ReasoningView rather than arbitrary repository files
+        - malformed or authority-escalating provider output is rejected before commit
+        - repository CI proves deterministic transport behavior without credentials
+        - live provider use remains opt-in and human-authorized
+      stop_conditions:
+        - provider requires tool execution to produce the decision
+        - raw source files or secrets must enter the prompt
+        - structured decision output cannot be validated deterministically
+        - adapter couples Portfolio Dot to one provider-specific execution model
+      completion_definition:
+        - one concrete provider adapter compiles behind the Reasoner interface
+        - fake transport proves valid and invalid typed decision paths
+        - D4 durable commit remains the only persistence path
+        - no paid call occurs without explicit human approval
+      on_completion:
+        - request human approval for one bounded live provider smoke test only if it materially changes confidence
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite
