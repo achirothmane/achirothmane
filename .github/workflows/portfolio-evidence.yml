@@ -1,0 +1,30 @@
+name: Portfolio Evidence Validation
+on:
+  push:
+    branches:
+      - portfolio/evidence-baseline-2026-10-09
+  pull_request:
+    paths:
+      - "SYSTEM-MAP.md"
+      - "portfolio/**"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate public evidence and freshness
+        run: |
+          python portfolio/scripts/check_evidence_baseline.py --fail-on-stale
+      - name: Validate Python syntax
+        run: |
+          python -m py_compile portfolio/scripts/check_evidence_baseline.py
+          python -m py_compile portfolio/scripts/generate_freshness_report.py
+          python -m py_compile portfolio/scripts/generate_priority_report.py
+          python -m py_compile portfolio/scripts/generate_dependency_graph.py
