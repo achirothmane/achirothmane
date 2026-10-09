@@ -27,7 +27,7 @@
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
 | `data-engine` | broad self-use foundational asset that compounds across future systems | PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence | — | COMPLETE |
-| `governed-agent-runtime` | human-authorized single read-only Dots shadow observation; not a general runtime expansion | Inspect public evidence for merged PR #25, #28, #29 and matching CI; propose one bounded evidence-backed readiness decision without any effects | create/lost-ACK case blocked by GitHub 403; independent Dots portfolio-management quality unverified; no live paid OpenAI Portfolio Dot reasoning call or human-scored decision yet | COMPLETE |
+| `governed-agent-runtime` | human-authorized single read-only Dots shadow observation; not a general runtime expansion | Use sealed Portfolio context to propose one next evidence-verification gate; separately let a human compare merged PR #25 #28 #29 and CI | create/lost-ACK case blocked by GitHub 403; independent Dots portfolio-management quality unverified; no live paid OpenAI Portfolio Dot reasoning call or human-scored decision yet | COMPLETE |
 
 ## NEXT
 

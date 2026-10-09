@@ -87,7 +87,7 @@
       "id": "governed-agent-runtime",
       "knowledge_gap": false,
       "lane": "NOW",
-      "next_action": "Inspect public evidence for merged PR #25, #28, #29 and matching CI; propose one bounded evidence-backed readiness decision without any effects",
+      "next_action": "Use sealed Portfolio context to propose one next evidence-verification gate; separately let a human compare merged PR #25 #28 #29 and CI",
       "reason": "human-authorized single read-only Dots shadow observation; not a general runtime expansion",
       "repository": "achirothmane/governed-agent-runtime",
       "status": "ACTIVE"
