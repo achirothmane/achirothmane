@@ -104,11 +104,12 @@ The key invariant is:
 
 A work item must be READY and carry explicit authority plus evidence and stop conditions before a Dot may execute it.
 
-Current execution state:
+Current execution state (operational check 2026-10-09):
 
 - no READY work item;
-- `data-engine-capability-boundaries-001` is DONE / PASS;
-- verified draft PR #8 is waiting for human merge authority.
+- `data-engine-capability-boundaries-001` is DONE / PASS (scoped);
+- Data Engine PR #7 has already merged into main; the legacy queue entry now waits for post-merge evidence, **not** a second merge decision.
+- Dots requires updated generated priority/freshness reports before executing consequential work.
 
 
 ## Public evidence baseline (9 October 2026)
