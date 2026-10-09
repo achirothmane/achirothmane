@@ -35,8 +35,18 @@ class ShadowOracleTests(unittest.TestCase):
         self.assertNotIn("data-engine", json.dumps(r))
         self.assertTrue(all(p["reference_authority"] == "OBSERVE_ONLY" for p in r["reference_decisions"]))
 
-    def test_old_handoff_detected_without_private_identity(self):
-        self.assertIn("STALE_HANDOFF_MERGE_APPROVAL", self.actual["diagnostic_codes"])
+    def test_stale_handoff_fixture_is_detected_without_private_identity(self):
+        docs = copy.deepcopy(self.source)
+        observed = next(x for x in docs["execution-queue.yaml"]["execution_queue"]["items"]
+                        if (x.get("observed_2026_10_09") or {}).get("pr7_merged") is True)
+        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["waiting_human_approval"].append({
+            "project": observed["project"], "pull_request": observed["target_pull_request"],
+            "decision": "merge already completed work",
+        })
+        simulated = oracle.report(docs, self.digest, self.date)
+        self.assertIn("STALE_HANDOFF_MERGE_APPROVAL", simulated["diagnostic_codes"])
+        self.assertNotIn(observed["project"], json.dumps(simulated))
+        self.assertNotIn("STALE_HANDOFF_MERGE_APPROVAL", self.actual["diagnostic_codes"])
 
     def test_scoped_read_only_observation_is_policy_admissible_not_quality_pass(self):
         row = oracle.report(self.source, self.digest, self.date, self.candidate())["candidate_evaluation"]
