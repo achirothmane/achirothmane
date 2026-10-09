@@ -13,11 +13,12 @@ A project can be important without being executable. A project can be `NOW` with
 1. `SYSTEM-MAP.md`
 2. `portfolio/index.yaml`
 3. `portfolio/evidence-baseline.json` (dated PUBLIC-ONLY snapshot, not production or payment proof)
-4. `portfolio/freshness-report.json`
-5. `portfolio/priority-report.json`
-6. `portfolio/dependency-graph.json`
-7. `portfolio/execution-queue.yaml`
-8. relevant project records and contracts
+4. `portfolio/shadow-reference.json` (public-scoped policy oracle, not an approval)
+5. `portfolio/freshness-report.json`
+6. `portfolio/priority-report.json`
+7. `portfolio/dependency-graph.json`
+8. `portfolio/execution-queue.yaml`
+9. relevant project records and contracts
 
 ## Evidence admissibility
 
@@ -85,3 +86,8 @@ As of the 2026-10-09 operational recheck there is **no READY work item**. Older 
 `data-engine-capability-boundaries-001` completed with PASS evidence. An older record still referred to PR #8. The historical Data Engine PR #7 actually merged on 2026-10-07; the portfolio execution queue is waiting for post-merge evidence, not approval to merge it again.
 
 All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.
+
+
+## Shadow management
+
+The independent policy oracle in `portfolio/scripts/shadow_management.py` must never be described as proof of a model's planning quality. An actual Dots proposal is input only after it is bound to the exact source digest. Validation emits `POLICY_ADMISSIBLE_ONLY`, `UNKNOWN`, or `BLOCKED`; none grants tool/effect authority. No private project evidence may be exported by the public shadow reference. See `portfolio/SHADOW-MANAGEMENT.md`.

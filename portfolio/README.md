@@ -14,12 +14,13 @@ Machine-facing project state lives in [index.yaml](./index.yaml) and `projects/*
 5. Read `portfolio/priority-report.json` to determine NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED.
 6. Read `portfolio/execution-queue.yaml`; only READY items with explicit authority are executable.
 7. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
-8. Read the relevant project records, contracts, priority directives, and execution policy.
-9. Follow only declared dependencies and contracts.
-10. Treat `UNKNOWN` as unknown. Never fill it from assumption.
-11. Remember that FRESH does not mean COMPLETE, ACTIVE does not mean NOW, and NOW does not equal execution authority.
-12. Keep technical status separate from commercial status.
-13. Escalate portfolio-level conflicts or irreversible choices to human authority.
+8. Read `portfolio/shadow-reference.json` as a PUBLIC-only policy baseline, not a Dots model success score.
+9. Read the relevant project records, contracts, priority directives, and execution policy.
+10. Follow only declared dependencies and contracts.
+11. Treat `UNKNOWN` as unknown. Never fill it from assumption.
+12. Remember that FRESH does not mean COMPLETE, ACTIVE does not mean NOW, and NOW does not equal execution authority.
+13. Keep technical status separate from commercial status.
+14. Escalate portfolio-level conflicts or irreversible choices to human authority.
 
 ## Project record fields
 
@@ -131,3 +132,14 @@ To reject a snapshot older than seven UTC days:
 This is an **offline audit snapshot**, not a live GitHub poll, CI rerun, sales ledger, production deployment proof, or evidence for private repositories. The verifier rejects new nonpublic repositories and unsupported paid/deployed claims. Existing private-repository references in historical public files should not be supplemented with further confidential metadata. Operational records must be rechecked against current GitHub state before consequential actions.
 
 The freshness and dependency reports predate the new project records and must be regenerated before treating their project counts or freshness statuses as current. Regeneration should not imply independent technical or commercial proof.
+
+
+## Dots shadow-management policy oracle
+
+See [SHADOW-MANAGEMENT.md](./SHADOW-MANAGEMENT.md) and the dated [shadow reference](./shadow-reference.json). The read-only oracle compares proposed decisions with snapshot-bound explicit policy and redacts proposals outside the approved public scope. The reference is deterministic, not an AI model, and the live Dots decision-quality score remains **NOT_MEASURED**.
+
+`python portfolio/scripts/shadow_management.py --as-of 2026-10-09 --check-reference`
+
+`python -m unittest discover -s portfolio/tests -p 'test_shadow_*.py' -v`
+
+The historical note above about reports predating the October 9 update is superseded: the six reports were regenerated and verified in PR #2. Recency and completeness must still be checked before any material decision.

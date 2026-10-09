@@ -37,7 +37,7 @@ jobs:
       - name: Verify generated reports are current
         run: |
           python portfolio/scripts/generate_dependency_graph.py
-          python portfolio/scripts/generate_freshness_report.py --as-of "$(date -u +%F)"
+          python portfolio/scripts/generate_freshness_report.py --as-of "$(python -c 'import json; print(json.load(open("portfolio/freshness-report.json"))["as_of"])')"
           python portfolio/scripts/generate_priority_report.py
           git diff --exit-code -- \
             portfolio/DEPENDENCY-GRAPH.md \
@@ -46,3 +46,12 @@ jobs:
             portfolio/freshness-report.json \
             portfolio/PRIORITY-REPORT.md \
             portfolio/priority-report.json
+      - name: Run Dots shadow policy falsification tests
+        run: |
+          python -m unittest discover -s portfolio/tests -p 'test_shadow_*.py' -v
+      - name: Verify immutable shadow reference on its recorded snapshot
+        run: |
+          python portfolio/scripts/shadow_management.py --check-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
+      - name: Fail closed when current shadow inputs expire
+        run: |
+          python portfolio/scripts/shadow_management.py --as-of "$(date -u +%F)" > /dev/null
