@@ -67,7 +67,7 @@ execution_queue:
         - project last_verified remains 2026-10-06
         - capability proof recorded
         - no new G4 slice is admitted automatically
-        - human merge decision for PR #8 is the next gate
+        - historical PR 8 was merged on a feature branch; next decisions require refreshed evidence
 
     - id: marketing-automation-suite-bootstrap
       project: marketing-automation-suite
@@ -106,27 +106,22 @@ execution_queue:
       priority_lane: NOW
       state: WAITING_EVIDENCE
       authority: OBSERVE
-      objective: verify completion and post-merge evidence for PR #7, already merged on 2026-10-07
+      objective: "verify completion and post-merge evidence for PR #7, already merged on 2026-10-07"
       target_pull_request: 7
       source_branch: hard-fork/dlt-genesis
       target_branch: main
       recommended_merge_method: merge
       merge_method_reason: preserve the 101-commit verified hard-fork history and commit-level evidence instead of collapsing genesis into one squash
       entry_conditions:
-        - PR #7 is mergeable
-        - hard-fork/dlt-genesis is 101 commits ahead of main
-        - hard-fork/dlt-genesis is 0 commits behind main
-        - current hard-fork head is 7889f992965406f079284bd88725d79fc6d845be
-        - ci run 37528767849 succeeded
-        - g2-oracle-harness run 37528767750 succeeded
-        - g3-semantic-takeover run 37528767836 succeeded
-        - g4-product-divergence run 37528767819 succeeded
+        - PR 7 merged into main; GitHub merge event verified 2026-10-07
+        - current main and post-merge CI evidence must be independently checked
+        - portfolio reporting must reflect the merged state
       forbidden_before_completion:
         - G4.10 implementation
         - structured indexing implementation
         - additional product divergence slice
       completion_definition:
-        - PR #7 merged into main
+        - "PR #7 merged into main"
         - main contains G1 through G4.9
         - post-merge CI on main succeeds
         - portfolio state is refreshed from the new main head
