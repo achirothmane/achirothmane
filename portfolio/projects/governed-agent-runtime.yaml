@@ -13,13 +13,18 @@ project:
   consumes: []
   dependencies: []
   contracts: []
-  current_state: merged-runtime-with-A7.1-real-provider-recovery-scoped-proof; A7.2-create-lost-ack-blocked-403
-  next_gate: reverify stronger real-provider create/lost-ACK boundary and Dots shadow-management quality
+  current_state: "merged Runtime PR #25 and D4 PR #28 and D5 PR #29; synthetic D4/D5 Temporal-PostgreSQL integration PASS; paid live Dots review not executed"
+  next_gate: "single OBSERVE-only public GitHub evidence review under S1, then independent judgement; A7.2 lost-ACK remains separate blocked scope"
   blockers:
     - create/lost-ACK case blocked by GitHub 403
     - independent Dots portfolio-management quality unverified
+    - no live paid OpenAI Portfolio Dot reasoning call or human-scored decision yet
   evidence:
     - https://github.com/achirothmane/governed-agent-runtime/pull/31
+    - https://github.com/achirothmane/governed-agent-runtime/pull/25
+    - https://github.com/achirothmane/governed-agent-runtime/pull/28
+    - https://github.com/achirothmane/governed-agent-runtime/pull/29
+    - https://github.com/achirothmane/governed-agent-runtime/actions/runs/37903367479
     - https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288
   distribution: internal-first
   economic_role: shared-capability-asset
