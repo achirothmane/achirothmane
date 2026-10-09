@@ -1,0 +1,66 @@
+{
+  "as_of": "2026-10-09",
+  "diagnostic_codes": [],
+  "live_dots_candidate_count": 0,
+  "manager_autonomy": "NOT_AUTHORIZED",
+  "mode": "SHADOW_POLICY_ONLY",
+  "model_quality_score": "NOT_MEASURED",
+  "projects_total": 40,
+  "public_projects_checked": 5,
+  "reference_decisions": [
+    {
+      "freshness": "FRESH",
+      "outcome_evidence": "UNKNOWN",
+      "priority_lane": "WATCH",
+      "project_id": "agent-deal-exchange",
+      "reason_codes": [
+        "OUTCOME_UNPROVEN"
+      ],
+      "reference_authority": "OBSERVE_ONLY"
+    },
+    {
+      "freshness": "FRESH",
+      "outcome_evidence": "UNKNOWN",
+      "priority_lane": "WATCH",
+      "project_id": "github-test-reporter",
+      "reason_codes": [
+        "OUTCOME_UNPROVEN"
+      ],
+      "reference_authority": "OBSERVE_ONLY"
+    },
+    {
+      "freshness": "FRESH",
+      "outcome_evidence": "UNKNOWN",
+      "priority_lane": "WATCH",
+      "project_id": "governed-agent-runtime",
+      "reason_codes": [
+        "OUTCOME_UNPROVEN"
+      ],
+      "reference_authority": "OBSERVE_ONLY"
+    },
+    {
+      "freshness": "FRESH",
+      "outcome_evidence": "UNKNOWN",
+      "priority_lane": "NEXT",
+      "project_id": "marketing-automation-suite",
+      "reason_codes": [
+        "OUTCOME_UNPROVEN"
+      ],
+      "reference_authority": "OBSERVE_ONLY"
+    },
+    {
+      "freshness": "FRESH",
+      "outcome_evidence": "UNKNOWN",
+      "priority_lane": "WATCH",
+      "project_id": "releaseguard-n8n",
+      "reason_codes": [
+        "OUTCOME_UNPROVEN"
+      ],
+      "reference_authority": "OBSERVE_ONLY"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "PUBLIC_PROJECTS_ONLY",
+  "snapshot_sha256": "0f82f479ff77f4da67ecf37ba6c3874b57b40819e48639d00d1ebe0096eec82d",
+  "snapshot_state": "FRESH_WITH_LIMITS"
+}
