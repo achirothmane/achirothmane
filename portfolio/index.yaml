@@ -23,6 +23,9 @@ portfolio:
   shadow_policy_oracle: ./scripts/shadow_management.py
   shadow_reference: ./shadow-reference.json
   shadow_spec: ./SHADOW-MANAGEMENT.md
+  s1_live_gate: ./scripts/shadow_live_gate.py
+  s1_readiness: ./s1-readiness.json
+  s1_live_contract: ./S1-LIVE-DECISION-CONTRACT.md
   shadow_scope: public-projects-only
   last_structural_review: 2026-10-09
   evidence_baseline: ./evidence-baseline.json
