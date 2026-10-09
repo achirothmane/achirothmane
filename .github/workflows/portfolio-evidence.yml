@@ -49,12 +49,9 @@ jobs:
       - name: Run Dots shadow policy falsification tests
         run: |
           python -m unittest discover -s portfolio/tests -p 'test_shadow_*.py' -v
-      - name: Generate shadow reference for code review
+      - name: Verify immutable shadow reference on its recorded snapshot
         run: |
-          python portfolio/scripts/shadow_management.py --write-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          p = Path("portfolio/shadow-reference.json")
-          print("SHADOW_REFERENCE_B64 " + base64.b64encode(p.read_bytes()).decode("ascii"))
-          PY
+          python portfolio/scripts/shadow_management.py --check-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
+      - name: Fail closed when current shadow inputs expire
+        run: |
+          python portfolio/scripts/shadow_management.py --as-of "$(date -u +%F)" > /dev/null
