@@ -12,13 +12,14 @@ project:
   consumes: []
   dependencies: []
   contracts: []
-  current_state: bootstrap-documentation-on-main; scoped simulator tests and Medusa source import only on open PR branches
-  next_gate: verify Medusa build, two-account authorization, nested licensing and settlement boundaries before merging or product claims
+  current_state: bootstrap-and-bounded-negotiation-simulator-merged-on-main; Medusa source import remains draft PR branch
+  next_gate: verify Medusa build, two-account authorization, nested licensing and settlement boundaries before adopting upstream as main capability
   blockers:
-    - upstream functional build not admitted on main
+    - upstream Medusa functional build not admitted on main
     - no real transaction or settlement evidence
   evidence:
     - https://github.com/achirothmane/agent-deal-exchange/blob/main/README.md
+    - https://github.com/achirothmane/agent-deal-exchange/pull/1
     - https://github.com/achirothmane/agent-deal-exchange/pull/2
     - https://github.com/achirothmane/agent-deal-exchange/pull/3
   distribution: internal-first
