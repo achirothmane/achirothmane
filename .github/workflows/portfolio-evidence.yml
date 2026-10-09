@@ -55,13 +55,8 @@ jobs:
       - name: Fail closed when current shadow inputs expire
         run: |
           python portfolio/scripts/shadow_management.py --as-of "$(date -u +%F)" > /dev/null
-      - name: Test S1 live ingress fail-closed boundary
+      - name: Verify S1 provenance readiness (no paid calls)
         run: |
           python -m unittest discover -s portfolio/tests -p 'test_shadow_live_gate.py' -v
-          python portfolio/scripts/shadow_live_gate.py --write-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          p = Path("portfolio/s1-readiness.json")
-          print("S1_REFERENCE_B64 " + base64.b64encode(p.read_bytes()).decode("ascii"))
-          PY
+          python portfolio/scripts/shadow_live_gate.py --check-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
+          python portfolio/scripts/shadow_live_gate.py --as-of "$(date -u +%F)" > /dev/null
