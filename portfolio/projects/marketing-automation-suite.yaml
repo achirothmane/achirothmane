@@ -1,23 +1,27 @@
 project:
   id: marketing-automation-suite
-  repository: null
+  repository: achirothmane/marketing-os
   role: broad-self-use-first-marketing-operations-system
-  status: PLANNED
+  status: ACTIVE
   owner_of:
     - marketing operations
+    - canonical identity and effect-evidence boundaries
   produces:
-    - campaign events
-    - audience behavior
-    - channel performance
-    - operational feedback
+    - campaign events when operationally verified
+    - audience behavior when operationally verified
   consumes:
     - trusted data when a real contract exists
   dependencies: []
   contracts: []
-  current_state: architecture-evolving
-  next_gate: establish repository and first self-use capability without niche narrowing
-  blockers: []
-  evidence: []
+  current_state: Mautic-7.2.1-imported; C4-01-to-C4-05B-scoped-verification; no-full-end-to-end-or-production
+  next_gate: C4-05C-safe-scheduler-and-crash-recovery; C4-06-source-reconciliation; C4-07-Messenger
+  blockers:
+    - full C4 end-to-end unverified
+    - production deployment and marketing sends unverified
+  evidence:
+    - https://github.com/achirothmane/marketing-os/blob/main/docs/marketing-os/project-status.json
+    - https://github.com/achirothmane/marketing-os/pull/20
+    - https://github.com/achirothmane/marketing-os/actions/runs/37880743889
   distribution: internal-first
   economic_role: future-engine
-  last_verified: 2026-10-06
+  last_verified: 2026-10-09

@@ -1,23 +1,15 @@
 # Priority / Next-Action Report
 
 > Priority is gate-based, not a technical-activity score.
-> **ACTIVE does not mean NOW.** Human directives and evidence outrank repository activity.
+> ACTIVE does not mean NOW. Human directives and evidence outrank repository activity.
 
-**As of:** 2026-10-06  
+**As of:** 2026-10-09  
 **NOW:** 1 / cap 3  
 **NEXT:** 4 / cap 6  
-**WATCH:** 19  
-**PARKED:** 13  
+**WATCH:** 22  
+**PARKED:** 12  
 **REVERIFY:** 0  
 **CLOSED:** 1
-
-## Current focus
-
-Only **one project currently consumes a NOW slot**:
-
-- `data-engine` — G4.9 is verified; the current gate is convergence of PR #7 into `main` before any G4.10.8 is merged; next gate is post-merge CI verification before admitting any new slice.
-
-The remaining NOW capacity is intentionally unused. Empty WIP capacity is preferable to promoting projects without enough evidence.
 
 ## Lane semantics
 
@@ -34,13 +26,13 @@ The remaining NOW capacity is intentionally unused. Empty WIP capacity is prefer
 
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
-| `data-engine` | broad self-use foundational asset that compounds across future systems | merge verified PR #7 into `main` before any G4.10 or structured indexing work | main is 101 commits behind verified hard-fork product branch | COMPLETE |
+| `data-engine` | broad self-use foundational asset that compounds across future systems | PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence | — | COMPLETE |
 
 ## NEXT
 
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
-| `marketing-automation-suite` | broad self-use-first system; commercial narrowing comes later | establish the repository and first useful general capability after the Data Engine boundary is usable | — | COMPLETE |
+| `marketing-automation-suite` | broad self-use-first system intended to replace paid tooling before commercial narrowing | repository exists and scoped C4-05B is merged; verify C4-05C safe scheduler, crash recovery and full integration before operational claims | full C4 end-to-end unverified; production deployment and marketing sends unverified | COMPLETE |
 | `mini-foot` | active product experiment with a clear retention gate | reach enjoyable playable feel and voluntary rematch evidence | — | COMPLETE |
 | `postgres-change-safety` | product asset with a concrete value-validation gate | prove repeatable user value and packaging | — | COMPLETE |
 | `private-code-modernization-factory` | retest candidate with explicit verification and onboarding gaps | prove reliable verification and onboarding before expansion | verification confidence; onboarding quality | COMPLETE |
@@ -54,38 +46,40 @@ The remaining NOW capacity is intentionally unused. Empty WIP capacity is prefer
 | `workflow-failure-lab` | evidence-support asset for CI reliability work | add failure evidence only when it answers a live product or integration question | — | COMPLETE |
 | `releaseguard-n8n` | prior marketplace learning exists but depth/readiness must be proven before republishing | prove sufficient product depth and readiness rather than adding superficial features | — | INCOMPLETE |
 | `conversion-truth-auditor` | commercial value still needs evidence before more engineering | establish differentiated economic value and packaging before new build work | — | COMPLETE |
-| `ai-deployer` | ACTIVE does not imply NOW without explicit promotion or strong economic evidence | identify reusable capability with proven demand | — | INCOMPLETE |
-| `air-combat` | private project lacks a concrete next gate | UNKNOWN | — | INCOMPLETE |
-| `atlassian-revenue-integrity` | ACTIVE does not imply NOW without explicit promotion or strong economic evidence | validate demand and packaging | — | INCOMPLETE |
-| `claude-mem` | evaluation asset is not promoted to current focus | determine whether any capability is independently valuable | — | INCOMPLETE |
-| `conversionguard` | active overlap question must be resolved before expansion | determine overlap or composition with conversion-truth-auditor before expansion | — | INCOMPLETE |
-| `creator-docs` | ACTIVE does not imply NOW without explicit promotion or strong economic evidence | clarify product role before composition | — | INCOMPLETE |
-| `creature-isles` | private project lacks a concrete next gate | UNKNOWN | — | INCOMPLETE |
-| `e2e` | evaluation asset is not promoted to current focus | identify concrete reusable test capability | — | INCOMPLETE |
-| `firebase-auth-email-canary` | ACTIVE does not imply NOW without explicit promotion or strong economic evidence | prove recurring operational value | — | COMPLETE |
-| `flowmeter-for-jira-forge` | retest requires readiness evidence after prior marketplace rejection | only retest after readiness evidence | prior marketplace rejection | INCOMPLETE |
-| `future-morocco-lab` | private exploration has no concrete next gate | UNKNOWN | — | INCOMPLETE |
-| `grok-build` | evaluation asset is not promoted to current focus | clarify owned capability and value | — | INCOMPLETE |
-| `smart-fuel-morocco` | private product requires retention and monetization evidence before promotion | validate retention and monetization | — | INCOMPLETE |
-| `window-worlds-lab` | private exploration has no concrete next gate | UNKNOWN | — | INCOMPLETE |
+| `agent-deal-exchange` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | verify Medusa build, two-account authorization, nested licensing and settlement boundaries before adopting upstream as main capability | upstream Medusa functional build not admitted on main; no real transaction or settlement evidence | COMPLETE |
+| `ai-deployer` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | identify reusable capability with proven demand | — | INCOMPLETE |
+| `air-combat` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |
+| `atlassian-revenue-integrity` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | validate demand and packaging | — | INCOMPLETE |
+| `claude-mem` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | determine whether any capability is independently valuable | — | INCOMPLETE |
+| `conversionguard` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | determine overlap or composition with conversion-truth-auditor before expansion | — | INCOMPLETE |
+| `creator-docs` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | clarify product role before composition | — | INCOMPLETE |
+| `creature-isles` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |
+| `e2e` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | identify concrete reusable test capability | — | INCOMPLETE |
+| `firebase-auth-email-canary` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | prove recurring operational value | — | COMPLETE |
+| `flowmeter-for-jira-forge` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | only retest after readiness evidence | prior marketplace rejection | INCOMPLETE |
+| `future-morocco-lab` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |
+| `github-test-reporter` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | prove adapter test correctness and consumer integration; separate inherited upstream features from our differentiators | verified paid use absent from audit | COMPLETE |
+| `governed-agent-runtime` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | reverify stronger real-provider create/lost-ACK boundary and Dots shadow-management quality | create/lost-ACK case blocked by GitHub 403; independent Dots portfolio-management quality unverified | COMPLETE |
+| `grok-build` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | clarify owned capability and value | — | INCOMPLETE |
+| `smart-fuel-morocco` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | validate retention and monetization | — | INCOMPLETE |
+| `window-worlds-lab` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |
 
 ## PARKED
 
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
 | `easl` | reusable primitive must not become a required dependency without a real consumer | reactivate only when a concrete downstream consumer proves value | — | COMPLETE |
-| `assumption-gate` | reusable primitive is awaiting a real consumer | reactivate only for a concrete consumer integration | — | COMPLETE |
-| `token-governance-protocol` | reusable primitive is awaiting a genuine token-budget consumer | reactivate only for a real agent or model execution budget need | — | COMPLETE |
-| `intelligence-layer` | standalone extraction is not justified until a real second consumer exists | keep reasoning capability inside the consuming system until extraction is justified | — | INCOMPLETE |
-| `revenue-engine` | deferred until upstream data and marketing capabilities produce real operational evidence | wait for upstream evidence | upstream capabilities not yet mature | INCOMPLETE |
+| `assumption-gate` | reusable primitive awaiting a real consumer | reactivate only for a concrete consumer integration | — | INCOMPLETE |
+| `token-governance-protocol` | reusable primitive awaiting a genuine token-budget consumer | reactivate only for a real agent or model execution budget need | — | COMPLETE |
+| `intelligence-layer` | do not create a standalone layer until a real second consumer exists | keep reasoning capability inside the consuming system until extraction is justified | — | INCOMPLETE |
+| `revenue-engine` | deferred by design until upstream data and marketing capabilities produce real operational evidence | wait for upstream evidence | upstream capabilities not yet mature | INCOMPLETE |
 | `agent-action-guard` | status HOLD is parked by policy | concrete consumer required | — | INCOMPLETE |
 | `agent-model-gate` | status HOLD is parked by policy | concrete consumer required | — | INCOMPLETE |
-| `caddy` | independent fork is not an active portfolio dependency | define owned delta before portfolio promotion | — | INCOMPLETE |
-| `esp32-c3-adblock` | independent experiment is not promoted to active focus | UNKNOWN | — | INCOMPLETE |
-| `geophires-x` | independent exploration lineage is not promoted to active focus | UNKNOWN | — | INCOMPLETE |
-| `governed-agent-runtime` | status HOLD is parked by policy | re-enter active graph only with concrete consumer and measurable benefit | — | INCOMPLETE |
+| `caddy` | status FORK_INDEPENDENT is parked by policy | define owned delta before portfolio promotion | — | INCOMPLETE |
+| `esp32-c3-adblock` | status INDEPENDENT is parked by policy | UNKNOWN | — | INCOMPLETE |
+| `geophires-x` | status INDEPENDENT is parked by policy | UNKNOWN | — | INCOMPLETE |
 | `legal-authority-diff` | status HOLD is parked by policy | concrete consumer required | — | INCOMPLETE |
-| `stremio-web` | independent fork is not an active portfolio dependency | define owned delta before portfolio promotion | — | INCOMPLETE |
+| `stremio-web` | status FORK_INDEPENDENT is parked by policy | define owned delta before portfolio promotion | — | INCOMPLETE |
 
 ## REVERIFY
 
@@ -95,7 +89,7 @@ _None._
 
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
-| `aegis-ege` | commercial platform direction is closed | extract only independently proven reusable capabilities when another project demonstrates the need | — | COMPLETE |
+| `aegis-ege` | commercial or project direction is explicitly closed | extract only independently proven reusable capabilities when another project demonstrates the need | — | COMPLETE |
 
 ## Invariants
 
@@ -104,4 +98,3 @@ _None._
 - A blocker remains visible; priority does not erase it.
 - Missing economic evidence remains UNKNOWN rather than being inferred from technical evidence.
 - Human strategic directives remain authoritative over derived lanes.
-- WIP caps are limits, not targets: unused slots should remain empty rather than be filled artificially.

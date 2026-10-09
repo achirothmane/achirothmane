@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-10-09",
+  "scope": "public-evidence-only",
+  "status_definitions": {
+    "main_implemented": "Code exists on default branch; not proof of deployment or revenue.",
+    "bootstrap_only": "Documentation or initialization on default branch; branch PR features do not count.",
+    "inherited_plus_adapter": "Upstream features exist; only merged local adapter is credited to this portfolio.",
+    "evidence_linked_scoped": "Test scope and links identified; tests were not rerun for this audit.",
+    "branch_only_evidence": "Evidence applies to an open branch PR, not the default branch.",
+    "unknown": "No admissible evidence was established in this audit. UNKNOWN does not mean zero."
+  },
+  "projects": [
+    {
+      "id": "governed-agent-runtime",
+      "repository": "achirothmane/governed-agent-runtime",
+      "visibility": "public",
+      "main_status": "MAIN_IMPLEMENTED",
+      "test_status": "EVIDENCE_LINKED_SCOPED",
+      "deployed": "UNKNOWN",
+      "external_use": "UNKNOWN",
+      "paid_revenue": "UNKNOWN",
+      "main_evidence": [
+        "https://github.com/achirothmane/governed-agent-runtime/pull/31"
+      ],
+      "test_evidence": [
+        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288"
+      ],
+      "outstanding": [
+        "https://github.com/achirothmane/governed-agent-runtime/pull/26",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/28",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/29"
+      ],
+      "boundary": "A7.1 real-provider recovery recorded; A7.2 create/lost-ACK blocked by GitHub HTTP 403. Dots autonomous portfolio management is NOT verified."
+    },
+    {
+      "id": "marketing-os",
+      "repository": "achirothmane/marketing-os",
+      "visibility": "public",
+      "main_status": "MAIN_IMPLEMENTED",
+      "test_status": "EVIDENCE_LINKED_SCOPED",
+      "deployed": "UNKNOWN",
+      "external_use": "UNKNOWN",
+      "paid_revenue": "UNKNOWN",
+      "main_evidence": [
+        "https://github.com/achirothmane/marketing-os/pull/20",
+        "https://github.com/achirothmane/marketing-os/blob/main/docs/marketing-os/project-status.json"
+      ],
+      "test_evidence": [
+        "https://github.com/achirothmane/marketing-os/actions/runs/37880743889"
+      ],
+      "outstanding": [],
+      "boundary": "Mautic 7.2.1 source and C4-01 through C4-05B scoped checks. No full C4 end-to-end, scheduling, Messenger transport, production deployment or marketing sends verified."
+    },
+    {
+      "id": "agent-deal-exchange",
+      "repository": "achirothmane/agent-deal-exchange",
+      "visibility": "public",
+      "main_status": "MAIN_IMPLEMENTED",
+      "test_status": "EVIDENCE_LINKED_SCOPED",
+      "deployed": "UNKNOWN",
+      "external_use": "UNKNOWN",
+      "paid_revenue": "UNKNOWN",
+      "main_evidence": [
+        "https://github.com/achirothmane/agent-deal-exchange/pull/1",
+        "https://github.com/achirothmane/agent-deal-exchange/pull/2"
+      ],
+      "test_evidence": [
+        "https://github.com/achirothmane/agent-deal-exchange/actions/runs/37882722867"
+      ],
+      "outstanding": [
+        "https://github.com/achirothmane/agent-deal-exchange/pull/3"
+      ],
+      "boundary": "Bootstrap plus in-memory bounded negotiation simulator merged in PR #2 on 2026-10-09 with nine scoped tests. Medusa subtree import remains on draft PR #3. No deployed commerce engine, independent settlement or paid transaction verified."
+    },
+    {
+      "id": "github-test-reporter",
+      "repository": "achirothmane/github-test-reporter",
+      "visibility": "public",
+      "main_status": "INHERITED_PLUS_ADAPTER",
+      "test_status": "UNKNOWN",
+      "deployed": "UNKNOWN",
+      "external_use": "UNKNOWN",
+      "paid_revenue": "UNKNOWN",
+      "main_evidence": [
+        "https://github.com/achirothmane/github-test-reporter/pull/3"
+      ],
+      "test_evidence": [],
+      "outstanding": [],
+      "boundary": "CTRF evidence adapter v1 merged; upstream reporting functionality must not be represented as newly built proprietary capability. Independent tests and customer adoption not verified."
+    },
+    {
+      "id": "releaseguard-n8n",
+      "repository": "achirothmane/releaseguard-n8n",
+      "visibility": "public",
+      "main_status": "MAIN_IMPLEMENTED",
+      "test_status": "EVIDENCE_LINKED_SCOPED",
+      "deployed": "UNKNOWN",
+      "external_use": "UNKNOWN",
+      "paid_revenue": "UNKNOWN",
+      "main_evidence": [
+        "https://github.com/achirothmane/releaseguard-n8n/blob/main/README.md"
+      ],
+      "test_evidence": [
+        "https://github.com/achirothmane/releaseguard-n8n/actions/workflows/ci.yml"
+      ],
+      "outstanding": [
+        "https://github.com/achirothmane/releaseguard-n8n/pull/1"
+      ],
+      "boundary": "Product README reports bounded HTTP/PostgreSQL and n8n webhook tests. $39 Production Pack is an offer, not a proven sale; no paid receipts inspected."
+    }
+  ]
+}

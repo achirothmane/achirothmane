@@ -1,0 +1,21 @@
+project:
+  id: github-test-reporter
+  repository: achirothmane/github-test-reporter
+  role: test-evidence-reporting-fork
+  status: EVALUATE
+  owner_of:
+    - portfolio-specific CTRF evidence adapter
+  produces:
+    - test evidence representations
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: upstream-reporter-with-merged-CTRF-evidence-adapter; independent-tests-and-users-unknown
+  next_gate: prove adapter test correctness and consumer integration; separate inherited upstream features from our differentiators
+  blockers:
+    - verified paid use absent from audit
+  evidence:
+    - https://github.com/achirothmane/github-test-reporter/pull/3
+  distribution: github
+  economic_role: evaluation-asset
+  last_verified: 2026-10-09

@@ -202,7 +202,7 @@ def main() -> None:
 
     graph = {
         "schema_version": 1,
-        "structural_review": index.get("last_structural_review"),
+        "structural_review": str(index.get("last_structural_review") or "UNKNOWN"),
         "project_count": len(projects),
         "verified_contract_count": len(contracts),
         "connected_project_count": len(connected),

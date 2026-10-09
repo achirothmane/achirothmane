@@ -12,11 +12,16 @@ A project can be important without being executable. A project can be `NOW` with
 
 1. `SYSTEM-MAP.md`
 2. `portfolio/index.yaml`
-3. `portfolio/freshness-report.json`
-4. `portfolio/priority-report.json`
-5. `portfolio/dependency-graph.json`
-6. `portfolio/execution-queue.yaml`
-7. relevant project records and contracts
+3. `portfolio/evidence-baseline.json` (dated PUBLIC-ONLY snapshot, not production or payment proof)
+4. `portfolio/freshness-report.json`
+5. `portfolio/priority-report.json`
+6. `portfolio/dependency-graph.json`
+7. `portfolio/execution-queue.yaml`
+8. relevant project records and contracts
+
+## Evidence admissibility
+
+The Dot must distinguish `main` from unmerged PR branches; test links from test reruns; and source import from operable deployment. `UNKNOWN` production use or paid revenue must never be read as zero or upgraded from a pricing page. A snapshot older than seven UTC days must be reverified for current-state decisions. This PUBLIC repository is not an approved store for private repository inspections, customer lists, usage logs, payment records or credentials. Existing dated generated reports can be stale even when their underlying project records have changed.
 
 ## Execution admission
 
@@ -75,8 +80,8 @@ The Dot must stop rather than fill gaps by inference when:
 
 ## Current execution state
 
-As of 2026-10-06 there is **no READY work item**.
+As of the 2026-10-09 operational recheck there is **no READY work item**. Older human strategic lanes remain unchanged; this is not fresh authorization to work.
 
-`data-engine-capability-boundaries-001` completed with PASS evidence. The resulting draft PR #8 is verified and mergeable, but merge authority remains human-controlled.
+`data-engine-capability-boundaries-001` completed with PASS evidence. An older record still referred to PR #8. The historical Data Engine PR #7 actually merged on 2026-10-07; the portfolio execution queue is waiting for post-merge evidence, not approval to merge it again.
 
 All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.

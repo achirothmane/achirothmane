@@ -9,16 +9,17 @@ Machine-facing project state lives in [index.yaml](./index.yaml) and `projects/*
 
 1. Read `SYSTEM-MAP.md`.
 2. Read `portfolio/index.yaml`.
-3. Read `portfolio/freshness-report.json`; STALE or UNKNOWN state must be reverified before material use.
-4. Read `portfolio/priority-report.json` to determine NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED.
-5. Read `portfolio/execution-queue.yaml`; only READY items with explicit authority are executable.
-6. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
-7. Read the relevant project records, contracts, priority directives, and execution policy.
-8. Follow only declared dependencies and contracts.
-9. Treat `UNKNOWN` as unknown. Never fill it from assumption.
-10. Remember that FRESH does not mean COMPLETE, ACTIVE does not mean NOW, and NOW does not equal execution authority.
-11. Keep technical status separate from commercial status.
-12. Escalate portfolio-level conflicts or irreversible choices to human authority.
+3. Read `portfolio/evidence-baseline.json` for a public-only, dated audit snapshot. Only default-branch evidence counts as merged; PR work is not main. No deployment, use or revenue may be inferred.
+4. Read `portfolio/freshness-report.json`; STALE or UNKNOWN state must be reverified before material use.
+5. Read `portfolio/priority-report.json` to determine NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED.
+6. Read `portfolio/execution-queue.yaml`; only READY items with explicit authority are executable.
+7. Read `portfolio/dependency-graph.json` for the verified cross-project graph.
+8. Read the relevant project records, contracts, priority directives, and execution policy.
+9. Follow only declared dependencies and contracts.
+10. Treat `UNKNOWN` as unknown. Never fill it from assumption.
+11. Remember that FRESH does not mean COMPLETE, ACTIVE does not mean NOW, and NOW does not equal execution authority.
+12. Keep technical status separate from commercial status.
+13. Escalate portfolio-level conflicts or irreversible choices to human authority.
 
 ## Project record fields
 
@@ -103,8 +104,30 @@ The key invariant is:
 
 A work item must be READY and carry explicit authority plus evidence and stop conditions before a Dot may execute it.
 
-Current execution state:
+Current execution state (operational check 2026-10-09):
 
 - no READY work item;
-- `data-engine-capability-boundaries-001` is DONE / PASS;
-- verified draft PR #8 is waiting for human merge authority.
+- `data-engine-capability-boundaries-001` is DONE / PASS (scoped);
+- Data Engine PR #7 has already merged into main; the legacy queue entry now waits for post-merge evidence, **not** a second merge decision.
+- Dots requires updated generated priority/freshness reports before executing consequential work.
+
+
+## Public evidence baseline (9 October 2026)
+
+Source: `portfolio/evidence-baseline.json` (curated **public repositories only**); displayed as a generated table in `SYSTEM-MAP.md`.
+
+Validate and check that the human map matches JSON:
+
+`python portfolio/scripts/check_evidence_baseline.py`
+
+Refresh only the marked public table after explicitly re-verifying GitHub evidence:
+
+`python portfolio/scripts/check_evidence_baseline.py --write`
+
+To reject a snapshot older than seven UTC days:
+
+`python portfolio/scripts/check_evidence_baseline.py --fail-on-stale`
+
+This is an **offline audit snapshot**, not a live GitHub poll, CI rerun, sales ledger, production deployment proof, or evidence for private repositories. The verifier rejects new nonpublic repositories and unsupported paid/deployed claims. Existing private-repository references in historical public files should not be supplemented with further confidential metadata. Operational records must be rechecked against current GitHub state before consequential actions.
+
+The freshness and dependency reports predate the new project records and must be regenerated before treating their project counts or freshness statuses as current. Regeneration should not imply independent technical or commercial proof.
