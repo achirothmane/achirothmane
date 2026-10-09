@@ -152,3 +152,7 @@ See [S1-LIVE-DECISION-CONTRACT.md](./S1-LIVE-DECISION-CONTRACT.md) and the curre
 `python portfolio/scripts/shadow_live_gate.py --as-of 2026-10-09 --check-reference`
 
 Current state: **one genuine OBSERVE-only task admitted for public evidence review**, but zero actual model-generated Dots decisions and zero paid provider calls. Runtime D4/D5 have merged, with mock-provider integration verified. S1 still cannot authenticate paid provider evidence from an ordinary file and does not authorize provider costs.
+
+## Dots D2 context export
+
+See [REAL-DOTS-CONTEXT.md](./REAL-DOTS-CONTEXT.md). Run `python portfolio/scripts/export_dots_context.py --output /tmp/real-dots-context.json` to prepare the source-bound read-only D2 context. This is a local snapshot step, not a model call or operational execution.
