@@ -8,7 +8,7 @@ priority_directives:
     - project: data-engine
       lane: NOW
       reason: broad self-use foundational asset that compounds across future systems
-      next_action: PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence
+      next_action: "PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence"
       constraints:
         - do-not-narrow-commercially-early
         - capability-and-boundary-must-ship-together
