@@ -76,6 +76,15 @@ class ShadowOracleTests(unittest.TestCase):
                                     self.candidate(**overclaim))["candidate_evaluation"]
                 self.assertEqual(row["blocked"], 1)
 
+    def test_unrecognized_fields_and_fake_admin_authority_fail_closed(self):
+        for payload in ({"asserted_authority": "COMMIT_EXTERNAL"},
+                        {"execute_payment": True},
+                        {"evidence_refs": "unparsed-source"}):
+            with self.subTest(payload=payload):
+                row = oracle.report(self.source, self.digest, self.date,
+                                    self.candidate(**payload))["candidate_evaluation"]
+                self.assertEqual(row["blocked"], 1)
+
     def test_unsupported_private_project_is_redacted(self):
         row = oracle.report(self.source, self.digest, self.date,
                             self.candidate(project_id="data-engine"))["candidate_evaluation"]
