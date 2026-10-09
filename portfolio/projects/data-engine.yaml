@@ -16,8 +16,7 @@ project:
     - confidence and boundary decisions
   consumes: []
   dependencies: []
-  contracts:
-    - capability constitution: build the capability and its boundary together
+  contracts: []
   current_state: hard-fork-genesis-PR7-merged-2026-10-07; A6.1-runtime-contract-PR19-merged-2026-10-08; additional reconciliation PRs remain unmerged
   next_gate: verify current main and evaluate outstanding PRs #17 #18 #20 #21 independently; do not infer merged capability from open PRs
   blockers: []
