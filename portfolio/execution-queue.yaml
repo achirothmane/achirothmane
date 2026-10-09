@@ -1,11 +1,44 @@
 execution_queue:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-09
   last_operational_revalidation: 2026-10-09
   human_lanes_preserved: true
   source_priority_report: ./priority-report.json
-  runnable_count: 0
+  runnable_count: 1
   items:
+    - id: dots-runtime-evidence-observe-006
+      project: governed-agent-runtime
+      priority_lane: NOW
+      state: READY
+      authority: OBSERVE
+      objective: "Inspect current public main/PR and CI evidence for Runtime D4/D5 and Data Engine reconciliation; return one evidence-backed recommendation with uncertainty and no side effects"
+      entry_conditions:
+        - public project identity matches the portfolio source snapshot
+        - portfolio freshness is FRESH and current head is reverified before use
+        - provider cost remains zero and no live paid model is invoked
+        - all read operations are scoped to public repository metadata and workflow evidence
+      allowed_actions:
+        - inspect public GitHub PR metadata and Actions conclusions
+        - compare main-branch evidence to branch-only test evidence
+        - submit one observational recommendation with citations and explicit unknowns
+      evidence_required:
+        - cite Runtime PR 25, 28 and 29 with merged/main status
+        - cite Data Engine PR 21 and post-merge CI
+        - cite D4-D5 real Temporal/PostgreSQL integration with MOCK provider
+        - state that paid live model and external managerial quality remain unverified
+      stop_conditions:
+        - snapshot or current GitHub state disagrees with supplied evidence
+        - any requested action requires credential, provider spend, write, private repository access or tool dispatch
+        - observed evidence is insufficient for a confident recommendation
+        - model tries to alter priority, queue, or admission without human authorization
+      completion_definition:
+        - one read-only evidence-bound decision is produced and independently reviewed
+        - no external actions, provider spend, or repository changes caused by Dots
+        - outcome is compared against the S0 policy oracle and human ground truth
+      approved_scope: "human assent in current collaboration, 2026-10-09: one bounded OBSERVE-only readiness review"
+      provider_cost_approved: false
+      external_effects_approved: false
+
     - id: data-engine-capability-boundaries-001
       project: data-engine
       priority_lane: NOW
