@@ -1,12 +1,14 @@
 priority_directives:
   schema_version: 1
   as_of: 2026-10-06
+  last_operational_revalidation: 2026-10-09
+  revalidation_note: operational facts updated; original human priority lanes preserved
   authority: human-strategic-decisions
   focus:
     - project: data-engine
       lane: NOW
       reason: broad self-use foundational asset that compounds across future systems
-      next_action: merge verified PR #7 into main before any G4.10 or structured indexing work
+      next_action: PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence
       constraints:
         - do-not-narrow-commercially-early
         - capability-and-boundary-must-ship-together
@@ -14,7 +16,7 @@ priority_directives:
     - project: marketing-automation-suite
       lane: NEXT
       reason: broad self-use-first system intended to replace paid tooling before commercial narrowing
-      next_action: establish the repository and first useful general capability after the Data Engine boundary is usable
+      next_action: repository exists and scoped C4-05B is merged; verify C4-05C safe scheduler, crash recovery and full integration before operational claims
       constraints:
         - self-use-first
         - no-early-niche-narrowing
