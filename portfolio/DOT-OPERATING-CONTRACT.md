@@ -80,8 +80,8 @@ The Dot must stop rather than fill gaps by inference when:
 
 ## Current execution state
 
-As of 2026-10-06 there is **no READY work item**.
+As of the 2026-10-09 operational recheck there is **no READY work item**. Older human strategic lanes remain unchanged; this is not fresh authorization to work.
 
-`data-engine-capability-boundaries-001` completed with PASS evidence. The resulting draft PR #8 is verified and mergeable, but merge authority remains human-controlled.
+`data-engine-capability-boundaries-001` completed with PASS evidence. An older record still referred to PR #8. The historical Data Engine PR #7 actually merged on 2026-10-07; the portfolio execution queue is waiting for post-merge evidence, not approval to merge it again.
 
 All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.
