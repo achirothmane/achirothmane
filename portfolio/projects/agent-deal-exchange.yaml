@@ -1,0 +1,26 @@
+project:
+  id: agent-deal-exchange
+  repository: achirothmane/agent-deal-exchange
+  role: human-authorized-ai-native-deal-matching-and-negotiation
+  status: ACTIVE
+  owner_of:
+    - offers and counteroffers
+    - negotiation boundaries
+    - agreement and settlement evidence contracts
+  produces:
+    - deal proposals and explicit outcome evidence
+  consumes: []
+  dependencies: []
+  contracts: []
+  current_state: bootstrap-documentation-on-main; scoped simulator tests and Medusa source import only on open PR branches
+  next_gate: verify Medusa build, two-account authorization, nested licensing and settlement boundaries before merging or product claims
+  blockers:
+    - upstream functional build not admitted on main
+    - no real transaction or settlement evidence
+  evidence:
+    - https://github.com/achirothmane/agent-deal-exchange/blob/main/README.md
+    - https://github.com/achirothmane/agent-deal-exchange/pull/2
+    - https://github.com/achirothmane/agent-deal-exchange/pull/3
+  distribution: internal-first
+  economic_role: unvalidated-product-candidate
+  last_verified: 2026-10-09
