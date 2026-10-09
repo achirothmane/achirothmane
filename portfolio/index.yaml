@@ -20,7 +20,10 @@ portfolio:
   execution_queue: ./execution-queue.yaml
   dot_operating_contract: ./DOT-OPERATING-CONTRACT.md
   dot_handoff: ./dot-handoff.yaml
-  last_structural_review: 2026-10-06
+  last_structural_review: 2026-10-09
+  evidence_baseline: ./evidence-baseline.json
+  evidence_baseline_checker: ./scripts/check_evidence_baseline.py
+  evidence_baseline_scope: public-evidence-only
   truth_policy:
     - explicit-records-over-inference
     - unknown-over-guessing
@@ -39,6 +42,7 @@ portfolio:
   project_records:
     - projects/aegis-ege.yaml
     - projects/agent-action-guard.yaml
+    - projects/agent-deal-exchange.yaml
     - projects/agent-model-gate.yaml
     - projects/ai-deployer.yaml
     - projects/air-combat.yaml
@@ -60,6 +64,7 @@ portfolio:
     - projects/flowmeter-for-jira-forge.yaml
     - projects/future-morocco-lab.yaml
     - projects/geophires-x.yaml
+    - projects/github-test-reporter.yaml
     - projects/governed-agent-runtime.yaml
     - projects/grok-build.yaml
     - projects/intelligence-layer.yaml
