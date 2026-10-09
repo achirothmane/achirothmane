@@ -11,7 +11,7 @@ These two digests are deliberately never assumed equal. A real bridge must bind 
 
 ## Why S1 live-model measurement remains blocked today
 
-D5 and D4 are now merged into Runtime main. The central queue has one owner-authorized `OBSERVE` task, `dots-runtime-evidence-observe-006`, to inspect real public CI and merged PR evidence. D5 cannot be used with a paid model without separate cost approval. The current preflight is not the D2 sealed context, and it is not a production decision.
+D5 and D4 are now merged into Runtime main. The central queue has one owner-authorized `OBSERVE` task, `dots-runtime-evidence-observe-006`, to propose an evidence-request next gate from the sealed public Portfolio projection. Dots has no live GitHub read tool inside D5; a human must independently inspect current PR and CI evidence. D5 cannot be used with a paid model without separate cost approval. The current preflight is not the D2 sealed context, and it is not a production decision.
 
 ## S1 bridge
 
