@@ -1,6 +1,8 @@
 execution_queue:
   schema_version: 1
   as_of: 2026-10-06
+  last_operational_revalidation: 2026-10-09
+  human_lanes_preserved: true
   source_priority_report: ./priority-report.json
   runnable_count: 0
   items:
@@ -72,7 +74,7 @@ execution_queue:
       priority_lane: NEXT
       state: PROPOSED
       authority: OBSERVE
-      objective: establish repository and first useful general self-use capability
+      objective: continue source-backed Marketing OS self-use integration only after safe scheduler and recovery tests
       admission_condition: promote project to NOW first
 
     - id: mini-foot-feel-gate
@@ -102,9 +104,9 @@ execution_queue:
     - id: data-engine-hard-fork-convergence-002
       project: data-engine
       priority_lane: NOW
-      state: WAITING_HUMAN_APPROVAL
-      authority: COMMIT_EXTERNAL
-      objective: converge the verified hard-fork product branch into main before any new G4 capability
+      state: WAITING_EVIDENCE
+      authority: OBSERVE
+      objective: verify completion and post-merge evidence for PR #7, already merged on 2026-10-07
       target_pull_request: 7
       source_branch: hard-fork/dlt-genesis
       target_branch: main
@@ -128,5 +130,12 @@ execution_queue:
         - main contains G1 through G4.9
         - post-merge CI on main succeeds
         - portfolio state is refreshed from the new main head
+      observed_2026_10_09:
+        pr7_merged: true
+        merged_at: 2026-10-07T01:13:25Z
+        merge_commit: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
+        latest_main_head: 6aa1c25830c709f9b5ab259bae05a27fb1170d4d
+        post_merge_ci_at_current_main: UNKNOWN
+        status: WAITING_EVIDENCE_NOT_WAITING_APPROVAL
       evidence:
         - portfolio/reviews/data-engine-convergence-2026-10-06.yaml
