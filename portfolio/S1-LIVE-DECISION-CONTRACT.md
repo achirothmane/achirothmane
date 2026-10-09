@@ -1,6 +1,6 @@
 # Dots S1 — Live decision evidence ingress (no autonomous execution)
 
-**Operational result at 2026-10-09:** `BLOCKED_NO_READY_WORK`. Dots has no admitted READY work item, the D4 and D5 runtime pull requests are not merged to `main`, and **no paid OpenAI provider call is authorized**. These are legitimate blockers, not reasons to create an artificial READY task.
+**Operational result at 2026-10-09:** `READY_FOR_SEPARATE_RUNTIME_ATTESTATION` is the *preflight* result only. The owner authorized precisely one real public GitHub readiness-evidence observation with `OBSERVE` authority. D4 and D5 are now merged in Runtime main and their Temporal/PostgreSQL mock-provider integration passes. **No paid OpenAI provider call is authorized; no actual model-generated Dot decision has been independently authenticated.**
 
 ## Two different SHA-256 domains
 
@@ -9,9 +9,9 @@
 
 These two digests are deliberately never assumed equal. A real bridge must bind both to verifiable source-identities and the *same eligible work item*; a claimed string in a file is not cryptographic provenance.
 
-## Why S1 remains blocked today
+## Why S1 live-model measurement remains blocked today
 
-The actual D5 adapter on `governed-agent-runtime` draft PR #29 explicitly rejects a `ReasoningView` with no runnable items. The D3 validator also requires an admitted work item in the snapshot, and D4 durable commitment belongs to its separate unmerged draft PR #28. The central queue and handoff currently declare zero runnable items. The correct action is **no call**, not a synthetic work item injected into our real queue.
+D5 and D4 are now merged into Runtime main. The central queue has one owner-authorized `OBSERVE` task, `dots-runtime-evidence-observe-006`, to inspect real public CI and merged PR evidence. D5 cannot be used with a paid model without separate cost approval. The current preflight is not the D2 sealed context, and it is not a production decision.
 
 ## S1 bridge
 
@@ -35,7 +35,7 @@ No untrusted trace, private source binding, model rationale, credential, paid re
 4. After separately authorizing any provider costs, run at most the human-approved provider smoke with `ALLOW_PAID_MODEL_TEST=1`; retain receipts privately, bind them to the actual provider run and source commits. Never publish credentials or private context.
 5. Obtain an **independent** audit of provider and durable decision provenance (not merely the self-reported trace file), then compare actual candidate decisions with the S0 policy oracle and prospectively human-labeled outcomes.
 
-Until those gates pass, `actual_dots_trace_count=0`, `decision_quality=NOT_MEASURED`, `runtime_validated=false` and `live_model_authorized=false`. This is S1 **preflight infrastructure**, not an S1 live-model PASS.
+Until those gates pass, `actual_dots_trace_count=0`, `decision_quality=NOT_MEASURED`, `runtime_validated=false` and `live_model_authorized=false`. Admission of the OBSERVE task permits analysis only, not tool execution, API spend or a claim of S1 live-model PASS.
 
 ## Falsification
 
