@@ -20,6 +20,10 @@ portfolio:
   execution_queue: ./execution-queue.yaml
   dot_operating_contract: ./DOT-OPERATING-CONTRACT.md
   dot_handoff: ./dot-handoff.yaml
+  shadow_policy_oracle: ./scripts/shadow_management.py
+  shadow_reference: ./shadow-reference.json
+  shadow_spec: ./SHADOW-MANAGEMENT.md
+  shadow_scope: public-projects-only
   last_structural_review: 2026-10-09
   evidence_baseline: ./evidence-baseline.json
   evidence_baseline_checker: ./scripts/check_evidence_baseline.py
