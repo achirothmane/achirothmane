@@ -33,7 +33,7 @@ dated GitHub evidence + freshness + priority + execution queue + handoff
                                                        BLOCKED
 ```
 
-The oracle is not a substitute for an agent; it is the deterministic adjudicator against which future agent decisions can be evaluated. D4 durable decision loop and D5 model adapter in the runtime are still independent draft work until merged and verified.
+The oracle is not a substitute for an agent; it is the deterministic adjudicator against which future agent decisions can be evaluated. D4 durable decision loop and D5 bounded provider adapter have merged in Runtime main and their Temporal/PostgreSQL integration with a simulated provider is verified. No paid live provider decision or externally scored Dots planning quality has been demonstrated.
 
 ## Interfaces
 
