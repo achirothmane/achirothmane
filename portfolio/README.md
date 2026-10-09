@@ -151,7 +151,7 @@ See [S1-LIVE-DECISION-CONTRACT.md](./S1-LIVE-DECISION-CONTRACT.md) and the curre
 
 `python portfolio/scripts/shadow_live_gate.py --as-of 2026-10-09 --check-reference`
 
-Current state: **one genuine OBSERVE-only task admitted for public evidence review**, but zero actual model-generated Dots decisions and zero paid provider calls. Runtime D4/D5 have merged, with mock-provider integration verified. S1 still cannot authenticate paid provider evidence from an ordinary file and does not authorize provider costs.
+Historical S1 preflight admitted **one OBSERVE-only task**. S2 subsequently recorded a real local-model OBSERVE decision via D3/D4, with zero paid-provider calls or tools. S3 later measured poor local-model decision quality on 12 synthetic scenarios: 1/12 exact policy outcomes despite safety containment. Read [the dated S2/S3 evidence ledger](./DOTS-S3-EVIDENCE-2026-10-09.md). These later observations do NOT retroactively change the frozen S1 reference, which still describes its own point-in-time measurements; nor do they authorize Dots to execute.
 
 ## Dots D2 context export
 
