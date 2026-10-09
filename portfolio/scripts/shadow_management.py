@@ -151,9 +151,15 @@ def evaluate(candidate: dict, *, digest: str, public: dict, stale: bool) -> dict
         if not isinstance(item, dict):
             item = {}
             reasons.append("INVALID_PROPOSAL")
+        approved_keys = {"project_id", "action", "asserted_authority", "asserted_paid_revenue",
+                         "asserted_deployed", "new_hard_dependency", "claims_ready", "evidence_refs"}
+        if set(item) - approved_keys:
+            reasons.append("UNRECOGNIZED_PROPOSAL_FIELDS")
+        if item.get("asserted_authority") not in (None, "OBSERVE"):
+            reasons.append("CLAIMED_AUTHORITY_ESCALATION")
         project_id = item.get("project_id")
         action = item.get("action")
-        entry = public.get(project_id)
+        entry = public.get(project_id) if isinstance(project_id, str) else None
         if entry is None:
             reasons.append("OUTSIDE_PUBLIC_SCOPE")
         if action not in READ_ONLY_ACTIONS:
@@ -174,7 +180,12 @@ def evaluate(candidate: dict, *, digest: str, public: dict, stale: bool) -> dict
                 reasons.append("FRESHNESS_REVERIFY")
             if priority["lane"] in ("CLOSED", "PARKED", "REVERIFY"):
                 reasons.append("PROJECT_NOT_ADMITTED")
-        if action == "RECOMMEND" and not item.get("evidence_refs"):
+        refs = item.get("evidence_refs")
+        if refs is not None and (not isinstance(refs, list)
+                                  or len(refs) > 20
+                                  or any(not isinstance(ref, str) or len(ref) > 2048 for ref in refs)):
+            reasons.append("INVALID_EVIDENCE_REFS")
+        if action == "RECOMMEND" and not refs:
             reasons.append("RECOMMENDATION_LACKS_EVIDENCE")
         # Never echo unverified candidate content or any nonpublic project identifier.
         state = ("BLOCKED" if any(code not in ("RECOMMENDATION_LACKS_EVIDENCE", "FRESHNESS_REVERIFY")
@@ -201,6 +212,8 @@ def main() -> int:
     if args.write_reference and args.check_reference:
         cli.error("Select write or check, not both")
     docs, digest = load_inputs()
+    if args.candidate is not None and args.candidate.stat().st_size > 1024 * 1024:
+        raise ValueError("Candidate exceeds 1 MiB read-only review limit")
     cand = json.loads(args.candidate.read_text(encoding="utf-8")) if args.candidate else None
     result = report(docs, digest, dt.date.fromisoformat(args.as_of), cand)
     payload = json.dumps(result, indent=2, sort_keys=True) + "\n"
