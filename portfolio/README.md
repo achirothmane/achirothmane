@@ -143,3 +143,12 @@ See [SHADOW-MANAGEMENT.md](./SHADOW-MANAGEMENT.md) and the dated [shadow referen
 `python -m unittest discover -s portfolio/tests -p 'test_shadow_*.py' -v`
 
 The historical note above about reports predating the October 9 update is superseded: the six reports were regenerated and verified in PR #2. Recency and completeness must still be checked before any material decision.
+
+
+## S1 live decision provenance preflight
+
+See [S1-LIVE-DECISION-CONTRACT.md](./S1-LIVE-DECISION-CONTRACT.md) and the current [S1 readiness](./s1-readiness.json).
+
+`python portfolio/scripts/shadow_live_gate.py --as-of 2026-10-09 --check-reference`
+
+Current state: **BLOCKED_NO_READY_WORK**, zero actual Dots decisions, zero provider calls. The D4/D5 runtime integrations remain unmerged draft work; the S1 gate only checks provenance and admission, it cannot authenticate a paid provider receipt supplied as an ordinary file. It does not create an artificial READY task or authorize costs.

@@ -91,3 +91,8 @@ All NEXT projects remain non-executable until promoted to NOW, and no new Data E
 ## Shadow management
 
 The independent policy oracle in `portfolio/scripts/shadow_management.py` must never be described as proof of a model's planning quality. An actual Dots proposal is input only after it is bound to the exact source digest. Validation emits `POLICY_ADMISSIBLE_ONLY`, `UNKNOWN`, or `BLOCKED`; none grants tool/effect authority. No private project evidence may be exported by the public shadow reference. See `portfolio/SHADOW-MANAGEMENT.md`.
+
+
+## S1 live candidate admission
+
+Before treating a model-generated Dots candidate as independently audited, read `portfolio/s1-readiness.json` and `portfolio/S1-LIVE-DECISION-CONTRACT.md`. `BLOCKED_NO_READY_WORK` is not an invitation to invent a READY task. The source-bound ingest only accepts a separately authorized runtime trace, and self-reported provider evidence cannot be counted as a verified live call. Human finality remains unchanged.

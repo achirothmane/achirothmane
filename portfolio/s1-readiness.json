@@ -1,0 +1,14 @@
+{
+  "actual_dots_trace_count": 0,
+  "as_of": "2026-10-09",
+  "decision_quality": "NOT_MEASURED",
+  "effect_authority": "NONE",
+  "live_model_authorized": false,
+  "mode": "S1_PREFLIGHT",
+  "provider_calls_performed": 0,
+  "runnable_count": 0,
+  "runtime_validated": false,
+  "schema_version": 1,
+  "source_sha256": "0f82f479ff77f4da67ecf37ba6c3874b57b40819e48639d00d1ebe0096eec82d",
+  "state": "BLOCKED_NO_READY_WORK"
+}
