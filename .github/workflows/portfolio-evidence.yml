@@ -60,3 +60,18 @@ jobs:
           python -m unittest discover -s portfolio/tests -p 'test_shadow_live_gate.py' -v
           python portfolio/scripts/shadow_live_gate.py --check-reference --as-of "$(python -c 'import json; print(json.load(open("portfolio/priority-report.json"))["as_of"])')"
           python portfolio/scripts/shadow_live_gate.py --as-of "$(date -u +%F)" > /dev/null
+      - name: Validate real sealed Dots public-context projection
+        run: |
+          python -m unittest discover -s portfolio/tests -p 'test_export_dots_context.py' -v
+          python portfolio/scripts/export_dots_context.py --as-of "$(date -u +%F)" --output "$RUNNER_TEMP/dots-real-context.json"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "dots-real-context.json"
+          d = json.loads(p.read_text(encoding="utf-8"))
+          assert len(d["projection"]["runnable_items"]) == 1
+          assert d["projection"]["runnable_items"][0]["authority"] == "OBSERVE"
+          assert len(d["snapshot_digest"]) == 64
+          print("REAL_PORTFOLIO_CONTEXT_BOUND: PASS (no tools, no provider)")
+          PY
