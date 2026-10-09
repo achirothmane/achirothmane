@@ -1,0 +1,41 @@
+name: Temporary S1 Feature-Branch Report Refresh
+on:
+  push:
+    branches:
+      - portfolio/dots-one-readonly-observation-2026-10-09
+permissions:
+  contents: write
+jobs:
+  regenerate:
+    if: github.repository == 'achirothmane/achirothmane'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify feature branch only
+        run: test "$(git branch --show-current)" = "portfolio/dots-one-readonly-observation-2026-10-09"
+      - name: Regenerate source-bound reports on the feature branch only
+        run: |
+          python -m pip install -r portfolio/requirements.txt
+          python portfolio/scripts/generate_dependency_graph.py
+          python portfolio/scripts/generate_freshness_report.py --as-of 2026-10-09
+          python portfolio/scripts/generate_priority_report.py
+          python portfolio/scripts/shadow_management.py --as-of 2026-10-09 --write-reference
+          python portfolio/scripts/shadow_live_gate.py --as-of 2026-10-09 --write-reference
+          python -m unittest discover -s portfolio/tests -p 'test_shadow*.py' -v
+      - name: Commit only generated reports to this isolated review branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- portfolio/DEPENDENCY-GRAPH.md portfolio/dependency-graph.json portfolio/FRESHNESS-REPORT.md portfolio/freshness-report.json portfolio/PRIORITY-REPORT.md portfolio/priority-report.json portfolio/shadow-reference.json portfolio/s1-readiness.json
+          if git diff --cached --quiet; then
+            echo "All eight derived files already reproduce"
+            exit 0
+          fi
+          git commit -m "portfolio: refresh derived S1 single-OBSERVE admission evidence"
+          git push origin HEAD:portfolio/dots-one-readonly-observation-2026-10-09
