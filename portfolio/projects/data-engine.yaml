@@ -18,8 +18,8 @@ project:
   dependencies: []
   contracts:
     - capability constitution: build the capability and its boundary together
-  current_state: hard-fork-g4.9-verified-awaiting-convergence
-  next_gate: human approval to merge PR #7 into main; no G4.10 before convergence
+  current_state: hard-fork-genesis-PR7-merged-2026-10-07; A6.1-runtime-contract-PR19-merged-2026-10-08; additional reconciliation PRs remain unmerged
+  next_gate: verify current main and evaluate outstanding PRs #17 #18 #20 #21 independently; do not infer merged capability from open PRs
   blockers: []
   evidence:
     - capability boundary doctrine adopted
@@ -41,9 +41,12 @@ project:
     - current head g3-semantic-takeover run 37528767836 success
     - current head g4-product-divergence run 37528767819 success
     - convergence review portfolio/reviews/data-engine-convergence-2026-10-06.yaml
-  active_branch: hard-fork/dlt-genesis
-  merged_pull_request: 8
-  merged_commit: 386707c6dfb9a8ecf90f964f60f52080a3dc4589
+    - PR #7 merged into main on 2026-10-07; merge commit 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
+    - A6.1 runtime contract gate PR #19 merged on 2026-10-08
+    - PR #17 #18 #20 #21 remain open as of 2026-10-09
+  active_branch: main
+  merged_pull_request: 7
+  merged_commit: 154b92d4c464a2e0a8646ba1709d16f7ecba7c76
   distribution: internal-first
   economic_role: shared-capability-asset
-  last_verified: 2026-10-06
+  last_verified: 2026-10-09
