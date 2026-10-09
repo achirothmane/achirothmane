@@ -21,17 +21,19 @@
       "external_use": "UNKNOWN",
       "paid_revenue": "UNKNOWN",
       "main_evidence": [
-        "https://github.com/achirothmane/governed-agent-runtime/pull/31"
-      ],
-      "test_evidence": [
-        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288"
-      ],
-      "outstanding": [
-        "https://github.com/achirothmane/governed-agent-runtime/pull/26",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/31",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/25",
         "https://github.com/achirothmane/governed-agent-runtime/pull/28",
         "https://github.com/achirothmane/governed-agent-runtime/pull/29"
       ],
-      "boundary": "A7.1 real-provider recovery recorded; A7.2 create/lost-ACK blocked by GitHub HTTP 403. Dots autonomous portfolio management is NOT verified."
+      "test_evidence": [
+        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288",
+        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37903367479"
+      ],
+      "outstanding": [
+        "https://github.com/achirothmane/governed-agent-runtime/pull/26"
+      ],
+      "boundary": "Data reconciliation bridge, D4 durable decision, and D5 bounded provider adapter merged. D4/D5 Temporal-PostgreSQL integration PASS with mocked provider only. A7.2 create/lost-ACK is blocked by GitHub HTTP 403; actual paid live Dots decisions and managerial quality remain NOT_MEASURED."
     },
     {
       "id": "marketing-os",
