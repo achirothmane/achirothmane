@@ -4,9 +4,9 @@
 > ACTIVE does not mean NOW. Human directives and evidence outrank repository activity.
 
 **As of:** 2026-10-09  
-**NOW:** 1 / cap 3  
+**NOW:** 2 / cap 3  
 **NEXT:** 4 / cap 6  
-**WATCH:** 22  
+**WATCH:** 21  
 **PARKED:** 12  
 **REVERIFY:** 0  
 **CLOSED:** 1
@@ -27,6 +27,7 @@
 | Project | Why | Next action | Blockers | Knowledge |
 |---|---|---|---|---|
 | `data-engine` | broad self-use foundational asset that compounds across future systems | PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence | — | COMPLETE |
+| `governed-agent-runtime` | human-authorized single read-only Dots shadow observation; not a general runtime expansion | Use sealed Portfolio context to propose one next evidence-verification gate; separately let a human compare merged PR #25 #28 #29 and CI | create/lost-ACK case blocked by GitHub 403; independent Dots portfolio-management quality unverified; no live paid OpenAI Portfolio Dot reasoning call or human-scored decision yet | COMPLETE |
 
 ## NEXT
 
@@ -59,7 +60,6 @@
 | `flowmeter-for-jira-forge` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | only retest after readiness evidence | prior marketplace rejection | INCOMPLETE |
 | `future-morocco-lab` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |
 | `github-test-reporter` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | prove adapter test correctness and consumer integration; separate inherited upstream features from our differentiators | verified paid use absent from audit | COMPLETE |
-| `governed-agent-runtime` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | reverify stronger real-provider create/lost-ACK boundary and Dots shadow-management quality | create/lost-ACK case blocked by GitHub 403; independent Dots portfolio-management quality unverified | COMPLETE |
 | `grok-build` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | clarify owned capability and value | — | INCOMPLETE |
 | `smart-fuel-morocco` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | validate retention and monetization | — | INCOMPLETE |
 | `window-worlds-lab` | active/reviewable does not imply NOW without explicit promotion or strong economic evidence | UNKNOWN | — | INCOMPLETE |

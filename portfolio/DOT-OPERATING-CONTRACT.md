@@ -81,11 +81,11 @@ The Dot must stop rather than fill gaps by inference when:
 
 ## Current execution state
 
-As of the 2026-10-09 operational recheck there is **no READY work item**. Older human strategic lanes remain unchanged; this is not fresh authorization to work.
+As of the latest 2026-10-09 human scope decision there is **one READY OBSERVE-only public GitHub evidence-review item** (not permission to execute tools). Older human strategic lanes remain unchanged; this is not fresh authorization to work.
 
 `data-engine-capability-boundaries-001` completed with PASS evidence. An older record still referred to PR #8. The historical Data Engine PR #7 actually merged on 2026-10-07; the portfolio execution queue is waiting for post-merge evidence, not approval to merge it again.
 
-All NEXT projects remain non-executable until promoted to NOW, and no new Data Engine slice is admitted merely because the previous slice passed.
+All NEXT projects remain non-executable until promoted to NOW. Runtime NOW promotion is limited to the single read-only S1 observation; it is not broad build authority. No new Data Engine slice is admitted merely because the previous slice passed.
 
 
 ## Shadow management
@@ -95,4 +95,4 @@ The independent policy oracle in `portfolio/scripts/shadow_management.py` must n
 
 ## S1 live candidate admission
 
-Before treating a model-generated Dots candidate as independently audited, read `portfolio/s1-readiness.json` and `portfolio/S1-LIVE-DECISION-CONTRACT.md`. `BLOCKED_NO_READY_WORK` is not an invitation to invent a READY task. The source-bound ingest only accepts a separately authorized runtime trace, and self-reported provider evidence cannot be counted as a verified live call. Human finality remains unchanged.
+Before treating a model-generated Dots candidate as independently audited, read `portfolio/s1-readiness.json` and `portfolio/S1-LIVE-DECISION-CONTRACT.md`. `READY_FOR_SEPARATE_RUNTIME_ATTESTATION` is only the public-source admission result, not proof a real Dots decision happened. The source-bound ingest only accepts a separately authorized runtime trace, and self-reported provider evidence cannot be counted as a verified live call. Human finality remains unchanged.

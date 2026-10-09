@@ -42,9 +42,9 @@ class LiveGateTests(unittest.TestCase):
             },
         }
 
-    def test_actual_portfolio_no_ready_and_no_live_measurement(self):
-        self.assertEqual(self.gate["state"], "BLOCKED_NO_READY_WORK")
-        self.assertEqual(self.gate["runnable_count"], 0)
+    def test_actual_portfolio_one_human_authorized_observe_only_task(self):
+        self.assertEqual(self.gate["state"], "READY_FOR_SEPARATE_RUNTIME_ATTESTATION")
+        self.assertEqual(self.gate["runnable_count"], 1)
         self.assertEqual(self.gate["actual_dots_trace_count"], 0)
         self.assertEqual(self.gate["provider_calls_performed"], 0)
         self.assertFalse(self.gate["live_model_authorized"])
@@ -54,7 +54,7 @@ class LiveGateTests(unittest.TestCase):
     def test_fabricated_real_provider_claim_is_not_counted(self):
         reviewed = s1.review_trace(self.fake_trace(), self.gate, self.docs)
         self.assertEqual(reviewed["state"], "BLOCKED")
-        self.assertIn("S1_PREFLIGHT_NOT_ADMITTED", reviewed["reason_codes"])
+        self.assertIn("WORK_ITEM_NOT_READY", reviewed["reason_codes"])
         self.assertFalse(reviewed["counted_as_live_dots_decision"])
 
     def test_stale_source_never_promotes_ready(self):
@@ -67,7 +67,7 @@ class LiveGateTests(unittest.TestCase):
 
     def test_false_queue_runnable_count_is_denied(self):
         docs = copy.deepcopy(self.docs)
-        docs["execution-queue.yaml"]["execution_queue"]["runnable_count"] = 1
+        docs["execution-queue.yaml"]["execution_queue"]["runnable_count"] = 2
         gate = s1.source_preflight(docs, self.digest, as_of=self.date)
         self.assertEqual(gate["state"], "BLOCKED_QUEUE_COUNT_CONFLICT")
 
@@ -77,7 +77,7 @@ class LiveGateTests(unittest.TestCase):
         queue["items"].append({"id": "fake-ready", "project": "marketing-automation-suite",
                                "state": "READY", "authority": "OBSERVE", "evidence_required": ["x"],
                                "stop_conditions": ["stop"]})
-        queue["runnable_count"] = 1
+        queue["runnable_count"] = 2
         gate = s1.source_preflight(docs, self.digest, as_of=self.date)
         self.assertEqual(gate["state"], "BLOCKED_HANDOFF_COUNT_CONFLICT")
 
@@ -87,8 +87,8 @@ class LiveGateTests(unittest.TestCase):
         queue["items"].append({"id": "fake-ready", "project": "marketing-automation-suite",
                                "state": "READY", "authority": "OBSERVE", "evidence_required": ["x"],
                                "stop_conditions": ["stop"]})
-        queue["runnable_count"] = 1
-        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"] = ["fake-ready"]
+        queue["runnable_count"] = 2
+        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"].append("fake-ready")
         gate = s1.source_preflight(docs, self.digest, as_of=self.date)
         self.assertEqual(gate["state"], "BLOCKED_EXECUTION_ADMISSION")  # NEXT is not NOW
 
@@ -98,8 +98,8 @@ class LiveGateTests(unittest.TestCase):
         queue["items"].append({"id": "fake-ready", "project": "agent-deal-exchange",
                                "state": "READY", "authority": "OBSERVE", "evidence_required": ["x"],
                                "stop_conditions": ["stop"]})
-        queue["runnable_count"] = 1
-        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"] = ["fake-ready"]
+        queue["runnable_count"] = 2
+        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"].append("fake-ready")
         # Synthetic priority swap tests only; never written to canonical source.
         project = next(x for x in docs["priority-report.json"]["projects"] if x["id"] == "agent-deal-exchange")
         project["lane"] = "NOW"

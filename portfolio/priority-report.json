@@ -4,10 +4,10 @@
   "lane_counts": {
     "CLOSED": 1,
     "NEXT": 4,
-    "NOW": 1,
+    "NOW": 2,
     "PARKED": 12,
     "REVERIFY": 0,
-    "WATCH": 22
+    "WATCH": 21
   },
   "policy": "priority-policy.yaml",
   "projects": [
@@ -43,7 +43,10 @@
         "convergence review portfolio/reviews/data-engine-convergence-2026-10-06.yaml",
         "PR #7 merged into main on 2026-10-07; merge commit 154b92d4c464a2e0a8646ba1709d16f7ecba7c76",
         "A6.1 runtime contract gate PR #19 merged on 2026-10-08",
-        "PR #17 #18 #20 #21 remain open as of 2026-10-09"
+        "PR #21 merged on 2026-10-09 with cross-repository MCP/Temporal/PostgreSQL proof",
+        "PR #17 #18 #20 remain open as of 2026-10-09",
+        "https://github.com/achirothmane/data-engine/actions/runs/37732132719",
+        "https://github.com/achirothmane/data-engine/actions/runs/37903274314"
       ],
       "explicit_directive": true,
       "freshness": "FRESH",
@@ -53,6 +56,40 @@
       "next_action": "PR #7 already merged 2026-10-07; verify current main and individually review outstanding reconciliation PRs against evidence",
       "reason": "broad self-use foundational asset that compounds across future systems",
       "repository": "achirothmane/data-engine",
+      "status": "ACTIVE"
+    },
+    {
+      "blockers": [
+        "create/lost-ACK case blocked by GitHub 403",
+        "independent Dots portfolio-management quality unverified",
+        "no live paid OpenAI Portfolio Dot reasoning call or human-scored decision yet"
+      ],
+      "completeness": "COMPLETE",
+      "constraints": [
+        "one-readonly-observation-only",
+        "no-paid-model-call",
+        "no-merge-release-spend-or-external-message",
+        "do-not-execute-tools-or-change-repositories"
+      ],
+      "decision_source": "human-directive",
+      "economic_evidence_state": "UNKNOWN",
+      "economic_role": "shared-capability-asset",
+      "evidence": [
+        "https://github.com/achirothmane/governed-agent-runtime/pull/31",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/25",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/28",
+        "https://github.com/achirothmane/governed-agent-runtime/pull/29",
+        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37903367479",
+        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288"
+      ],
+      "explicit_directive": true,
+      "freshness": "FRESH",
+      "id": "governed-agent-runtime",
+      "knowledge_gap": false,
+      "lane": "NOW",
+      "next_action": "Use sealed Portfolio context to propose one next evidence-verification gate; separately let a human compare merged PR #25 #28 #29 and CI",
+      "reason": "human-authorized single read-only Dots shadow observation; not a general runtime expansion",
+      "repository": "achirothmane/governed-agent-runtime",
       "status": "ACTIVE"
     },
     {
@@ -500,30 +537,6 @@
       "status": "EVALUATE"
     },
     {
-      "blockers": [
-        "create/lost-ACK case blocked by GitHub 403",
-        "independent Dots portfolio-management quality unverified"
-      ],
-      "completeness": "COMPLETE",
-      "constraints": [],
-      "decision_source": "derived-status",
-      "economic_evidence_state": "UNKNOWN",
-      "economic_role": "shared-capability-asset",
-      "evidence": [
-        "https://github.com/achirothmane/governed-agent-runtime/pull/31",
-        "https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288"
-      ],
-      "explicit_directive": false,
-      "freshness": "FRESH",
-      "id": "governed-agent-runtime",
-      "knowledge_gap": false,
-      "lane": "WATCH",
-      "next_action": "reverify stronger real-provider create/lost-ACK boundary and Dots shadow-management quality",
-      "reason": "active/reviewable does not imply NOW without explicit promotion or strong economic evidence",
-      "repository": "achirothmane/governed-agent-runtime",
-      "status": "ACTIVE"
-    },
-    {
       "blockers": [],
       "completeness": "INCOMPLETE",
       "constraints": [],
@@ -824,7 +837,7 @@
     "next_count": 4,
     "next_overflow": 0,
     "now_cap": 3,
-    "now_count": 1,
+    "now_count": 2,
     "now_overflow": 0
   }
 }

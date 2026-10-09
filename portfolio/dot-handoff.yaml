@@ -16,7 +16,9 @@ dot_handoff:
   current:
     now_projects:
       - data-engine
-    runnable_items: []
+      - governed-agent-runtime
+    runnable_items:
+      - dots-runtime-evidence-observe-006
     waiting_human_approval: []
     post_merge_verification:
       - project: data-engine

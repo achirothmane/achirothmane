@@ -1,11 +1,44 @@
 execution_queue:
   schema_version: 1
-  as_of: 2026-10-06
+  as_of: 2026-10-09
   last_operational_revalidation: 2026-10-09
   human_lanes_preserved: true
   source_priority_report: ./priority-report.json
-  runnable_count: 0
+  runnable_count: 1
   items:
+    - id: dots-runtime-evidence-observe-006
+      project: governed-agent-runtime
+      priority_lane: NOW
+      state: READY
+      authority: OBSERVE
+      objective: "Read the sealed public Portfolio project-state projection and propose one evidence-request gate for verifying Runtime D4/D5 readiness; never assert that live GitHub was inspected"
+      entry_conditions:
+        - public project identity matches the portfolio source snapshot
+        - portfolio freshness is FRESH and current head is reverified before use
+        - provider cost remains zero and no live paid model is invoked
+        - read only the sealed public Portfolio projection; external GitHub proof remains a separate independent human audit
+      allowed_actions:
+        - read the sealed Portfolio context and its declared NOW and READY state
+        - identify what must be checked independently on GitHub before any operational status upgrade
+        - propose one next evidence gate with explicit UNKNOWNs and no tool or repository execution
+      evidence_required:
+        - identify Runtime D4 and D5 integration evidence that a human reviewer must check
+        - identify the Data Engine reconcile dependency and request source-backed verification
+        - explicitly distinguish a mock-provider integration from a real provider decision
+        - state that paid live model and external managerial quality remain unverified
+      stop_conditions:
+        - snapshot or current GitHub state disagrees with supplied evidence
+        - any requested action requires credential, provider spend, write, private repository access or tool dispatch
+        - observed evidence is insufficient for a confident recommendation
+        - model tries to alter priority, queue, or admission without human authorization
+      completion_definition:
+        - one read-only sealed-context proposal is produced and independently checked against actual public GitHub evidence
+        - no external actions, provider spend, or repository changes caused by Dots
+        - outcome is compared against the S0 policy oracle and human ground truth
+      approved_scope: "human assent in current collaboration, 2026-10-09: one bounded OBSERVE-only readiness review"
+      provider_cost_approved: false
+      external_effects_approved: false
+
     - id: data-engine-capability-boundaries-001
       project: data-engine
       priority_lane: NOW
