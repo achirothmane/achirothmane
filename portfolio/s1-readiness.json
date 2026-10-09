@@ -6,9 +6,9 @@
   "live_model_authorized": false,
   "mode": "S1_PREFLIGHT",
   "provider_calls_performed": 0,
-  "runnable_count": 0,
+  "runnable_count": 1,
   "runtime_validated": false,
   "schema_version": 1,
-  "source_sha256": "0f82f479ff77f4da67ecf37ba6c3874b57b40819e48639d00d1ebe0096eec82d",
-  "state": "BLOCKED_NO_READY_WORK"
+  "source_sha256": "25bad1ee51624d98fddd42d5b2b61470c724216a7c1f26cb6ac5230f58d78b6d",
+  "state": "READY_FOR_SEPARATE_RUNTIME_ATTESTATION"
 }

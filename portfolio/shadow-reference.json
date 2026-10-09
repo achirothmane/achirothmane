@@ -31,7 +31,7 @@
     {
       "freshness": "FRESH",
       "outcome_evidence": "UNKNOWN",
-      "priority_lane": "WATCH",
+      "priority_lane": "NOW",
       "project_id": "governed-agent-runtime",
       "reason_codes": [
         "OUTCOME_UNPROVEN"
@@ -61,6 +61,6 @@
   ],
   "schema_version": 1,
   "scope": "PUBLIC_PROJECTS_ONLY",
-  "snapshot_sha256": "0f82f479ff77f4da67ecf37ba6c3874b57b40819e48639d00d1ebe0096eec82d",
+  "snapshot_sha256": "25bad1ee51624d98fddd42d5b2b61470c724216a7c1f26cb6ac5230f58d78b6d",
   "snapshot_state": "FRESH_WITH_LIMITS"
 }
