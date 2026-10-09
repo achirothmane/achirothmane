@@ -4,7 +4,28 @@
 
 **Owner:** achirothmane  
 **Status:** ACTIVE  
-**Last structural review:** 2026-10-06
+**Last structural review:** 2026-10-09
+
+---
+
+<!-- PORTFOLIO-EVIDENCE:BEGIN -->
+## Evidence baseline (public repositories only)
+
+Source: [portfolio/evidence-baseline.json](portfolio/evidence-baseline.json).
+Snapshot: **2026-10-09**. This is not live status or an all-repository inventory.
+
+| Public project | On default branch | Test evidence | Deployed | External use | Paid revenue |
+|---|---|---|---|---|---|
+| [`agent-deal-exchange`](https://github.com/achirothmane/agent-deal-exchange) | BOOTSTRAP_ONLY | BRANCH_ONLY_EVIDENCE | UNKNOWN | UNKNOWN | UNKNOWN |
+| [`github-test-reporter`](https://github.com/achirothmane/github-test-reporter) | INHERITED_PLUS_ADAPTER | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| [`governed-agent-runtime`](https://github.com/achirothmane/governed-agent-runtime) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
+| [`marketing-os`](https://github.com/achirothmane/marketing-os) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
+| [`releaseguard-n8n`](https://github.com/achirothmane/releaseguard-n8n) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
+
+**Interpretation:** Tests on open PR branches do not establish main readiness. Linked CI evidence is scoped; this audit did not rerun it. UNKNOWN is not zero.
+All newly recorded repository-level evidence is public-only; private repository details require a separate private evidence store and explicit publication review.
+Before operational decisions, recheck links, PR state, commit SHA, and runtime evidence.
+<!-- PORTFOLIO-EVIDENCE:END -->
 
 ---
 
@@ -146,14 +167,19 @@ These are the strongest candidates for reusable portfolio primitives.
 
 ## 5. Product and engine layer
 
-### Marketing Automation Suite — repository pending
+### Marketing OS — `achirothmane/marketing-os`
 
 **Role:** broad self-use-first marketing operations system.  
-**Consumes:** trusted data/knowledge when useful.  
-**Potential producer:** campaign events, audience behavior, channel performance, operational feedback.  
-**Constraint:** do not narrow to a niche early.  
-**Current state:** PLANNED / architecture evolving.  
-**Future relationship:** likely `CONSUMES data-engine` only after a real integration contract exists.
+**Current state (2026-10-09):** Mautic 7.2.1 source imported; scoped C4-01 through C4-05B work merged and evidenced by CI. Full C4 end-to-end, production deployment and marketing sending are **not verified**.  
+**Evidence:** [checkpoint](https://github.com/achirothmane/marketing-os/blob/main/docs/marketing-os/project-status.json), [merged PR #20](https://github.com/achirothmane/marketing-os/pull/20).  
+**Consumes / produces:** data and marketing events as capabilities prove operational contracts; no automatic hard dependency on Data Engine is inferred.  
+**Next gate:** operational safe scheduler, crash recovery, source update reconciliation and end-to-end checks.
+
+### Agent Deal Exchange — `achirothmane/agent-deal-exchange`
+
+**Role:** human-authorized opportunity matching, offer negotiation and settlement verification.  
+**Current state (2026-10-09):** `main` is bootstrap documentation. The nine-test simulator is on open [PR #2](https://github.com/achirothmane/agent-deal-exchange/pull/2); Medusa subtree import is on draft [PR #3](https://github.com/achirothmane/agent-deal-exchange/pull/3). Neither is counted as integrated production capability.  
+**Next gate:** review Medusa build, multi-account authorization boundaries, source licensing and simulated effect correctness. No purchase, money movement or settlement authorized.
 
 ### Intelligence Layer — repository pending
 
@@ -237,14 +263,18 @@ These repositories remain valuable as engineering evidence, primitives, or histo
 **Do not:** revive generic agent-control/IAM/orchestration positioning under a new name.  
 **Allowed:** extract independently valuable capabilities only when another project proves the need.
 
-### Governed Agent Runtime — `achirothmane/governed-agent-runtime`
+### AI-Native Agent Runtime — `achirothmane/governed-agent-runtime`
+
+**Current state (2026-10-09):** active runtime implementation with durable execution and scoped real GitHub recovery evidence from [merged PR #31](https://github.com/achirothmane/governed-agent-runtime/pull/31). The stronger GitHub create/lost-ACK test remains blocked by HTTP 403. Single Dots coordination is a target, not a proven autonomous manager.  
+**Boundary:** read/prepare first; no unapproved merges, spending, sending, or irreversible actions.  
+
 ### Agent Action Guard — `achirothmane/agent-action-guard`
 ### Agent Model Gate — `achirothmane/agent-model-gate`
 ### Legal Authority Diff — `achirothmane/legal-authority-diff`
 
-**Portfolio treatment:** verification/governance lineage.  
-**Default relation:** none.  
-**Promotion rule:** only re-enter the active capability graph when a current product has a concrete dependency and measurable benefit.
+**Portfolio treatment:** older governance-only repositories remain verification lineage; the AI-Native Agent Runtime above is separately active.  
+**Default relation:** no newly asserted dependency without a verified contract.  
+**Promotion rule:** an active consumer and evidence must justify any additional connection.
 
 ---
 
@@ -468,7 +498,7 @@ Prefer work whose value compounds through:
 3. ✅ Add verified `contracts/` only for relationships that actually exist.
 4. ✅ Add a generated dependency graph from project records and verified contracts.
 5. ✅ Add `LAST_VERIFIED` freshness checks with FRESH / AGING / STALE / UNKNOWN state.
-6. Automatic CI freshness verification for generated graph remains pending; the connected GitHub write surface currently blocks creation of the workflow file.
+6. Automatic CI freshness verification for generated graph remains pending; the connected GitHub write surface previously blocked workflow creation. Public evidence validation can be run locally with `python portfolio/scripts/check_evidence_baseline.py`.
 7. ✅ Add an execution admission layer and Dot handoff manifest before allowing project mutation.
 8. Keep commercial/product status separate from technical status.
 9. ✅ Add Priority / Next-Action layer with NOW / NEXT / WATCH / PARKED / REVERIFY / CLOSED and WIP caps.
