@@ -1,19 +1,26 @@
 project:
   id: governed-agent-runtime
   repository: achirothmane/governed-agent-runtime
-  role: governance-verification-lineage
-  status: HOLD
+  role: ai-native-durable-agent-runtime
+  status: ACTIVE
   owner_of:
-    - UNKNOWN
+    - execution backends and persistent agent runs
+    - bounded effect reconciliation
+    - agent-server tool and observation boundaries
   produces:
-    - engineering evidence
+    - durable agent execution observations
+    - scoped recovery evidence
   consumes: []
   dependencies: []
   contracts: []
-  current_state: lineage-only
-  next_gate: re-enter active graph only with concrete consumer and measurable benefit
-  blockers: []
-  evidence: []
-  distribution: github
-  economic_role: engineering-lineage-asset
-  last_verified: 2026-10-06
+  current_state: merged-runtime-with-A7.1-real-provider-recovery-scoped-proof; A7.2-create-lost-ack-blocked-403
+  next_gate: reverify stronger real-provider create/lost-ACK boundary and Dots shadow-management quality
+  blockers:
+    - create/lost-ACK case blocked by GitHub 403
+    - independent Dots portfolio-management quality unverified
+  evidence:
+    - https://github.com/achirothmane/governed-agent-runtime/pull/31
+    - https://github.com/achirothmane/governed-agent-runtime/actions/runs/37740404288
+  distribution: internal-first
+  economic_role: shared-capability-asset
+  last_verified: 2026-10-09
