@@ -25,7 +25,11 @@ SOURCE_BINDINGS = (
     "portfolio/s1-readiness.json",
     "portfolio/execution-queue.yaml",
     "portfolio/priority-report.json",
+    "portfolio/freshness-report.json",
     "portfolio/dot-handoff.yaml",
+    "portfolio/priority-policy.yaml",
+    "portfolio/index.yaml",
+    "portfolio/dependency-graph.json",
 )
 
 
