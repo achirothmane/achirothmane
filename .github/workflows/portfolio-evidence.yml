@@ -28,3 +28,22 @@ jobs:
           python -m py_compile portfolio/scripts/generate_freshness_report.py
           python -m py_compile portfolio/scripts/generate_priority_report.py
           python -m py_compile portfolio/scripts/generate_dependency_graph.py
+      - name: Regenerate all derived portfolio reports (one-shot review)
+        run: |
+          python -m pip install -r portfolio/requirements.txt
+          python portfolio/scripts/generate_dependency_graph.py
+          python portfolio/scripts/generate_freshness_report.py --as-of 2026-10-09
+          python portfolio/scripts/generate_priority_report.py
+          python - <<'PY'
+          import base64
+          from pathlib import Path
+          for name in (
+              "portfolio/DEPENDENCY-GRAPH.md",
+              "portfolio/dependency-graph.json",
+              "portfolio/FRESHNESS-REPORT.md",
+              "portfolio/freshness-report.json",
+              "portfolio/PRIORITY-REPORT.md",
+              "portfolio/priority-report.json",
+          ):
+              print("PORTFOLIO_GENERATED " + name + " " + base64.b64encode(Path(name).read_bytes()).decode("ascii"))
+          PY
