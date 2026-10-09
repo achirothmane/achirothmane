@@ -3,9 +3,9 @@
 > Generated from project `last_verified` values and `portfolio/freshness-policy.yaml`.
 > Freshness measures recency, not truth completeness.
 
-**As of:** 2026-10-06  
-**Projects:** 38  
-**FRESH:** 38  
+**As of:** 2026-10-09  
+**Projects:** 40  
+**FRESH:** 40  
 **AGING:** 0  
 **STALE:** 0  
 **UNKNOWN freshness:** 0  
@@ -24,44 +24,46 @@
 
 | Project | Status | Class | Freshness | Age | Completeness |
 |---|---|---|---|---:|---|
-| `aegis-ege` | CLOSED_COMMERCIAL | dormant | **FRESH** | 0 | COMPLETE |
-| `agent-action-guard` | HOLD | dormant | **FRESH** | 0 | INCOMPLETE |
-| `agent-model-gate` | HOLD | dormant | **FRESH** | 0 | INCOMPLETE |
-| `ai-deployer` | ACTIVE | active | **FRESH** | 0 | INCOMPLETE |
-| `air-combat` | PRIVATE | review | **FRESH** | 0 | INCOMPLETE |
-| `assumption-gate` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `atlassian-revenue-integrity` | ACTIVE | active | **FRESH** | 0 | INCOMPLETE |
-| `caddy` | FORK_INDEPENDENT | dormant | **FRESH** | 0 | INCOMPLETE |
-| `ci-retry-gate-consumer-e2e` | ACTIVE_PRIVATE | active | **FRESH** | 0 | COMPLETE |
-| `ci-retry-gate-engine` | ACTIVE_PRIVATE | active | **FRESH** | 0 | COMPLETE |
-| `claude-mem` | EVALUATE | review | **FRESH** | 0 | INCOMPLETE |
-| `conversion-truth-auditor` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `conversionguard` | ACTIVE | active | **FRESH** | 0 | INCOMPLETE |
-| `creator-docs` | ACTIVE | active | **FRESH** | 0 | INCOMPLETE |
-| `creature-isles` | PRIVATE | review | **FRESH** | 0 | INCOMPLETE |
+| `aegis-ege` | CLOSED_COMMERCIAL | dormant | **FRESH** | 3 | COMPLETE |
+| `agent-action-guard` | HOLD | dormant | **FRESH** | 3 | INCOMPLETE |
+| `agent-deal-exchange` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
+| `agent-model-gate` | HOLD | dormant | **FRESH** | 3 | INCOMPLETE |
+| `ai-deployer` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `air-combat` | PRIVATE | review | **FRESH** | 3 | INCOMPLETE |
+| `assumption-gate` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `atlassian-revenue-integrity` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `caddy` | FORK_INDEPENDENT | dormant | **FRESH** | 3 | INCOMPLETE |
+| `ci-retry-gate-consumer-e2e` | ACTIVE_PRIVATE | active | **FRESH** | 3 | COMPLETE |
+| `ci-retry-gate-engine` | ACTIVE_PRIVATE | active | **FRESH** | 3 | COMPLETE |
+| `claude-mem` | EVALUATE | review | **FRESH** | 3 | INCOMPLETE |
+| `conversion-truth-auditor` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
+| `conversionguard` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `creator-docs` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `creature-isles` | PRIVATE | review | **FRESH** | 3 | INCOMPLETE |
 | `data-engine` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `e2e` | EVALUATE | review | **FRESH** | 0 | INCOMPLETE |
-| `easl` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `esp32-c3-adblock` | INDEPENDENT | dormant | **FRESH** | 0 | INCOMPLETE |
-| `firebase-auth-email-canary` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `flowmeter-for-jira-forge` | PRIVATE_RETEST | review | **FRESH** | 0 | INCOMPLETE |
-| `future-morocco-lab` | PRIVATE | review | **FRESH** | 0 | INCOMPLETE |
-| `geophires-x` | INDEPENDENT | dormant | **FRESH** | 0 | INCOMPLETE |
-| `governed-agent-runtime` | HOLD | dormant | **FRESH** | 0 | INCOMPLETE |
-| `grok-build` | EVALUATE | review | **FRESH** | 0 | INCOMPLETE |
-| `intelligence-layer` | PLANNED | planned | **FRESH** | 0 | INCOMPLETE |
-| `legal-authority-diff` | HOLD | dormant | **FRESH** | 0 | INCOMPLETE |
-| `marketing-automation-suite` | PLANNED | planned | **FRESH** | 0 | COMPLETE |
-| `mini-foot` | ACTIVE_PRIVATE | active | **FRESH** | 0 | COMPLETE |
-| `postgres-change-safety` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `private-code-modernization-factory` | RETEST | review | **FRESH** | 0 | COMPLETE |
-| `releaseguard-n8n` | ACTIVE | active | **FRESH** | 0 | INCOMPLETE |
-| `revenue-engine` | DEFERRED | dormant | **FRESH** | 0 | INCOMPLETE |
-| `smart-fuel-morocco` | PRIVATE | review | **FRESH** | 0 | INCOMPLETE |
-| `stremio-web` | FORK_INDEPENDENT | dormant | **FRESH** | 0 | INCOMPLETE |
-| `token-governance-protocol` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
-| `window-worlds-lab` | PRIVATE | review | **FRESH** | 0 | INCOMPLETE |
-| `workflow-failure-lab` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
+| `e2e` | EVALUATE | review | **FRESH** | 3 | INCOMPLETE |
+| `easl` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
+| `esp32-c3-adblock` | INDEPENDENT | dormant | **FRESH** | 3 | INCOMPLETE |
+| `firebase-auth-email-canary` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
+| `flowmeter-for-jira-forge` | PRIVATE_RETEST | review | **FRESH** | 3 | INCOMPLETE |
+| `future-morocco-lab` | PRIVATE | review | **FRESH** | 3 | INCOMPLETE |
+| `geophires-x` | INDEPENDENT | dormant | **FRESH** | 3 | INCOMPLETE |
+| `github-test-reporter` | EVALUATE | review | **FRESH** | 0 | COMPLETE |
+| `governed-agent-runtime` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
+| `grok-build` | EVALUATE | review | **FRESH** | 3 | INCOMPLETE |
+| `intelligence-layer` | PLANNED | planned | **FRESH** | 3 | INCOMPLETE |
+| `legal-authority-diff` | HOLD | dormant | **FRESH** | 3 | INCOMPLETE |
+| `marketing-automation-suite` | ACTIVE | active | **FRESH** | 0 | COMPLETE |
+| `mini-foot` | ACTIVE_PRIVATE | active | **FRESH** | 3 | COMPLETE |
+| `postgres-change-safety` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
+| `private-code-modernization-factory` | RETEST | review | **FRESH** | 3 | COMPLETE |
+| `releaseguard-n8n` | ACTIVE | active | **FRESH** | 3 | INCOMPLETE |
+| `revenue-engine` | DEFERRED | dormant | **FRESH** | 3 | INCOMPLETE |
+| `smart-fuel-morocco` | PRIVATE | review | **FRESH** | 3 | INCOMPLETE |
+| `stremio-web` | FORK_INDEPENDENT | dormant | **FRESH** | 3 | INCOMPLETE |
+| `token-governance-protocol` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
+| `window-worlds-lab` | PRIVATE | review | **FRESH** | 3 | INCOMPLETE |
+| `workflow-failure-lab` | ACTIVE | active | **FRESH** | 3 | COMPLETE |
 
 ## Dependency freshness risks
 
