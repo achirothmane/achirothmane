@@ -10,6 +10,8 @@ A project can be important without being executable. A project can be `NOW` with
 
 ## Read order
 
+**Strategic business rule:** For any commercial-positioning proposal, read `portfolio/ONE-ECONOMIC-OPERATING-MODEL.md` alongside the source-of-truth map. It is a strategy, **not** execution authority, a proven revenue record, or permission to reprioritize existing work.
+
 1. `SYSTEM-MAP.md`
 2. `portfolio/index.yaml`
 3. `portfolio/evidence-baseline.json` (dated PUBLIC-ONLY snapshot, not production or payment proof)
