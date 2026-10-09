@@ -56,23 +56,22 @@
       "id": "agent-deal-exchange",
       "repository": "achirothmane/agent-deal-exchange",
       "visibility": "public",
-      "main_status": "BOOTSTRAP_ONLY",
-      "test_status": "BRANCH_ONLY_EVIDENCE",
+      "main_status": "MAIN_IMPLEMENTED",
+      "test_status": "EVIDENCE_LINKED_SCOPED",
       "deployed": "UNKNOWN",
       "external_use": "UNKNOWN",
       "paid_revenue": "UNKNOWN",
       "main_evidence": [
-        "https://github.com/achirothmane/agent-deal-exchange/blob/main/README.md"
+        "https://github.com/achirothmane/agent-deal-exchange/pull/1",
+        "https://github.com/achirothmane/agent-deal-exchange/pull/2"
       ],
       "test_evidence": [
         "https://github.com/achirothmane/agent-deal-exchange/actions/runs/37882722867"
       ],
       "outstanding": [
-        "https://github.com/achirothmane/agent-deal-exchange/pull/1",
-        "https://github.com/achirothmane/agent-deal-exchange/pull/2",
         "https://github.com/achirothmane/agent-deal-exchange/pull/3"
       ],
-      "boundary": "Nine negotiation-simulator tests were reported on open PR #2. Medusa subtree import is on DRAFT PR #3. No commerce engine or settlement verified on main."
+      "boundary": "Bootstrap plus in-memory bounded negotiation simulator merged in PR #2 on 2026-10-09 with nine scoped tests. Medusa subtree import remains on draft PR #3. No deployed commerce engine, independent settlement or paid transaction verified."
     },
     {
       "id": "github-test-reporter",
