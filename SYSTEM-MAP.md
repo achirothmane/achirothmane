@@ -16,7 +16,7 @@ Snapshot: **2026-10-09**. This is not live status or an all-repository inventory
 
 | Public project | On default branch | Test evidence | Deployed | External use | Paid revenue |
 |---|---|---|---|---|---|
-| [`agent-deal-exchange`](https://github.com/achirothmane/agent-deal-exchange) | BOOTSTRAP_ONLY | BRANCH_ONLY_EVIDENCE | UNKNOWN | UNKNOWN | UNKNOWN |
+| [`agent-deal-exchange`](https://github.com/achirothmane/agent-deal-exchange) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
 | [`github-test-reporter`](https://github.com/achirothmane/github-test-reporter) | INHERITED_PLUS_ADAPTER | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
 | [`governed-agent-runtime`](https://github.com/achirothmane/governed-agent-runtime) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
 | [`marketing-os`](https://github.com/achirothmane/marketing-os) | MAIN_IMPLEMENTED | EVIDENCE_LINKED_SCOPED | UNKNOWN | UNKNOWN | UNKNOWN |
@@ -178,7 +178,7 @@ These are the strongest candidates for reusable portfolio primitives.
 ### Agent Deal Exchange — `achirothmane/agent-deal-exchange`
 
 **Role:** human-authorized opportunity matching, offer negotiation and settlement verification.  
-**Current state (2026-10-09):** `main` is bootstrap documentation. The nine-test simulator is on open [PR #2](https://github.com/achirothmane/agent-deal-exchange/pull/2); Medusa subtree import is on draft [PR #3](https://github.com/achirothmane/agent-deal-exchange/pull/3). Neither is counted as integrated production capability.  
+**Current state (2026-10-09):** `main` contains the bootstrap and the limited nine-test negotiation simulator merged via [PR #2](https://github.com/achirothmane/agent-deal-exchange/pull/2) on 2026-10-09; Medusa subtree import remains on draft [PR #3](https://github.com/achirothmane/agent-deal-exchange/pull/3). Neither a production commerce engine nor a completed settlement is verified.  
 **Next gate:** review Medusa build, multi-account authorization boundaries, source licensing and simulated effect correctness. No purchase, money movement or settlement authorized.
 
 ### Intelligence Layer — repository pending
