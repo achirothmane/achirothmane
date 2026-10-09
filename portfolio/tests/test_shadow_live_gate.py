@@ -54,7 +54,7 @@ class LiveGateTests(unittest.TestCase):
     def test_fabricated_real_provider_claim_is_not_counted(self):
         reviewed = s1.review_trace(self.fake_trace(), self.gate, self.docs)
         self.assertEqual(reviewed["state"], "BLOCKED")
-        self.assertIn("S1_PREFLIGHT_NOT_ADMITTED", reviewed["reason_codes"])
+        self.assertIn("WORK_ITEM_NOT_READY", reviewed["reason_codes"])
         self.assertFalse(reviewed["counted_as_live_dots_decision"])
 
     def test_stale_source_never_promotes_ready(self):
@@ -98,8 +98,8 @@ class LiveGateTests(unittest.TestCase):
         queue["items"].append({"id": "fake-ready", "project": "agent-deal-exchange",
                                "state": "READY", "authority": "OBSERVE", "evidence_required": ["x"],
                                "stop_conditions": ["stop"]})
-        queue["runnable_count"] = 1
-        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"] = ["fake-ready"]
+        queue["runnable_count"] = 2
+        docs["dot-handoff.yaml"]["dot_handoff"]["current"]["runnable_items"].append("fake-ready")
         # Synthetic priority swap tests only; never written to canonical source.
         project = next(x for x in docs["priority-report.json"]["projects"] if x["id"] == "agent-deal-exchange")
         project["lane"] = "NOW"
