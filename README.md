@@ -1,227 +1,63 @@
 <div align="center">
 
-<img src="./assets/ai-native-futuristic.svg" width="100%" alt="Othmane Achir — AI-Native Systems" />
+<img src="./assets/ai-native-futuristic.svg" width="100%" alt="AI-Native Engineering — systems, evidence, and reliability" />
 
-<br/>
+### Independent software & systems builder
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=22&pause=1100&color=67E8F9&center=true&vCenter=true&width=880&lines=Independent+Software+%26+Product+Builder;Building+AI-native+systems+through+real+projects;Software+Engineering+%E2%86%92+AI+Systems+%E2%86%92+Products;Build+%E2%86%92+Test+%E2%86%92+Measure+%E2%86%92+Learn+%E2%86%92+Ship" alt="Animated introduction" />
+**Data systems · distributed execution · workflow reliability · AI-native engineering**
 
-<br/>
-
-<a href="https://www.linkedin.com/in/othmane-achir-2733a540b/">
-  <img src="https://img.shields.io/badge/LinkedIn-Othmane_Achir-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-<img src="https://img.shields.io/badge/Current_Focus-AI--Native_Systems-111827?style=for-the-badge&logo=openai&logoColor=67E8F9" />
-<img src="https://img.shields.io/badge/Mode-Building_in_Public-111827?style=for-the-badge&logo=github&logoColor=A78BFA" />
+[LinkedIn](https://www.linkedin.com/in/othmane-achir-2733a540b/) · [System map](./SYSTEM-MAP.md) · [Public evidence baseline](./portfolio/evidence-baseline.json)
 
 </div>
 
 ---
 
-## ◈ Build trajectory
+I build software systems and investigate how they behave under failure, concurrency, and incomplete information. This profile is a curated engineering record: **implemented capabilities, reproducible evidence where available, and explicit limits**. It does not equate a passing CI run with production deployment, third-party adoption, or commercial success.
 
-```text
-Software Engineering
-        │
-        ▼
-Backend · APIs · Data · Reliability
-        │
-        ▼
-AI-Native Systems · Agents · Automation
-        │
-        ▼
-Product Engineering
-        │
-        ▼
-Useful Digital Products
-        │
-        ▼
-Measure → Learn → Improve → Ship again
-```
+## Selected systems
 
-I use GitHub as a **working engineering portfolio**: real systems, real experiments, real failures, and progressively stronger products.
+### [Marketing OS](https://github.com/achirothmane/marketing-os) — event-driven marketing infrastructure
 
-> **Portfolio system map:** [SYSTEM-MAP.md](./SYSTEM-MAP.md) — canonical map of projects, shared capabilities, real dependencies, gates, and the future operating surface for long-running agents/Dots.
+A Mautic-based system exploring durable event processing, identity and consent, and operational recovery.
 
-My direction is deliberately broader than one niche:
+- **Implemented/tested scope:** Mautic 7.2.1 source integration with MariaDB-backed, bounded source-to-queue-to-inbox execution; explicit crash/replay cases documented in [integration CI](https://github.com/achirothmane/marketing-os/actions/runs/38049177697) and [project status](https://github.com/achirothmane/marketing-os/blob/main/docs/marketing-os/project-status.json).
+- **Boundary:** these tests do not establish a deployed production service, authorized marketing sends, or external customer use.
 
-**software engineering + AI-native systems + developer tools + technical product building**
+### [ReleaseGuard for n8n](https://github.com/achirothmane/releaseguard-n8n) — measured workflow rollout and rollback
 
----
+Canary routing and release decisions for a **bounded class of synchronous, read-only JSON workflows**, with explicit evidence for PROMOTE, HOLD, and ROLLBACK.
 
-## ◈ Current learning stack
+- **Implemented/tested scope:** HTTP and PostgreSQL integration, concurrency and lost-observation scenarios, and n8n webhook compatibility; see the [executed-validation record](https://github.com/achirothmane/releaseguard-n8n/blob/main/docs/validation.md).
+- **Boundary:** no claim of universal production safety, long-running high-availability operation, or paid adoption.
 
-<table>
-<tr>
-<td width="33%" valign="top">
+### [Data Engine](https://github.com/achirothmane/data-engine) — source-aware data acquisition and provenance
 
-### ⚙️ Software Engineering
+A Go-based data system that plans source selection against cost, freshness and rights constraints, retains acquired evidence, and produces datasets with lineage and quality information.
 
-`Python` `Go` `Rust` `TypeScript` `SQL`
+- **Implemented/documented scope:** `discover` and `auto` command paths, acquisition manifests, provenance outputs and a read-only `data.profile` capability over MCP; see [implementation and usage](https://github.com/achirothmane/data-engine/blob/main/README.md).
+- **Boundary:** these are repository-documented capabilities, not an independent certification of correctness or a claim of autonomous open-web discovery.
 
-APIs · PostgreSQL · Testing · Git · CI/CD · Backend architecture
+### [AI-Native Agent Runtime](https://github.com/achirothmane/governed-agent-runtime) — durable agents and tool execution
 
-**Goal:** build maintainable systems with clear contracts and production-oriented behavior.
+A runtime exploring Temporal-backed execution, persisted runs and events, MCP capability binding, and bounded tool invocation.
 
-</td>
-<td width="33%" valign="top">
+- **Implementation record:** [runtime README and capability history](https://github.com/achirothmane/governed-agent-runtime/blob/main/README.md).
+- **Boundary:** the architecture and component work should not be presented as proof of an autonomously operating production company or a commercially validated agent platform.
 
-### ✦ AI-Native Systems
+## Engineering disciplines
 
-`LLM APIs` `Tool Calling` `Agents`
+**Languages and systems:** Go · Python · TypeScript · Rust · SQL · PostgreSQL · Linux · distributed workflows.
 
-RAG · evaluation · observability · agentic workflows · automation
+**Methods:** explicit contracts, integration and failure-path testing, provenance, state machines, concurrency reasoning, and formal-methods study (including TLA+).
 
-**Goal:** treat AI as part of a real software system, not as an isolated prompt.
+I distinguish four claims: **documented design**, **implemented code**, **reproduced test evidence**, and **deployed/used system**. None automatically establishes the next. Competitive differentiation and commercial adoption require separate external evidence.
 
-</td>
-<td width="33%" valign="top">
+## Additional work
 
-### ◉ Product Engineering
+The broader portfolio includes CI reliability experiments, PostgreSQL change analysis, software modernization, game development, and research prototypes. They are deliberately not presented here as equally mature products.
 
-`UX` `Onboarding` `Measurement`
-
-Distribution · retention · pricing · packaging · product economics
-
-**Goal:** turn engineering capability into products people can understand and use.
-
-</td>
-</tr>
-</table>
-
-### ◇ Formal methods & systems reasoning
-
-`TLA+` · state machines · invariants · concurrency · failure modeling
-
-I use formal methods as an **engineering discipline for understanding complex systems**, especially distributed state, concurrency, and failure behavior — not as the identity of the portfolio.
+Browse the [system map](./SYSTEM-MAP.md) for the wider project index and the [evidence baseline](./portfolio/evidence-baseline.json) for a dated public-only snapshot.
 
 ---
 
-## ◈ Selected builds
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### [Workflow Failure Lab](https://github.com/achirothmane/workflow-failure-lab)
-
-**CI / Developer Tools**
-
-Experiments around failure analysis, retry behavior, CI reliability, and practical engineering automation.
-
-`CI → diagnose → decide → improve`
-
-</td>
-<td width="50%" valign="top">
-
-### [PostgreSQL Change Safety](https://github.com/achirothmane/postgres-change-safety)
-
-**Databases / Reliability**
-
-Measures regressions around PostgreSQL changes and tests stronger ways to explain what actually changed.
-
-`change → observe → compare → isolate`
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### [Conversion Truth Auditor](https://github.com/achirothmane/conversion-truth-auditor)
-
-**Product / Analytics**
-
-Explores whether reported conversion reflects the real customer journey and whether measurement can support product decisions.
-
-`journey → signal → verify → decision`
-
-</td>
-<td width="50%" valign="top">
-
-### [Private Code Modernization Factory](https://github.com/achirothmane/private-code-modernization-factory)
-
-**AI + Software Engineering**
-
-Uses AI in code modernization while keeping testing and engineering verification inside the implementation loop.
-
-`legacy → analyze → change → verify`
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### [Firebase Auth Email Canary](https://github.com/achirothmane/firebase-auth-email-canary)
-
-**Cloud / Reliability**
-
-Detects failures in authentication-email delivery flows.
-
-`auth event → delivery path → signal`
-
-</td>
-<td width="50%" valign="top">
-
-### [AI Deployer](https://github.com/achirothmane/ai-deployer)
-
-**AI / Deployment**
-
-Experiments around shipping and operating AI-enabled software.
-
-`AI capability → deploy → operate → learn`
-
-</td>
-</tr>
-</table>
-
----
-
-## ◈ Technical constellation
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=python,go,rust,ts,postgres,git,github,linux,docker&theme=dark" />
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/APIs-0B1024?style=flat-square&logo=fastapi&logoColor=67E8F9" />
-<img src="https://img.shields.io/badge/Automation-0B1024?style=flat-square&logo=githubactions&logoColor=A78BFA" />
-<img src="https://img.shields.io/badge/Developer_Tools-0B1024?style=flat-square&logo=github&logoColor=67E8F9" />
-<img src="https://img.shields.io/badge/AI_Systems-0B1024?style=flat-square&logo=openai&logoColor=A78BFA" />
-<img src="https://img.shields.io/badge/Product_Engineering-0B1024?style=flat-square&logo=vercel&logoColor=67E8F9" />
-<img src="https://img.shields.io/badge/TLA%2B-Formal_Methods-0B1024?style=flat-square&logoColor=A78BFA" />
-
-</div>
-
----
-
-## ◈ Live GitHub signal
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=achirothmane&show_icons=true&theme=tokyonight&hide_border=true&bg_color=050816&title_color=67E8F9&icon_color=A78BFA&text_color=CBD5E1" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=achirothmane&layout=compact&theme=tokyonight&hide_border=true&bg_color=050816&title_color=67E8F9&text_color=CBD5E1" />
-
-<br/>
-
-<img src="https://streak-stats.demolab.com?user=achirothmane&theme=tokyonight&hide_border=true&background=050816&ring=67E8F9&fire=A78BFA&currStreakLabel=67E8F9" />
-
-</div>
-
----
-
-## ◈ Working philosophy
-
-> **Build real things. Learn from the implementation. Measure what happens. Improve the product. Ship again.**
-
-I prefer projects that force useful learning: APIs that must work, workflows that must survive failure, databases that must preserve state, AI features that must operate inside software, and products that must produce understandable outcomes.
-
-<div align="center">
-
-### BUILD → TEST → MEASURE → LEARN → IMPROVE → SHIP
-
-<sub>Independent software and product work, documented through real repositories.</sub>
-
-</div>
+<sub>Independent engineering work. Scope and verification claims are intentionally narrower than long-term product ambitions.</sub>
