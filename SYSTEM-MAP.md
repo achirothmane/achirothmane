@@ -53,11 +53,11 @@ No shared owner is enough. No thematic similarity is enough. No future possibili
 
 ## 2. Portfolio operating model
 
-### Unified economic operating doctrine (proposed)
+### Unified economic operating doctrine
 
 The **single strategic direction** is owned, reusable capabilities → evidence-backed buyer outcome → repeatable paid offer → measured delivery and unit economics → selective, evidence-gated automation. One commercial experiment at a time does **not** narrow the underlying technology portfolio. Bespoke service work may be a bounded validation bridge, not a separate default business.
 
-See [One Economic Operating Model](portfolio/ONE-ECONOMIC-OPERATING-MODEL.md). This proposal does not independently change current priorities, execution admission, revenue evidence or Dot authority.
+See [One Economic Operating Model](portfolio/ONE-ECONOMIC-OPERATING-MODEL.md). This adopted strategy does not independently change current priorities, execution admission, revenue evidence or Dot authority.
 
 ```text
                          SYSTEM MAP
