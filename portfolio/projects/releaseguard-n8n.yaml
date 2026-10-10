@@ -10,17 +10,11 @@ project:
   consumes: []
   dependencies: []
   contracts: []
-  current_state: commercial-hold-engineering-asset-retained
-  next_gate: independently prove buyer willingness to pay for live read-only canary beyond existing native/GitOps alternatives
-  blockers:
-    - commercially undifferentiated generic release-management positioning
-    - unverified buyer budget and demand for measured canary
-    - integration and support overhead relative to free/native alternatives
-    - verified checkout and paid orders UNKNOWN
+  current_state: active-product-asset
+  next_gate: prove sufficient depth for marketplace acceptance
+  blockers: []
   evidence:
     - prior n8n marketplace learning
-    - portfolio/reviews/releaseguard-competitive-freshness-2026-10-10.md
-    - https://github.com/achirothmane/releaseguard-n8n/blob/main/docs/validation.md
   distribution: n8n
   economic_role: product-asset
-  last_verified: 2026-10-10
+  last_verified: 2026-10-06
