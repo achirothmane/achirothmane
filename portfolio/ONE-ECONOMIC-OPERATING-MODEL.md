@@ -31,6 +31,8 @@ Technical capabilities remain deliberately broad and self-use-first. **One comme
 
 **2026-10-10 correction:** The former default `releaseguard-n8n` $39 Production Pack candidate is **withdrawn** after a [source-backed market assessment](reviews/releaseguard-competitive-freshness-2026-10-10.md): **`COMMERCIAL_HOLD`**. It retains a technically differentiated live read-only canary, but generic release tooling is competitive and no independent buyer has validated willingness to pay for its incremental value. Do not describe this as total feature parity, absence of sales, or an irreversible product death.
 
+**Technical acceleration (not a commercial product admission):** [2026-10-10 hard-fork shortlist and selected upstream](reviews/accelerated-hard-fork-source-selection-2026-10-10.md) documents a maintained Apache-2.0 website-change monitoring product for broad internal market intelligence. No fork, continuous deployment, buyer need, revenue or new Dot task is implied.
+
 **Current first paid-offer selection: NOT_SELECTED.** Do not silently replace it with n8n freelance work, a data product, CI tools, a new SaaS or another repo without the same gate. Commercial candidate screening is read-only; it grants no portfolio NOW/READY item, Dot tool authority or spend.
 
 **After a product passes the gate:** verify packaging/checkout/payout/delivery, compare competitors again before publication, then ask separately to admit one zero-upfront-cost distribution experiment with attributable measurements. Start a 14-day observation window **only after qualified exposure**. Do not interpret a period without distribution as proof of no demand.
