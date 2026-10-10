@@ -1,7 +1,8 @@
 # One Economic Operating Model — Portfolio
 
-**Strategic decision date:** 2026-10-09  
-**Status:** proposed portfolio doctrine for human review; not an execution admission  
+**Original proposal:** 2026-10-09  
+**Owner approval of strategic direction:** 2026-10-10  
+**Status:** adopted strategic doctrine; not an execution admission  
 **Owner:** human portfolio owner  
 **Relationship:** supplements `SYSTEM-MAP.md` and `portfolio/DOT-OPERATING-CONTRACT.md`; does not replace their priorities, evidence gates, or authority limits.
 
@@ -83,4 +84,4 @@ To promote: prospectively freeze independent human-reviewed scenarios; compare a
 
 ## Next human decision
 
-Review this doctrine and, *separately*, authorize or reject one bounded commercial validation item in the existing `portfolio/execution-queue.yaml` after the required project priority/freshness review. This document alone changes **no** queue admission, human lane, project status or Dots authority.
+Strategic doctrine approved; *separately*, authorize or reject one bounded commercial validation item in the existing `portfolio/execution-queue.yaml` after the required project priority/freshness review. This document alone changes **no** queue admission, human lane, project status or Dots authority.
