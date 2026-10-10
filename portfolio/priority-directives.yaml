@@ -60,8 +60,13 @@ priority_directives:
 
     - project: releaseguard-n8n
       lane: WATCH
-      reason: prior marketplace learning exists but depth/readiness must be proven before republishing
-      next_action: prove sufficient product depth and readiness rather than adding superficial features
+      reason: competitive review dated 2026-10-10 found generic release features well-served by native and open-source alternatives, while paid demand for the narrower measured canary remains unverified
+      next_action: COMMERCIAL_HOLD; preserve engineering evidence; no new commercial features or selling experiment until an independently evidenced buyer use case and the Competitive Freshness Gate are satisfied
+      constraints:
+        - commercial-hold-no-feature-expansion
+        - no-assumed-sales-or-zero-sales
+        - preserve-existing-user-obligations
+        - no-new-NOW-or-Dot-authority
 
     - project: conversion-truth-auditor
       lane: WATCH
