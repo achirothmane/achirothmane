@@ -28,6 +28,8 @@ The Dot must distinguish `main` from unmerged PR branches; test links from test 
 
 ## Execution admission
 
+**Mandatory commercial eligibility:** Before suggesting any product as the next paid offer, changing commercial positioning, or requesting a selling/feature experiment, verify the dated four-question [Competitive Freshness Gate](COMPETITIVE-FRESHNESS-GATE.md). A HOLD/UNKNOWN/NEEDS_EVIDENCE result cannot be converted into a READY/NOW commercial mission. A strategic PASS is not tool, publication, finance or outreach authority. The first-revenue product is currently **NOT_SELECTED** following ReleaseGuard's 2026-10-10 commercial hold; do not infer an automatic replacement.
+
 Before starting a work item, verify:
 
 - project lane is `NOW`;
