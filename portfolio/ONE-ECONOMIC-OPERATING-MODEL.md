@@ -25,22 +25,24 @@ Technical capabilities remain deliberately broad and self-use-first. **One comme
 7. **Repeat:** seek evidence of a second independent buyer for the same product without one-off rebuild.
 8. **Automate:** only automate stable, repeatable operations within a bounded, reversible authority envelope.
 
-## First commercial experiment — candidate, not mandate
+## First commercial experiment — select by independent freshness, not familiarity
 
-**Default inexpensive test candidate:** the already-listed `releaseguard-n8n` Production Pack ($39 published offer). This is not a permanent niche selection, and this file does not promote any project to NOW. The rationale is minimizing new build cost while testing an existing paid listing; the repository's tests are scoped and cannot establish commercial demand.
+**Mandatory gate:** [Competitive Freshness Gate](COMPETITIVE-FRESHNESS-GATE.md). A credible buyer outcome, current alternatives, practical distribution path and independent purchasing signal must be documented *before* a commercial candidate is promoted to a separately admitted experiment. A green CI suite or published listing does not pass.
 
-**Before the test:** independently verify the buyer-facing product and demo, availability of checkout/payout for the actual merchant, delivery, terms, platform rules, current alternatives, and claims. If any check fails, mark `BLOCKED` and select another existing asset *on evidence*, without inventing readiness.
+**2026-10-10 correction:** The former default `releaseguard-n8n` $39 Production Pack candidate is **withdrawn** after a [source-backed market assessment](reviews/releaseguard-competitive-freshness-2026-10-10.md): **`COMMERCIAL_HOLD`**. It retains a technically differentiated live read-only canary, but generic release tooling is competitive and no independent buyer has validated willingness to pay for its incremental value. Do not describe this as total feature parity, absence of sales, or an irreversible product death.
 
-**First bounded test:** prepare an evidence-backed landing message, route traffic through permitted no-upfront-cost channels, and record a dated 14-day observation window **after actual exposure begins**. Do not count time elapsed with no qualified exposure as proof of no market.
+**Current first paid-offer selection: NOT_SELECTED.** Do not silently replace it with n8n freelance work, a data product, CI tools, a new SaaS or another repo without the same gate. Commercial candidate screening is read-only; it grants no portfolio NOW/READY item, Dot tool authority or spend.
+
+**After a product passes the gate:** verify packaging/checkout/payout/delivery, compare competitors again before publication, then ask separately to admit one zero-upfront-cost distribution experiment with attributable measurements. Start a 14-day observation window **only after qualified exposure**. Do not interpret a period without distribution as proof of no demand.
 
 **Learning gates:**
 - `UNKNOWN`: no verified exposure/checkout/payment evidence; do not infer zero demand or success.
 - `INTEREST`: qualified buyer behavior exists, but payment is not verified; improve positioning, friction and offer rather than build a platform.
 - `FIRST_PAID`: independently confirmed external payment **and** satisfactory delivery; record cash fees, refunds, support time and provenance.
-- `REPEATABLE_SIGNAL`: at least two distinct real buyers purchase substantially the same deliverable without bespoke rebuilding; this is an early signal, not proof of sustainable profitability.
-- `PIVOT_OR_STOP`: there is enough relevant exposure and feedback but no paying buyer, or the required delivery economics/support are unacceptable; compare alternative offer and channel before more engineering.
+- `REPEATABLE_SIGNAL`: at least two distinct real buyers purchase substantially the same deliverable without bespoke rebuilding; an early signal, not sustainable profitability.
+- `PIVOT_OR_STOP`: enough relevant exposure and feedback with no buyer, or unacceptable support economics; compare alternatives before more engineering.
 
-Absolute traffic or conversion targets should be set from the actual distribution channel and observed baseline, not invented as guarantees. Do not label an untested conversion target as a measured KPI.
+Absolute traffic and conversion targets must be tied to actual channel evidence, not invented guarantees.
 
 ## Minimal unit-economics record
 
